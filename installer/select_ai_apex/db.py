@@ -18,6 +18,8 @@ def split_sql_script(text: str) -> list[str]:
             continue
         if lowered.startswith(("prompt ", "set ", "whenever ")):
             continue
+        if not buffer and stripped.startswith("--"):
+            continue
         if stripped == "/":
             statement = "\n".join(buffer).strip()
             if statement:

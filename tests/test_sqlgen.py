@@ -2,6 +2,7 @@ from pathlib import Path
 import unittest
 
 from select_ai_apex.models import DeploymentOptions
+from select_ai_apex.db import split_sql_script
 from select_ai_apex.oci_config import OciConfig
 from select_ai_apex.sqlgen import object_list_json, render_plan
 from select_ai_apex.validators import DbObject
@@ -48,3 +49,19 @@ class SqlGenerationTests(unittest.TestCase):
         self.assertIn("Select AI APEX Deployment Report", rendered.report_markdown)
         self.assertIn("`GROK_REASONING`", rendered.report_markdown)
         self.assertIn("secrets.json", rendered.report_markdown)
+
+    def test_split_sql_ignores_export_header_comments_before_plsql(self) -> None:
+        statements = split_sql_script(
+            """
+            -- Oracle APEX export file
+            -- Header comments should not change PL/SQL block detection.
+            begin
+              dbms_output.put_line('ready');
+            end;
+            /
+            """
+        )
+
+        self.assertEqual(len(statements), 1)
+        self.assertTrue(statements[0].startswith("begin"))
+        self.assertIn("dbms_output.put_line", statements[0])
