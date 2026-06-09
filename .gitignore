@@ -1,0 +1,25 @@
+__pycache__/
+.pytest_cache/
+.test-tmp/
+.ruff_cache/
+.mypy_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Local credentials and generated deployment artifacts
+.oci/
+outputs/
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform/*.tfvars
+terraform/*.tfvars.json
+
+# Local editor and OS noise
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
