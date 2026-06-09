@@ -1,8 +1,8 @@
 # Terraform Package
 
-This package only creates or references Oracle Autonomous Database resources.
-It intentionally does not create a Compute VM. The APEX application is installed
-by the `select-ai-apex` CLI after a wallet is available.
+This package creates or references Oracle Autonomous Database resources for
+Select AI APEX deployments. The APEX application is installed by the
+`select-ai-apex` CLI after a wallet is available.
 
 Typical flow for a new database:
 

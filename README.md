@@ -2,7 +2,7 @@
 
 Automated deployment project for Oracle Select AI on Autonomous Database `19c` or `26ai`, with the final user experience delivered as an Oracle APEX application.
 
-This repo follows the deployment shape of `select-ai-analyzer`, but it does not provision a persistent VM or containerized application. Terraform only creates or references Autonomous Database. The CLI connects through a wallet, prepares the Select AI profile schema, imports the APEX export, and writes an auditable report of what was executed.
+Select AI APEX is an independent deployment project. Terraform creates or references Autonomous Database resources, and the CLI connects through a wallet, prepares the Select AI profile schema, imports the APEX export, and writes an auditable report of what was executed.
 
 ## What It Deploys
 
@@ -142,3 +142,13 @@ With the bundled Codex Python runtime, pass the runtime path to:
 ## Sources
 
 See [docs/official-sources.md](docs/official-sources.md).
+
+## License
+
+This project is licensed under the MIT License.
+
+Select AI APEX is an independent project and is not an official Oracle
+product. It is not affiliated with, endorsed by, or sponsored by Oracle
+Corporation. Oracle, OCI, APEX, and related marks are trademarks or registered
+trademarks of Oracle and/or its affiliates. Third-party trademarks, logos,
+service names, and assets remain the property of their respective owners.
