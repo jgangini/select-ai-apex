@@ -1,0 +1,88 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_STTM_AC_LINKED_ENTITIES",
+  "source_file_name": "FLEX_STTM_AC_LINKED_ENTITIES.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTM_AC_LINKED_ENTITIES generados desde .source.",
+  "columns": [
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUST_AC_NO",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Cust Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_HOLDER_CODE",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Joint Holder Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_HOLDER_DESCRIPTION",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo JOINT_HOLDER_DESCRIPTION de la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Joint Holder Description",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_HOLDER",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo JOINT_HOLDER de la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Joint Holder",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "VERSION_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "N",
+      "ordinal_position": 6,
+      "comment": "Atributo VERSION_NO de la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Version No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSURED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Atributo INSURED de la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Insured",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_OPERATION_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo AC_OPERATION_ALLOWED de la tabla FLEX_STTM_AC_LINKED_ENTITIES.",
+      "ui_display": "Ac Operation Allowed",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

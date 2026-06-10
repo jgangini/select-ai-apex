@@ -1,0 +1,17 @@
+{
+  "schema": "SH_DEMO",
+  "label": "Sales History",
+  "domain": "sales analytics",
+  "install": "install.sql",
+  "source": "https://github.com/oracle-samples/db-sample-schemas/tree/main/sales_history",
+  "tables": [
+    "COUNTRIES",
+    "CHANNELS",
+    "PRODUCTS",
+    "CUSTOMERS",
+    "TIMES",
+    "PROMOTIONS",
+    "SALES",
+    "COSTS"
+  ]
+}

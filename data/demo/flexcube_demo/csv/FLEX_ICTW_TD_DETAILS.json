@@ -1,0 +1,1098 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_ICTW_TD_DETAILS",
+  "source_file_name": "FLEX_ICTW_TD_DETAILS.csv",
+  "table_comment": "Tabla de detalle de contratos de depósito a plazo. LIQD_DATE es la fecha de vencimiento o liquidación usada para encontrar el próximo contrato por vencer.",
+  "columns": [
+    {
+      "column_name": "BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Atributo BRN de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "VERSION_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Atributo VERSION_NO de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Version No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYIN_OPTION",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo PAYIN_OPTION de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Payin Option",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Monto principal original del depósito a plazo.",
+      "ui_display": "Td Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFFSET_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Atributo OFFSET_BRN de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Offset Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_OFFSET_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Offset Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "REFERENCE_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Número de referencia del contrato de depósito a plazo.",
+      "ui_display": "Reference No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "CREATION_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Creation Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQD_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Fecha de vencimiento o liquidación del depósito a plazo usada para encontrar el próximo contrato por vencer.",
+      "ui_display": "Liqd Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_DEPOSITER",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Atributo TD_DEPOSITER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Depositer",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_DEPOSITER_NAME",
+      "data_type": "VARCHAR2(105)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Atributo TD_DEPOSITER_NAME de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Depositer Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CERT_COLLECTOR",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Atributo TD_CERT_COLLECTOR de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Cert Collector",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CERT_COLLECTOR_NAME",
+      "data_type": "VARCHAR2(105)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Atributo TD_CERT_COLLECTOR_NAME de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Cert Collector Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_WITHDRAWER",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Atributo TD_WITHDRAWER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Withdrawer",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_WITHDRAWER_NAME",
+      "data_type": "VARCHAR2(105)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo TD_WITHDRAWER_NAME de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Withdrawer Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CERT_PRINT_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Cert Print Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ENDORSABLE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Atributo ENDORSABLE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Endorsable",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_AC_INDICATOR",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Joint Ac Indicator",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_HOLDER",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo JOINT_HOLDER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Joint Holder",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYIN_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Payin Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYIN_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo PAYIN_BRN de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Payin Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYIN_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Payin Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYIN_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Payin Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_TYPE",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Rate Type",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROLLOVER_INTRT",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo ROLLOVER_INTRT de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Rollover Intrt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INT_BOOK_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Int Book Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "INT_BOOK_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Atributo INT_BOOK_BRN de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Int Book Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INT_BOOK_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Int Book Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTOLIQD",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo AUTOLIQD de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Autoliqd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "GEN_MAT_ADV",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo GEN_MAT_ADV de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Gen Mat Adv",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "GEN_RENEWAL_NOT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo GEN_RENEWAL_NOT de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Gen Renewal Not",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADVICE_MEDIA",
+      "data_type": "VARCHAR2(15)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo ADVICE_MEDIA de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Advice Media",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EMAIL",
+      "data_type": "VARCHAR2(25)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Atributo EMAIL de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Email",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUSTODY_STAT",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Custody Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOC_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Doc Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Ac Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_BLOCKED",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Atributo AC_BLOCKED de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Ac Blocked",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REASON_CODE",
+      "data_type": "VARCHAR2(30)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Código de negocio usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Reason Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "LATEST_EVENT_SEQ_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Atributo LATEST_EVENT_SEQ_NO de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Latest Event Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TENOR",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Atributo TENOR de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Tenor",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_RATE_CHANGE_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 43,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Next Rate Change Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "INPUT_TAX_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 44,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Input Tax Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_MATURITY_AMT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 45,
+      "comment": "Monto de vencimiento del depósito a plazo, incluyendo intereses.",
+      "ui_display": "Td Maturity Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_INT_AMT_READJ_CCY",
+      "data_type": "NUMBER(22,4)",
+      "nullable": "Y",
+      "ordinal_position": 46,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Int Amt Readj Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_MAT_AMT_READJ_CCY",
+      "data_type": "NUMBER(22,4)",
+      "nullable": "Y",
+      "ordinal_position": 47,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Mat Amt Readj Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "XREF",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 48,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Xref",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_PRN_AMT_READJ_CCY",
+      "data_type": "NUMBER(22,4)",
+      "nullable": "Y",
+      "ordinal_position": 49,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Prn Amt Readj Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_INT_AMT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 50,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Int Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ORIGINAL_TD_AMT",
+      "data_type": "NUMBER(22,4)",
+      "nullable": "Y",
+      "ordinal_position": 51,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Original Td Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_PARTIAL_PREPAYMENT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 52,
+      "comment": "Atributo ALLOW_PARTIAL_PREPAYMENT de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Allow Partial Prepayment",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ORIGINAL_TENOR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 53,
+      "comment": "Atributo ORIGINAL_TENOR de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Original Tenor",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SPL_COND_INT_RATE",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 54,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Spl Cond Int Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "PARTIAL_PREPAID_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 55,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Partial Prepaid Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUSTOMER_DCV",
+      "data_type": "NUMBER(8)",
+      "nullable": "Y",
+      "ordinal_position": 56,
+      "comment": "Identificador de cliente usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Customer Dcv",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "DCV_SLIDE_NO",
+      "data_type": "NUMBER(10)",
+      "nullable": "Y",
+      "ordinal_position": 57,
+      "comment": "Atributo DCV_SLIDE_NO de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Dcv Slide No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOCUMENT_NUMBER",
+      "data_type": "VARCHAR2(6)",
+      "nullable": "Y",
+      "ordinal_position": 58,
+      "comment": "Atributo DOCUMENT_NUMBER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Document Number",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOCUMENT_DIGIT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 59,
+      "comment": "Atributo DOCUMENT_DIGIT de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Document Digit",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONTROL_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 60,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Control Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "CTRL_COST_CENTER",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 61,
+      "comment": "Atributo CTRL_COST_CENTER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Ctrl Cost Center",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CONTROL_EXECUTIVE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 62,
+      "comment": "Atributo TD_CONTROL_EXECUTIVE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Control Executive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TAX_BENEFIT_CODE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 63,
+      "comment": "Código de negocio usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Tax Benefit Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOCUMENT_REGION",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 64,
+      "comment": "Atributo DOCUMENT_REGION de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Document Region",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFICINA_CREACION",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 65,
+      "comment": "Atributo OFICINA_CREACION de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Oficina Creacion",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CREATION_COST_CENTER",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 66,
+      "comment": "Atributo CREATION_COST_CENTER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Creation Cost Center",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CREATION_EXECUTIVE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 67,
+      "comment": "Atributo TD_CREATION_EXECUTIVE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Creation Executive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CREATION_CHANNEL_SYSTEM",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 68,
+      "comment": "Atributo CREATION_CHANNEL_SYSTEM de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Creation Channel System",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CREATION_CHANNEL",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 69,
+      "comment": "Atributo CREATION_CHANNEL de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Creation Channel",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQD_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 70,
+      "comment": "Atributo LIQD_BRN de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Liqd Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQD_COST_CENTER",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 71,
+      "comment": "Atributo LIQD_COST_CENTER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Liqd Cost Center",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_LIQD_EXECUTIVE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 72,
+      "comment": "Atributo TD_LIQD_EXECUTIVE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Td Liqd Executive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQD_CHANNEL",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 73,
+      "comment": "Atributo LIQD_CHANNEL de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Liqd Channel",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CREATION_TRN_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 74,
+      "comment": "Código de negocio usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Creation Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAINT_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 75,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Maint Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAINT_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 76,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Maint Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAINT_COST_CENTER",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 77,
+      "comment": "Atributo MAINT_COST_CENTER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Maint Cost Center",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAINT_EXECUTIVE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 78,
+      "comment": "Atributo MAINT_EXECUTIVE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Maint Executive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAINT_CHANNEL_SYSTEM",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 79,
+      "comment": "Atributo MAINT_CHANNEL_SYSTEM de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Maint Channel System",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CMAINT_CHANNEL",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 80,
+      "comment": "Atributo CMAINT_CHANNEL de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Cmaint Channel",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_RATE",
+      "data_type": "NUMBER(7,4)",
+      "nullable": "Y",
+      "ordinal_position": 81,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Prev Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMMER_COST_CENTER",
+      "data_type": "VARCHAR2(5)",
+      "nullable": "Y",
+      "ordinal_position": 82,
+      "comment": "Atributo COMMER_COST_CENTER de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Commer Cost Center",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAE_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 83,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Bae Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAE_DOC_NUM",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 84,
+      "comment": "Atributo BAE_DOC_NUM de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Bae Doc Num",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAE_SEQUENTIAL_NUM",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 85,
+      "comment": "Atributo BAE_SEQUENTIAL_NUM de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Bae Sequential Num",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAE_OPERATION_TYPE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 86,
+      "comment": "Atributo BAE_OPERATION_TYPE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Bae Operation Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTHORIZER_RUT_ID",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 87,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Authorizer Rut Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUEDATED_DOC_PRNT_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 88,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Valuedated Doc Prnt Brn",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIG_DOC_MARK",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 89,
+      "comment": "Atributo MIG_DOC_MARK de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Mig Doc Mark",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DESTINATION_CODE",
+      "data_type": "VARCHAR2(5)",
+      "nullable": "Y",
+      "ordinal_position": 90,
+      "comment": "Código de negocio usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Destination Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "DCV_CUSTOMER_NO",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 91,
+      "comment": "Identificador de cliente usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Dcv Customer No",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUSTOMER_SECOND_NAME",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 92,
+      "comment": "Identificador de cliente usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Customer Second Name",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "OPERATION_KEY",
+      "data_type": "VARCHAR2(15)",
+      "nullable": "Y",
+      "ordinal_position": 93,
+      "comment": "Atributo OPERATION_KEY de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Operation Key",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DCV_DEPOSIT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 94,
+      "comment": "Atributo DCV_DEPOSIT de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Dcv Deposit",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEP_GUARANTEE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 95,
+      "comment": "Atributo DEP_GUARANTEE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Dep Guarantee",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BIS57",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 96,
+      "comment": "Atributo BIS57 de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Bis57",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_VALUE",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 97,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Rate Value",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_SPREAD",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 98,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Rate Spread",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_RATE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 99,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Auth Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_CODE",
+      "data_type": "VARCHAR2(10)",
+      "nullable": "Y",
+      "ordinal_position": 100,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Rate Code",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "SPL_COND_TAX_RATE",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 101,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Spl Cond Tax Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOVE_DORMANCY",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 102,
+      "comment": "Atributo MOVE_DORMANCY de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Move Dormancy",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RETN_DAYS",
+      "data_type": "VARCHAR2(5)",
+      "nullable": "Y",
+      "ordinal_position": 103,
+      "comment": "Atributo RETN_DAYS de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Retn Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RETN_TYPE",
+      "data_type": "VARCHAR2(5)",
+      "nullable": "Y",
+      "ordinal_position": 104,
+      "comment": "Atributo RETN_TYPE de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Retn Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUST_NEG",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 105,
+      "comment": "Atributo CUST_NEG de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Cust Neg",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUST_NEG_VIEW",
+      "data_type": "NUMBER(24,5)",
+      "nullable": "Y",
+      "ordinal_position": 106,
+      "comment": "Atributo CUST_NEG_VIEW de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Cust Neg View",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_TD_INT_AMT_READJ_CCY",
+      "data_type": "NUMBER(22,4)",
+      "nullable": "Y",
+      "ordinal_position": 107,
+      "comment": "Monto monetario usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Prev Td Int Amt Readj Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "NATIONALITY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 108,
+      "comment": "Atributo NATIONALITY de la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Nationality",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_ID",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 109,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ICTW_TD_DETAILS.",
+      "ui_display": "Txn Id",
+      "classification": "reference",
+      "primary_key": false
+    }
+  ]
+}

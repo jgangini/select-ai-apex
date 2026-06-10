@@ -1,0 +1,1418 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_DETB_RTL_TELLER_1",
+  "source_file_name": "FLEX_DETB_RTL_TELLER_1.csv",
+  "table_comment": "Tabla de transacciones de ventanilla. Usa AUTH_STAT='U' y MODULE='TL' para encontrar operaciones pendientes de autorización.",
+  "columns": [
+    {
+      "column_name": "XREF",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Xref",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Identificador de producto usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Product Code",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_REF_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Número de referencia de la transacción de ventanilla.",
+      "ui_display": "Trn Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_TRN_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ofs Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ofs Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ofs Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ofs Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_TRN_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ofs Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXCH_RATE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Exch Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Lcy Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Trn Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Value Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_INSTRUMENT_CODE",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Dr Instrument Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_INSTRUMENT_CODE",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Cr Instrument Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "REL_CUSTOMER",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Identificador de cliente usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Rel Customer",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHARGE_ACCOUNT",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Charge Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_GL",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo CHG_GL de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_AMT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_ACY",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo CHG_IN_ACY de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Acy",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_LCY",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo CHG_IN_LCY de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Lcy",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_ACY_RATE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy Acy Rate",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_LCY_RATE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Acy Lcy Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Netting Ind",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD_1",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo MIS_HEAD_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_GL_1",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo CHG_GL_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Gl 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_1",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy 1",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_AMT_1",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Amt 1",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_ACY_1",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Atributo CHG_IN_ACY_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Acy 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_LCY_1",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Atributo CHG_IN_LCY_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Lcy 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_ACY_RATE_1",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy Acy Rate 1",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_LCY_RATE_1",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Acy Lcy Rate 1",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND_1",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Netting Ind 1",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE_1",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Atributo TXN_CODE_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Code 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD_2",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Atributo MIS_HEAD_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_GL_2",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 43,
+      "comment": "Atributo CHG_GL_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Gl 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_2",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 44,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy 2",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_AMT_2",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 45,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Amt 2",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_ACY_2",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 46,
+      "comment": "Atributo CHG_IN_ACY_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Acy 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_LCY_2",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 47,
+      "comment": "Atributo CHG_IN_LCY_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Lcy 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_ACY_RATE_2",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 48,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy Acy Rate 2",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_LCY_RATE_2",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 49,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Acy Lcy Rate 2",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND_2",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 50,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Netting Ind 2",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE_2",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 51,
+      "comment": "Atributo TXN_CODE_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Code 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD_3",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 52,
+      "comment": "Atributo MIS_HEAD_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_GL_3",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 53,
+      "comment": "Atributo CHG_GL_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Gl 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_3",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 54,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy 3",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_AMT_3",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 55,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Amt 3",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_ACY_3",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 56,
+      "comment": "Atributo CHG_IN_ACY_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Acy 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_LCY_3",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 57,
+      "comment": "Atributo CHG_IN_LCY_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Lcy 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_ACY_RATE_3",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 58,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy Acy Rate 3",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_LCY_RATE_3",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 59,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Acy Lcy Rate 3",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND_3",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 60,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Netting Ind 3",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE_3",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 61,
+      "comment": "Atributo TXN_CODE_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Code 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD_4",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 62,
+      "comment": "Atributo MIS_HEAD_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_GL_4",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 63,
+      "comment": "Atributo CHG_GL_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Gl 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_4",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 64,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy 4",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_AMT_4",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 65,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Amt 4",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_ACY_4",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 66,
+      "comment": "Atributo CHG_IN_ACY_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Acy 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_IN_LCY_4",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 67,
+      "comment": "Atributo CHG_IN_LCY_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg In Lcy 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_CCY_ACY_RATE_4",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 68,
+      "comment": "Código de moneda usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Chg Ccy Acy Rate 4",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_LCY_RATE_4",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 69,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Acy Lcy Rate 4",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND_4",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 70,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Netting Ind 4",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE_4",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 71,
+      "comment": "Atributo TXN_CODE_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Code 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD_5",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 72,
+      "comment": "Atributo MIS_HEAD_5 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head 5",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REM_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 73,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Rem Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "REM_BANK",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 74,
+      "comment": "Atributo REM_BANK de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Rem Bank",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REM_BRANCH",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 75,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Rem Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROUTING_NO",
+      "data_type": "VARCHAR2(27)",
+      "nullable": "Y",
+      "ordinal_position": 76,
+      "comment": "Atributo ROUTING_NO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Routing No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "END_POINT",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 77,
+      "comment": "Atributo END_POINT de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "End Point",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SERIAL_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 78,
+      "comment": "Atributo SERIAL_NO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Serial No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 79,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 80,
+      "comment": "Estado de autorización de operaciones en ventanilla. U significa pendiente de autorización.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 81,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 82,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 83,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 84,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "REPAIR_REASON",
+      "data_type": "VARCHAR2(100)",
+      "nullable": "Y",
+      "ordinal_position": 85,
+      "comment": "Atributo REPAIR_REASON de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Repair Reason",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 86,
+      "comment": "Atributo MOD_NO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SCODE",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 87,
+      "comment": "Atributo SCODE de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Scode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 88,
+      "comment": "Atributo MIS_HEAD de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Mis Head",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NARRATIVE",
+      "data_type": "VARCHAR2(255)",
+      "nullable": "Y",
+      "ordinal_position": 89,
+      "comment": "Atributo NARRATIVE de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Narrative",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_ACC",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 90,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Dr Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODULE",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 91,
+      "comment": "Código de módulo de ventanilla. TL identifica transacciones de ventanilla.",
+      "ui_display": "Module",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ESN",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 92,
+      "comment": "Atributo ESN de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Esn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 93,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Event Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROUTE_CODE",
+      "data_type": "VARCHAR2(30)",
+      "nullable": "Y",
+      "ordinal_position": 94,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Route Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "FT_PROBLEM",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 95,
+      "comment": "Atributo FT_PROBLEM de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ft Problem",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACK_RECEIVABLE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 96,
+      "comment": "Atributo TRACK_RECEIVABLE de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Track Receivable",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TIME_RECEIVED",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 97,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Time Received",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_CHGS2",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 98,
+      "comment": "Atributo THEIR_CHGS2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Chgs2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_CHGS3",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 99,
+      "comment": "Atributo THEIR_CHGS3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Chgs3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_CHGS4",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 100,
+      "comment": "Atributo THEIR_CHGS4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Chgs4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_CHGS",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 101,
+      "comment": "Atributo THEIR_CHGS de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Chgs",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_CHGS1",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 102,
+      "comment": "Atributo THEIR_CHGS1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Chgs1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 103,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_ACC1",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 104,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Acc1",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_ACC2",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 105,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Acc2",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_ACC3",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 106,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Acc3",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "THEIR_ACC4",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 107,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Their Acc4",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_EXCH_RATE",
+      "data_type": "NUMBER(24,12)",
+      "nullable": "Y",
+      "ordinal_position": 108,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Lcy Exch Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_CUST_NO",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 109,
+      "comment": "Identificador de cliente usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Cr Cust No",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_ID",
+      "data_type": "VARCHAR2(43)",
+      "nullable": "Y",
+      "ordinal_position": 110,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Txn Id",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDF_1",
+      "data_type": "VARCHAR2(150)",
+      "nullable": "Y",
+      "ordinal_position": 111,
+      "comment": "Atributo UDF_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Udf 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDF_2",
+      "data_type": "VARCHAR2(150)",
+      "nullable": "Y",
+      "ordinal_position": 112,
+      "comment": "Atributo UDF_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Udf 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDF_3",
+      "data_type": "VARCHAR2(150)",
+      "nullable": "Y",
+      "ordinal_position": 113,
+      "comment": "Atributo UDF_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Udf 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDF_4",
+      "data_type": "VARCHAR2(150)",
+      "nullable": "Y",
+      "ordinal_position": 114,
+      "comment": "Atributo UDF_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Udf 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDF_5",
+      "data_type": "VARCHAR2(150)",
+      "nullable": "Y",
+      "ordinal_position": 115,
+      "comment": "Atributo UDF_5 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Udf 5",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOB_NO",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 116,
+      "comment": "Atributo JOB_NO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Job No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BEN_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 117,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ben Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADJ_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 118,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Adj Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "HOUSE_LOCATION",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 119,
+      "comment": "Atributo HOUSE_LOCATION de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "House Location",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PASSBOOK_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 120,
+      "comment": "Atributo PASSBOOK_NO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Passbook No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PASSBOOK_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 121,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Passbook Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "REG_FLAG",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 122,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Reg Flag",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXT_OFSTXN_CODE",
+      "data_type": "VARCHAR2(15)",
+      "nullable": "Y",
+      "ordinal_position": 123,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Ext Ofstxn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_1",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 124,
+      "comment": "Atributo DATA_1 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_2",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 125,
+      "comment": "Atributo DATA_2 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_3",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 126,
+      "comment": "Atributo DATA_3 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_4",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 127,
+      "comment": "Atributo DATA_4 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_5",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 128,
+      "comment": "Atributo DATA_5 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 5",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_6",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 129,
+      "comment": "Atributo DATA_6 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 6",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_7",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 130,
+      "comment": "Atributo DATA_7 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 7",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_8",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 131,
+      "comment": "Atributo DATA_8 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 8",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_9",
+      "data_type": "VARCHAR2(60)",
+      "nullable": "Y",
+      "ordinal_position": 132,
+      "comment": "Atributo DATA_9 de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Data 9",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CBII_INFO",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 133,
+      "comment": "Atributo CBII_INFO de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Cbii Info",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BATCH_REF_NO",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 134,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Batch Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_CODE_TRANS",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 135,
+      "comment": "Atributo TRN_CODE_TRANS de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Trn Code Trans",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACTUAL_TXN_AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 136,
+      "comment": "Monto monetario usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Actual Txn Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "SAV_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 137,
+      "comment": "Código de negocio usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Sav Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "SAV_VAL_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 138,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Sav Val Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_CREATION_DT",
+      "data_type": "TIMESTAMP(6)",
+      "nullable": "Y",
+      "ordinal_position": 139,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Dd Creation Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_LAST_UPD",
+      "data_type": "TIMESTAMP(6)",
+      "nullable": "Y",
+      "ordinal_position": 140,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Dd Last Upd",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 141,
+      "comment": "Atributo DD_ID de la tabla FLEX_DETB_RTL_TELLER_1.",
+      "ui_display": "Dd Id",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

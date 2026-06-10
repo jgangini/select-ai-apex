@@ -1,0 +1,628 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_STTM_TRN_CODE",
+  "source_file_name": "FLEX_STTM_TRN_CODE.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTM_TRN_CODE generados desde .source.",
+  "columns": [
+    {
+      "column_name": "TRN_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_DESC",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Atributo TRN_DESC de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Trn Desc",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_SWIFT_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Trn Swift Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVL_INFO",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo AVL_INFO de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Avl Info",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHEQUE_MANDATORY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo CHEQUE_MANDATORY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Cheque Mandatory",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_TXN_COUNT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Atributo IC_TXN_COUNT de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Txn Count",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_TOVER_INCLUSION",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Atributo IC_TOVER_INCLUSION de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Tover Inclusion",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONSIDER_FOR_ACTIVITY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo CONSIDER_FOR_ACTIVITY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Consider For Activity",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_HEAD",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Atributo MIS_HEAD de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Mis Head",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo MOD_NO de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEW_VAL_DATE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "New Val Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVL_DAYS",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo AVL_DAYS de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Avl Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "UNIT_COST",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo UNIT_COST de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Unit Cost",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAILABILITY_HOUR",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo AVAILABILITY_HOUR de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Availability Hour",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAILABILITY_MINUTE",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo AVAILABILITY_MINUTE de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Availability Minute",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHK_BALANCE_IN_BATCH",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Chk Balance In Batch",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHK_BALANCE_IN_ONLINE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Chk Balance In Online",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_DIRECT_SELECTION",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Atributo ALLOW_DIRECT_SELECTION de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Allow Direct Selection",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IGNORE_DR_INDICATOR",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ignore Dr Indicator",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "IGNORE_CR_INDICATOR",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ignore Cr Indicator",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AML_MONITORING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Atributo AML_MONITORING de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Aml Monitoring",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_CAT",
+      "data_type": "VARCHAR2(15 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Identificador de producto usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Product Cat",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "DRCR_BATCH_ADV",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Atributo DRCR_BATCH_ADV de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Drcr Batch Adv",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DETAILED_FUNCOL",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo DETAILED_FUNCOL de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Detailed Funcol",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MANUALLY_AVAILABLE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo MANUALLY_AVAILABLE de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Manually Available",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DRCR_GEN_EVENT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo DRCR_GEN_EVENT de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Drcr Gen Event",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_RESTRICTION",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Branch Restriction",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_BRN_RES",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Atributo ALLOW_BRN_RES de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Allow Brn Res",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODULE_RESTRICTION",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Atributo MODULE_RESTRICTION de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Module Restriction",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECK_FCY_HOLIDAY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Atributo CHECK_FCY_HOLIDAY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Check Fcy Holiday",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_UNCOL_FUND",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Atributo CHG_UNCOL_FUND de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Chg Uncol Fund",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMPENSATION_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Atributo COMPENSATION_BASIS de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Compensation Basis",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMPENSATION_DAYS",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Atributo COMPENSATION_DAYS de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Compensation Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IS_TAX_ENTRY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Atributo IS_TAX_ENTRY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Is Tax Entry",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IGNORE_LM_BVT_PROCESSING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Atributo IGNORE_LM_BVT_PROCESSING de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ignore Lm Bvt Processing",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHK_RESET",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 43,
+      "comment": "Atributo CHK_RESET de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Chk Reset",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAL_CHK_ONLINE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 44,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Bal Chk Online",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "BAL_CHK_BATCH",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 45,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Bal Chk Batch",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "DELINQUENCY_PRODUCT",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 46,
+      "comment": "Identificador de producto usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Delinquency Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_TXN_COUNT_NUMBER",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 47,
+      "comment": "Atributo IC_TXN_COUNT_NUMBER de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Txn Count Number",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAIL_BAL_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 48,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Avail Bal Reqd",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_PENALTY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 49,
+      "comment": "Atributo IC_PENALTY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Penalty",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_BAL_INCLUSION",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 50,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Bal Inclusion",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "INTRADAY_RELEASE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 51,
+      "comment": "Atributo INTRADAY_RELEASE de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Intraday Release",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IB_IN_LCY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 52,
+      "comment": "Atributo IB_IN_LCY de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ib In Lcy",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALT_TRN_CODE",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 53,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Alt Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "BLK_TODAY_REVR_IN_STMT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 54,
+      "comment": "Atributo BLK_TODAY_REVR_IN_STMT de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Blk Today Revr In Stmt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEBIT_TAX_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 55,
+      "comment": "Atributo DEBIT_TAX_REQD de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Debit Tax Reqd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REFERENTIAL_ENTRY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 56,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Referential Entry",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "INCLUDE_LOC_BAL",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 57,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Include Loc Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "INCLUDE_OD_LIMIT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 58,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Include Od Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "UNBLOCK_UMBERELLA_LOC_ONLINE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 59,
+      "comment": "Atributo UNBLOCK_UMBERELLA_LOC_ONLINE de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Unblock Umberella Loc Online",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INCLUDE_TEMP_OD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 60,
+      "comment": "Atributo INCLUDE_TEMP_OD de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Include Temp Od",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PARTIAL_DR_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 61,
+      "comment": "Atributo PARTIAL_DR_TXN_ALLOWED de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Partial Dr Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_TXN_COUNT_DECREASE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 62,
+      "comment": "Atributo IC_TXN_COUNT_DECREASE de la tabla FLEX_STTM_TRN_CODE.",
+      "ui_display": "Ic Txn Count Decrease",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

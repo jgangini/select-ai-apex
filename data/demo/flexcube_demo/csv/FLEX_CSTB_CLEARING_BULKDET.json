@@ -1,0 +1,398 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_CSTB_CLEARING_BULKDET",
+  "source_file_name": "FLEX_CSTB_CLEARING_BULKDET.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_CSTB_CLEARING_BULKDET generados desde .source.",
+  "columns": [
+    {
+      "column_name": "REFERENCE_NO",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Reference No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_SEQ_NO",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Atributo EVENT_SEQ_NO de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Event Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_NO_1",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Atributo INSTRUMENT_NO_1 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Instrument No 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_NO_2",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo INSTRUMENT_NO_2 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Instrument No 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "VAL_DATE_BNK",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Val Date Bnk",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "VAL_DATE_CUST",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Val Date Cust",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "BANK_CODE",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Código de negocio usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Bank Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "SECTOR_CODE",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Código de negocio usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Sector Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROUTING_NO",
+      "data_type": "VARCHAR2(27 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo ROUTING_NO de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Routing No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "END_POINT",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Atributo END_POINT de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "End Point",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Monto monetario usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Instrument Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LOCAL_CLEARING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Atributo LOCAL_CLEARING de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Local Clearing",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOCUMENT_TYPE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Atributo DOCUMENT_TYPE de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Document Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "VAL_DATE_BNK_OLD",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Val Date Bnk Old",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "VAL_DATE_CUST_OLD",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Val Date Cust Old",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROUTING_NO_OLD",
+      "data_type": "VARCHAR2(27 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo ROUTING_NO_OLD de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Routing No Old",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADDL_RETENTION_DAYS",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo ADDL_RETENTION_DAYS de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Addl Retention Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Instrument Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "REM_ACCOUNT",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Rem Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "REM_CUST",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo REM_CUST de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Rem Cust",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REVERSED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo REVERSED de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Reversed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "HOUSE_LOCATION",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo HOUSE_LOCATION de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "House Location",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DOC_TRACK_NUM",
+      "data_type": "VARCHAR2(15 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Atributo DOC_TRACK_NUM de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Doc Track Num",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_1",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Atributo DATA_1 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_2",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo DATA_2 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_3",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo DATA_3 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_4",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Atributo DATA_4 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_5",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Atributo DATA_5 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 5",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_6",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Atributo DATA_6 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 6",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_7",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo DATA_7 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 7",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_8",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo DATA_8 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 8",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_9",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo DATA_9 de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Data 9",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CBII_INFO",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo CBII_INFO de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Cbii Info",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BATCH_REF_NO",
+      "data_type": "VARCHAR2(50 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Batch Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_CODE_TRANS",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Atributo TRN_CODE_TRANS de la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Trn Code Trans",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_ID",
+      "data_type": "VARCHAR2(43 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Txn Id",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "SAV_CODE",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Código de negocio usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Sav Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "SAV_VAL_STAT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CSTB_CLEARING_BULKDET.",
+      "ui_display": "Sav Val Stat",
+      "classification": "status",
+      "primary_key": false
+    }
+  ]
+}

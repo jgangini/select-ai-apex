@@ -1,0 +1,378 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_CSTM_PRODUCT",
+  "source_file_name": "FLEX_CSTM_PRODUCT.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_CSTM_PRODUCT generados desde .source.",
+  "columns": [
+    {
+      "column_name": "PRODUCT_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Code",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_DESCRIPTION",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Description",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_SLOGAN",
+      "data_type": "VARCHAR2(255)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Slogan",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_REMARKS",
+      "data_type": "VARCHAR2(255)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Remarks",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_START_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Start Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_END_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product End Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_GROUP",
+      "data_type": "VARCHAR2(6)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Group",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "WAREHOUSE_CODE",
+      "data_type": "VARCHAR2(6)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Código de negocio usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Warehouse Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "PART_OF_PRODUCT",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Part Of Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODULE",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo MODULE de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Module",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo MOD_NO de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "POOL_CODE",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Código de negocio usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Pool Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "NO_OF_LEGS",
+      "data_type": "NUMBER(1)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo NO_OF_LEGS de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "No Of Legs",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCHES_LIST",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Branches List",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "CURRENCIES_LIST",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo CURRENCIES_LIST de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Currencies List",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CATEGORIES_LIST",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo CATEGORIES_LIST de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Categories List",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NORMAL_RATE_VARIANCE",
+      "data_type": "NUMBER(11,5)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Normal Rate Variance",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAXIMUM_RATE_VARIANCE",
+      "data_type": "NUMBER(11,5)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Maximum Rate Variance",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_TYPE",
+      "data_type": "VARCHAR2(2)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Product Type",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_CODE_PREFERRED",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Rate Code Preferred",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "FORMAT_NAME",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Atributo FORMAT_NAME de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Format Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEALING_METHOD",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Atributo DEALING_METHOD de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Dealing Method",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_TYPE_PREFERRED",
+      "data_type": "VARCHAR2(8)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Rate Type Preferred",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACK_PNL_HIST",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo TRACK_PNL_HIST de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Track Pnl Hist",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ECA_ALLOWED",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo ECA_ALLOWED de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Eca Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "GEN_MT103P",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo GEN_MT103P de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Gen Mt103p",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_SPLIT_AMOUNTS",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Monto monetario usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Allow Split Amounts",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "RTGS_PRODUCT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Identificador de producto usado por la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Rtgs Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "SUPPRESS_BV_PMT_MSG",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Atributo SUPPRESS_BV_PMT_MSG de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Suppress Bv Pmt Msg",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INCLUDE_FOR_TDS_CALC",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Atributo INCLUDE_FOR_TDS_CALC de la tabla FLEX_CSTM_PRODUCT.",
+      "ui_display": "Include For Tds Calc",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

@@ -61,7 +61,7 @@ select-ai-apex plan `
   --oci-compartment-id ocid1.compartment.oc1..aaaa `
   --db-version 26ai `
   --workload OLTP `
-  --schemas HR
+  --schemas SH_DEMO
 
 terraform -chdir=terraform init
 terraform -chdir=terraform apply -var-file=..\outputs\terraform.tfvars.json
@@ -88,8 +88,17 @@ select-ai-apex install `
   --admin-password (Get-Content .\outputs\adb-admin-password.txt -Raw).Trim() `
   --oci-config .\.oci\config `
   --oci-key .\.oci\key.pem `
-  --schemas HR
+  --schemas SH_DEMO
 ```
+
+## Bundled Demo Data
+
+New database deployments can use demo schemas stored in this repository instead of relying on Oracle-maintained sample users existing in the target database.
+
+- `data/demo/sh_demo` installs `SH_DEMO`, a compact Sales History demo with tables, constraints, comments and grants for Select AI.
+- `data/demo/flexcube_demo` stages banking demo assets for a future automated loader.
+
+`SH` is accepted as a compatibility alias for `SH_DEMO`, but new deployments should use `SH_DEMO` explicitly. The demo schema password is the same APEX application password generated or supplied during deployment.
 
 ## Generated Outputs
 
@@ -110,7 +119,7 @@ The CLI writes:
 
 The generated SQL does not use `SELECT ANY TABLE`. Access is controlled by grants to `SELECT_AI_APP`.
 
-For new databases, Oracle-maintained sample schemas such as `SH` can be readable by `ADMIN` but still not grantable or unlockable as application source schemas. In that case the generated SQL creates a normal demo schema such as `SH_DEMO`, copies the selected sample tables into it, grants `SH_DEMO` to `SELECT_AI_APP`, and points the Select AI profile to `SH_DEMO`.
+For new databases, the generated SQL installs bundled demo schemas such as `SH_DEMO` from `data/demo`. This avoids depending on preexisting `HR` or `SH` users in Autonomous Database, grants the demo tables to `SELECT_AI_APP`, and points the Select AI profile to the installed demo schema.
 
 To add more data later:
 

@@ -1,0 +1,258 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_CLTB_LIQ",
+  "source_file_name": "FLEX_CLTB_LIQ.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_CLTB_LIQ generados desde .source.",
+  "columns": [
+    {
+      "column_name": "ACCOUNT_NUMBER",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Account Number",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_SEQ_NO",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Atributo EVENT_SEQ_NO de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Event Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Value Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXECUTION_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Execution Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYMENT_STATUS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Payment Status",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "REV_MAKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Rev Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "REV_MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Rev Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "REV_CHECKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Rev Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "REV_CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Rev Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "REVP_ESN",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Atributo REVP_ESN de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Revp Esn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MLIQ_ESN",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo MLIQ_ESN de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Mliq Esn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROCESS_NO",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo PROCESS_NO de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Process No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREPMNT_RECOMP_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Atributo PREPMNT_RECOMP_BASIS de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Prepmnt Recomp Basis",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREPMNT_RECOMP_FROM",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo PREPMNT_RECOMP_FROM de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Prepmnt Recomp From",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTALLMENT_PAYMENT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo INSTALLMENT_PAYMENT de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Installment Payment",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIMIT_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Monto monetario usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Limit Date",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "SIMULATED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo SIMULATED de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Simulated",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CURR_ACBAL_CHK",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Monto monetario usado por la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Curr Acbal Chk",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQD_WOFF_LOAN",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Atributo LIQD_WOFF_LOAN de la tabla FLEX_CLTB_LIQ.",
+      "ui_display": "Liqd Woff Loan",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

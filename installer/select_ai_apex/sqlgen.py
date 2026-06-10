@@ -1,25 +1,34 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from .models import DeploymentOptions, RenderedPlan
 from .validators import csv_quote, q_quote, sql_identifier, sql_string
 
 
-ORACLE_SAMPLE_SCHEMAS = {"HR", "SH", "OE", "PM", "IX", "BI"}
+DEMO_SCHEMA_ALIASES = {
+    "SH": "SH_DEMO",
+    "SH_DEMO": "SH_DEMO",
+}
+
+DEMO_INSTALL_FILES = {
+    "SH_DEMO": Path("data/demo/sh_demo/install.sql"),
+}
 
 
 def demo_schema_name(schema: str) -> str:
-    return f"{schema}_DEMO".upper()[:128]
+    schema = schema.upper()
+    return DEMO_SCHEMA_ALIASES.get(schema, f"{schema}_DEMO".upper()[:128])
 
 
 def uses_demo_schema(options: DeploymentOptions, schema: str) -> bool:
-    return options.mode == "new" and schema.upper() in ORACLE_SAMPLE_SCHEMAS
+    return options.mode == "new" and schema.upper() in DEMO_SCHEMA_ALIASES
 
 
 def effective_owner(options: DeploymentOptions, owner: str) -> str:
     owner = owner.upper()
-    return demo_schema_name(owner) if uses_demo_schema(options, owner) else owner
+    return DEMO_SCHEMA_ALIASES[owner] if uses_demo_schema(options, owner) else owner
 
 
 def object_list_json(options: DeploymentOptions) -> str:
@@ -31,77 +40,47 @@ def object_list_json(options: DeploymentOptions) -> str:
     return json.dumps(entries, indent=2)
 
 
-def render_demo_schema_replication(options: DeploymentOptions) -> str:
-    demo_sources = [schema for schema in options.schemas if uses_demo_schema(options, schema)]
-    table_sources = sorted({obj.owner for obj in options.tables if uses_demo_schema(options, obj.owner)})
-    for owner in table_sources:
-        if owner not in demo_sources:
-            demo_sources.append(owner)
-    blocks: list[str] = []
-    for source_schema in demo_sources:
-        source_schema = source_schema.upper()
-        demo_schema = demo_schema_name(source_schema)
-        selected_tables = [obj.name for obj in options.tables if obj.owner == source_schema]
-        table_filter = ""
-        if selected_tables and source_schema not in options.schemas:
-            table_filter = f" AND table_name IN ({csv_quote(selected_tables)})"
-        blocks.append(
-            f"""-- {source_schema} is an Oracle-maintained sample schema in new ADBs.
--- Replicate it into {demo_schema} so Select AI can treat it like a normal source schema.
-DECLARE
-  l_count NUMBER;
-BEGIN
-  SELECT COUNT(*) INTO l_count FROM dba_users WHERE username = {sql_string(demo_schema)};
-  IF l_count = 0 THEN
-    EXECUTE IMMEDIATE 'CREATE USER {sql_identifier(demo_schema)} IDENTIFIED BY "{options.apex_password}" DEFAULT TABLESPACE DATA QUOTA UNLIMITED ON DATA';
-  ELSE
-    EXECUTE IMMEDIATE 'ALTER USER {sql_identifier(demo_schema)} IDENTIFIED BY "{options.apex_password}" ACCOUNT UNLOCK';
-    EXECUTE IMMEDIATE 'ALTER USER {sql_identifier(demo_schema)} QUOTA UNLIMITED ON DATA';
-  END IF;
-END;
-/
+def bundled_demo_schemas(options: DeploymentOptions) -> list[str]:
+    demo_schemas: list[str] = []
+    for owner in options.schemas:
+        if uses_demo_schema(options, owner):
+            demo_schema = effective_owner(options, owner)
+            if demo_schema not in demo_schemas:
+                demo_schemas.append(demo_schema)
+    for obj in options.tables:
+        if uses_demo_schema(options, obj.owner):
+            demo_schema = effective_owner(options, obj.owner)
+            if demo_schema not in demo_schemas:
+                demo_schemas.append(demo_schema)
+    return demo_schemas
 
-GRANT CREATE SESSION TO {sql_identifier(demo_schema)};
-GRANT CREATE TABLE TO {sql_identifier(demo_schema)};
-GRANT CREATE SYNONYM TO {sql_identifier(demo_schema)};
 
-DECLARE
-  l_sql VARCHAR2(32767);
-BEGIN
-  FOR obj IN (
-    SELECT table_name
-      FROM all_tables
-     WHERE owner = {sql_string(source_schema)}{table_filter}
-     ORDER BY table_name
-  ) LOOP
-    BEGIN
-      EXECUTE IMMEDIATE 'DROP TABLE {sql_identifier(demo_schema)}."' || obj.table_name || '" PURGE';
-    EXCEPTION
-      WHEN OTHERS THEN
-        IF SQLCODE != -942 THEN
-          RAISE;
-        END IF;
-    END;
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
 
-    l_sql := 'CREATE TABLE {sql_identifier(demo_schema)}."' || obj.table_name ||
-             '" AS SELECT * FROM "{source_schema}"."' || obj.table_name || '"';
-    EXECUTE IMMEDIATE l_sql;
-    EXECUTE IMMEDIATE 'COMMENT ON TABLE {sql_identifier(demo_schema)}."' || obj.table_name ||
-      '" IS ''Replicated from {source_schema}.' || obj.table_name || ' for Select AI Apex.''';
-    EXECUTE IMMEDIATE 'GRANT SELECT ON {sql_identifier(demo_schema)}."' || obj.table_name || '" TO {sql_identifier(options.app_schema)}';
-  END LOOP;
-END;
-/"""
+
+def render_demo_schema_install(options: DeploymentOptions, demo_schema: str) -> str:
+    relative_path = DEMO_INSTALL_FILES[demo_schema]
+    path = _repo_root() / relative_path
+    sql = path.read_text(encoding="utf-8")
+    return (
+        f"-- Bundled demo schema {demo_schema} from {relative_path.as_posix()}\n"
+        + sql.replace("__DEMO_SCHEMA_PASSWORD__", options.apex_password.replace('"', '""')).replace(
+            "__APP_SCHEMA__", sql_identifier(options.app_schema)
         )
-    return "\n\n".join(blocks)
+    )
+
+
+def render_demo_schema_installs(options: DeploymentOptions) -> str:
+    return "\n\n".join(render_demo_schema_install(options, demo_schema) for demo_schema in bundled_demo_schemas(options))
 
 
 def render_grants(options: DeploymentOptions) -> str:
     app_schema = sql_identifier(options.app_schema)
     statements: list[str] = []
-    demo_replication = render_demo_schema_replication(options)
-    if demo_replication:
-        statements.append(demo_replication)
+    demo_installs = render_demo_schema_installs(options)
+    if demo_installs:
+        statements.append(demo_installs)
     direct_schemas = [schema for schema in options.schemas if not uses_demo_schema(options, schema)]
     if direct_schemas:
         owner_list = csv_quote(direct_schemas)
@@ -430,9 +409,9 @@ def render_report(options: DeploymentOptions) -> str:
 {object_scope}
 ```
 
-## New Database Sample Schemas
-When `--mode new` targets Oracle-maintained sample schemas (`HR`, `SH`, `OE`, `PM`, `IX`, `BI`), the generated ADMIN SQL replicates each selected sample schema into a normal `<SCHEMA>_DEMO` schema.
-The Select AI profile then points to the demo schema, for example `SH_DEMO`, while the original Oracle-maintained schema remains locked and unchanged.
+## Bundled Demo Schemas
+When `--mode new` targets a bundled demo such as `SH` or `SH_DEMO`, the generated ADMIN SQL installs the repository-owned demo schema from `data/demo/sh_demo/install.sql`.
+The Select AI profile points to `SH_DEMO`, which includes demo tables, constraints and comments for metadata accuracy.
 The demo schema password is the generated or supplied APEX application password.
 
 ## Executed Steps

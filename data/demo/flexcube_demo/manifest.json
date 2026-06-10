@@ -1,0 +1,8 @@
+{
+  "schema": "FLEXCUBE_DEMO",
+  "label": "Core Banking",
+  "domain": "banking operations",
+  "status": "staged",
+  "source_path": "D:/dev/codex-select-ai/.data",
+  "notes": "Assets are versioned for a future automated loader. SH_DEMO remains the default new-database demo."
+}

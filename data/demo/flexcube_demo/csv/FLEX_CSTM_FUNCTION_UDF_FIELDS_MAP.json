@@ -1,0 +1,48 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP",
+  "source_file_name": "FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP generados desde .source.",
+  "columns": [
+    {
+      "column_name": "FUNCTION_ID",
+      "data_type": "VARCHAR2(8 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Atributo FUNCTION_ID de la tabla FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP.",
+      "ui_display": "Function Id",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIELD_NAME",
+      "data_type": "VARCHAR2(105 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Atributo FIELD_NAME de la tabla FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP.",
+      "ui_display": "Field Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIELD_NUM",
+      "data_type": "NUMBER(3)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Atributo FIELD_NUM de la tabla FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP.",
+      "ui_display": "Field Num",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CSTM_FUNCTION_UDF_FIELDS_MAP.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    }
+  ]
+}

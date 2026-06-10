@@ -1,0 +1,338 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_IFTB_CUBE_DETAILS",
+  "source_file_name": "FLEX_IFTB_CUBE_DETAILS.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_IFTB_CUBE_DETAILS generados desde .source.",
+  "columns": [
+    {
+      "column_name": "COD_RECTYPE",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Atributo COD_RECTYPE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Rectype",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_MODULE",
+      "data_type": "VARCHAR2(2 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Atributo COD_MODULE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Module",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_TS_FORMAT",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Atributo COD_TS_FORMAT de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Ts Format",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_INT_COL",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo COD_INT_COL de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Int Col",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IDENTIFIER",
+      "data_type": "VARCHAR2(200 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo IDENTIFIER de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Identifier",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_COL",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Atributo COD_COL de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Col",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_TAG_POS",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Atributo COD_TAG_POS de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Tag Pos",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_TAG_MODE",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo COD_TAG_MODE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Tag Mode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_TYPE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Atributo COD_TYPE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_TNAME",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo COD_TNAME de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Tname",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_FORMAT",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Atributo COD_CUBE_FORMAT de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Format",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_DEFAULTS",
+      "data_type": "VARCHAR2(255 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Atributo COD_CUBE_DEFAULTS de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Defaults",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_REFCHKS",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Refchks",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_COL",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Atributo COD_CUBE_COL de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Col",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FLG_CUBE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Atributo FLG_CUBE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Flg Cube",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_DEFIND",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Defind",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_KEYCNT",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo COD_CUBE_KEYCNT de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Keycnt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_FUNCID",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo COD_CUBE_FUNCID de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Funcid",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_MAND",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Atributo COD_CUBE_MAND de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Mand",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_FLDNAME",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo COD_CUBE_FLDNAME de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Fldname",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_KEYFLDS",
+      "data_type": "VARCHAR2(1000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo COD_CUBE_KEYFLDS de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Keyflds",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_DTYPE",
+      "data_type": "VARCHAR2(4000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Dtype",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_DLENGTH",
+      "data_type": "VARCHAR2(1000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo COD_CUBE_DLENGTH de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Dlength",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_TRACK",
+      "data_type": "VARCHAR2(1000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Atributo COD_CUBE_TRACK de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Track",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_CUBE_MODIND",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Cube Modind",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_PROC_TAG",
+      "data_type": "VARCHAR2(1000 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo COD_PROC_TAG de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Proc Tag",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_HEADER",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo COD_HEADER de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Header",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_DATA_LENGTH",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Atributo COD_DATA_LENGTH de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Data Length",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_DATA_TYPE",
+      "data_type": "VARCHAR2(255 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Atributo COD_DATA_TYPE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Data Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COD_MANDATORY",
+      "data_type": "VARCHAR2(255 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Atributo COD_MANDATORY de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Cod Mandatory",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TYPE_OF_INTERFACE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo TYPE_OF_INTERFACE de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Type Of Interface",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MULTI_RECORD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo MULTI_RECORD de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Multi Record",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FUNCTION_ID",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo FUNCTION_ID de la tabla FLEX_IFTB_CUBE_DETAILS.",
+      "ui_display": "Function Id",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

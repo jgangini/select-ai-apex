@@ -1,0 +1,68 @@
+{
+  "owner_name": "APP_AGENT_DATA",
+  "table_name": "FLEX_ACTB_ACCBAL_HISTORY",
+  "source_file_name": "FLEX_ACTB_ACCBAL_HISTORY.csv",
+  "table_comment": "Tabla histórica de saldos de cuenta para saldo de cierre y saldo promedio por sucursal y moneda.",
+  "columns": [
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "BKG_DATE",
+      "data_type": "DATE",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Bkg Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Código de moneda usado por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Acc Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_CLOSING_BAL",
+      "data_type": "NUMBER(24,3)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Monto monetario usado por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Acy Closing Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_UPD",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_ACCBAL_HISTORY.",
+      "ui_display": "Last Upd",
+      "classification": "date",
+      "primary_key": false
+    }
+  ]
+}

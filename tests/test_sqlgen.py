@@ -64,15 +64,16 @@ class SqlGenerationTests(unittest.TestCase):
         self.assertIn('"owner": "HR"', object_list_json(options()))
         self.assertNotIn('"CUSTOMERS"', object_list_json(options()))
 
-    def test_new_sample_schema_uses_demo_schema_scope(self) -> None:
+    def test_new_sample_schema_uses_bundled_demo_schema_scope(self) -> None:
         rendered = render_plan(new_sample_options())
 
         self.assertIn('"owner": "SH_DEMO"', object_list_json(new_sample_options()))
         self.assertNotIn('"owner": "SH"', object_list_json(new_sample_options()))
+        self.assertIn("data/demo/sh_demo/install.sql", rendered.admin_sql)
         self.assertIn("CREATE USER SH_DEMO", rendered.admin_sql)
-        self.assertIn('CREATE TABLE SH_DEMO."', rendered.admin_sql)
+        self.assertIn("CREATE TABLE SH_DEMO.SALES", rendered.admin_sql)
         self.assertIn('GRANT SELECT ON SH_DEMO."', rendered.admin_sql)
-        self.assertIn("New Database Sample Schemas", rendered.report_markdown)
+        self.assertIn("Bundled Demo Schemas", rendered.report_markdown)
 
     def test_report_documents_outputs_and_profile(self) -> None:
         rendered = render_plan(options())
