@@ -110,6 +110,8 @@ The CLI writes:
 
 The generated SQL does not use `SELECT ANY TABLE`. Access is controlled by grants to `SELECT_AI_APP`.
 
+For new databases, Oracle-maintained sample schemas such as `SH` can be readable by `ADMIN` but still not grantable or unlockable as application source schemas. In that case the generated SQL creates a normal demo schema such as `SH_DEMO`, copies the selected sample tables into it, grants `SH_DEMO` to `SELECT_AI_APP`, and points the Select AI profile to `SH_DEMO`.
+
 To add more data later:
 
 ```sql

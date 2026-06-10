@@ -28,6 +28,27 @@ def options() -> DeploymentOptions:
     )
 
 
+def new_sample_options() -> DeploymentOptions:
+    return DeploymentOptions(
+        mode="new",
+        oci_config=OciConfig(
+            tenancy="ocid1.tenancy.oc1..aaaa",
+            user="ocid1.user.oc1..bbbb",
+            fingerprint="aa:bb",
+            region="us-chicago-1",
+        ),
+        oci_private_key="-----BEGIN PRIVATE KEY-----\nabc\n-----END PRIVATE KEY-----",
+        schemas=["SH"],
+        tables=[],
+        app_schema_password="SchemaPass123",
+        apex_password="ApexPass123",
+        wallet=Path("wallet.zip"),
+        wallet_password="WalletPass123",
+        dsn="selectai_low",
+        db_version="19c",
+    )
+
+
 class SqlGenerationTests(unittest.TestCase):
     def test_render_plan_uses_grants_not_select_any_table(self) -> None:
         rendered = render_plan(options())
@@ -42,6 +63,16 @@ class SqlGenerationTests(unittest.TestCase):
     def test_object_list_prefers_schema_scope_for_future_grants(self) -> None:
         self.assertIn('"owner": "HR"', object_list_json(options()))
         self.assertNotIn('"CUSTOMERS"', object_list_json(options()))
+
+    def test_new_sample_schema_uses_demo_schema_scope(self) -> None:
+        rendered = render_plan(new_sample_options())
+
+        self.assertIn('"owner": "SH_DEMO"', object_list_json(new_sample_options()))
+        self.assertNotIn('"owner": "SH"', object_list_json(new_sample_options()))
+        self.assertIn("CREATE USER SH_DEMO", rendered.admin_sql)
+        self.assertIn('CREATE TABLE SH_DEMO."', rendered.admin_sql)
+        self.assertIn('GRANT SELECT ON SH_DEMO."', rendered.admin_sql)
+        self.assertIn("New Database Sample Schemas", rendered.report_markdown)
 
     def test_report_documents_outputs_and_profile(self) -> None:
         rendered = render_plan(options())
