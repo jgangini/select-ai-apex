@@ -1,0 +1,48 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "PROMOTIONS",
+  "source_file_name": "PROMOTIONS.json",
+  "table_comment": "Promotion dimension with marketing campaign names, categories and campaign cost.",
+  "columns": [
+    {
+      "column_name": "PROMO_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Promotion identifier.",
+      "ui_display": "Promo Id",
+      "classification": "promotion",
+      "primary_key": true
+    },
+    {
+      "column_name": "PROMO_NAME",
+      "data_type": "VARCHAR2(80)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Promotion campaign name.",
+      "ui_display": "Promo Name",
+      "classification": "promotion",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROMO_CATEGORY",
+      "data_type": "VARCHAR2(40)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Promotion category.",
+      "ui_display": "Promo Category",
+      "classification": "promotion",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROMO_COST",
+      "data_type": "NUMBER(10,2)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Marketing cost of the promotion campaign.",
+      "ui_display": "Promo Cost",
+      "classification": "amount",
+      "primary_key": false
+    }
+  ]
+}

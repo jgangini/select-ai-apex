@@ -1,0 +1,58 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "PRODUCTS",
+  "source_file_name": "PRODUCTS.json",
+  "table_comment": "Product dimension with category, subcategory and list price.",
+  "columns": [
+    {
+      "column_name": "PROD_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Product identifier.",
+      "ui_display": "Prod Id",
+      "classification": "product",
+      "primary_key": true
+    },
+    {
+      "column_name": "PROD_NAME",
+      "data_type": "VARCHAR2(80)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Product display name.",
+      "ui_display": "Prod Name",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD_CATEGORY",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Top-level product category for grouping sales.",
+      "ui_display": "Prod Category",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD_SUBCATEGORY",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Product subcategory for detailed sales analysis.",
+      "ui_display": "Prod Subcategory",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD_LIST_PRICE",
+      "data_type": "NUMBER(10,2)",
+      "nullable": "N",
+      "ordinal_position": 5,
+      "comment": "Current product list price.",
+      "ui_display": "Prod List Price",
+      "classification": "amount",
+      "primary_key": false
+    }
+  ]
+}

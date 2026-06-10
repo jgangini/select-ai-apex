@@ -7,28 +7,65 @@ from .models import DeploymentOptions, RenderedPlan
 from .validators import csv_quote, q_quote, sql_identifier, sql_string
 
 
-DEMO_SCHEMA_ALIASES = {
-    "SH": "SH_DEMO",
-    "SH_DEMO": "SH_DEMO",
-}
+def _demo_catalog() -> list[dict[str, object]]:
+    manifest_path = _repo_root() / "data" / "demo" / "manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        demos = manifest.get("demos", [])
+        if isinstance(demos, list):
+            return [demo for demo in demos if isinstance(demo, dict)]
+    return [
+        {
+            "folder": "sh_demo",
+            "schema": "SH_DEMO",
+            "aliases": ["SH"],
+            "install": "install.sql",
+            "tables": ["COUNTRIES", "CHANNELS", "PRODUCTS", "CUSTOMERS", "TIMES", "PROMOTIONS", "SALES", "COSTS"],
+        }
+    ]
 
-DEMO_INSTALL_FILES = {
-    "SH_DEMO": Path("data/demo/sh_demo/install.sql"),
-}
+
+def _demo_entries() -> dict[str, dict[str, object]]:
+    entries: dict[str, dict[str, object]] = {}
+    for demo in _demo_catalog():
+        schema = str(demo.get("schema", "")).strip().upper()
+        folder = str(demo.get("folder", "")).strip()
+        if not schema or not folder:
+            continue
+        install = str(demo.get("install") or demo.get("installer") or "install.sql").strip()
+        entry = {
+            "schema": schema,
+            "folder": folder,
+            "install": install,
+            "install_path": Path("data") / "demo" / folder / install,
+            "tables": [str(table).strip().upper() for table in demo.get("tables", []) if str(table).strip()],
+        }
+        entries[schema] = entry
+        for alias in demo.get("aliases", []):
+            alias_name = str(alias).strip().upper()
+            if alias_name:
+                entries[alias_name] = entry
+    return entries
+
+
+def _demo_entry_for_schema(schema: str) -> dict[str, object] | None:
+    return _demo_entries().get(schema.strip().upper())
 
 
 def demo_schema_name(schema: str) -> str:
-    schema = schema.upper()
-    return DEMO_SCHEMA_ALIASES.get(schema, f"{schema}_DEMO".upper()[:128])
+    entry = _demo_entry_for_schema(schema)
+    if entry:
+        return str(entry["schema"])
+    return f"{schema}_DEMO".upper()[:128]
 
 
 def uses_demo_schema(options: DeploymentOptions, schema: str) -> bool:
-    return options.mode == "new" and schema.upper() in DEMO_SCHEMA_ALIASES
+    return options.mode == "new" and _demo_entry_for_schema(schema) is not None
 
 
 def effective_owner(options: DeploymentOptions, owner: str) -> str:
-    owner = owner.upper()
-    return DEMO_SCHEMA_ALIASES[owner] if uses_demo_schema(options, owner) else owner
+    entry = _demo_entry_for_schema(owner)
+    return str(entry["schema"]) if options.mode == "new" and entry else owner.upper()
 
 
 def object_list_json(options: DeploymentOptions) -> str:
@@ -60,11 +97,16 @@ def _repo_root() -> Path:
 
 
 def render_demo_schema_install(options: DeploymentOptions, demo_schema: str) -> str:
-    relative_path = DEMO_INSTALL_FILES[demo_schema]
+    entry = _demo_entry_for_schema(demo_schema)
+    if not entry:
+        raise KeyError(f"Unknown bundled demo schema: {demo_schema}")
+    relative_path = entry["install_path"]
+    if not isinstance(relative_path, Path):
+        relative_path = Path(str(relative_path))
     path = _repo_root() / relative_path
     sql = path.read_text(encoding="utf-8")
     return (
-        f"-- Bundled demo schema {demo_schema} from {relative_path.as_posix()}\n"
+        f"-- Bundled demo schema {entry['schema']} from {relative_path.as_posix()}\n"
         + sql.replace("__DEMO_SCHEMA_PASSWORD__", options.apex_password.replace('"', '""')).replace(
             "__APP_SCHEMA__", sql_identifier(options.app_schema)
         )

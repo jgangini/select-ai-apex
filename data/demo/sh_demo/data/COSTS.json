@@ -1,0 +1,48 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "COSTS",
+  "source_file_name": "COSTS.json",
+  "table_comment": "Product cost fact table with unit cost and unit price by product and date.",
+  "columns": [
+    {
+      "column_name": "PROD_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Foreign key to the product.",
+      "ui_display": "Prod Id",
+      "classification": "product",
+      "primary_key": true
+    },
+    {
+      "column_name": "TIME_ID",
+      "data_type": "DATE",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Foreign key to the calendar date.",
+      "ui_display": "Time Id",
+      "classification": "date",
+      "primary_key": true
+    },
+    {
+      "column_name": "UNIT_COST",
+      "data_type": "NUMBER(10,2)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Internal cost per product unit.",
+      "ui_display": "Unit Cost",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "UNIT_PRICE",
+      "data_type": "NUMBER(10,2)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Sales list price per product unit.",
+      "ui_display": "Unit Price",
+      "classification": "amount",
+      "primary_key": false
+    }
+  ]
+}

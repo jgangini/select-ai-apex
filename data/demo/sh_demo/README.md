@@ -1,12 +1,12 @@
-# SH_DEMO
+# SH_DEMO - Sales History
 
-`SH_DEMO` is a compact Sales History schema for Select AI Apex deployments. It is inspired by Oracle Database Sample Schemas Sales History and is installed directly from this repository, so new Autonomous Database deployments do not depend on preexisting `SH` or `HR` users.
+`SH_DEMO` is a compact sales analytics schema for validating Select AI Apex end to end. It is based on the Oracle Sales History sample model, but it is installed as a normal user-owned schema so Deploy Studio can grant its tables to `SELECT_AI_APP` reliably.
 
-Source reference: https://github.com/oracle-samples/db-sample-schemas/tree/main/sales_history
+Use this demo for questions such as:
 
-The installer replaces these placeholders before execution:
+- total sales by channel, product category or customer country
+- monthly and quarterly revenue trends
+- quantity sold and margin-style comparisons using the costs fact table
+- promotion impact by campaign category
 
-- `__DEMO_SCHEMA_PASSWORD__`: the APEX application password from Deploy Studio.
-- `__APP_SCHEMA__`: the Select AI parsing/profile schema, normally `SELECT_AI_APP`.
-
-The script creates tables, constraints, comments and grants required by Select AI metadata discovery.
+The folder follows the standard demo contract: `manifest.json`, table metadata in `data/*.json`, and an idempotent `install.sql` that creates the schema, loads a small seed dataset, comments tables/columns and grants read access to the Select AI profile schema.

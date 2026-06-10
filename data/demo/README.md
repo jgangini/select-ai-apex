@@ -1,10 +1,11 @@
-# Demo Data
+# Demo Data Catalog
 
-This folder contains bundled demo schemas that can be installed by Select AI Apex deployments without depending on sample users preloaded in Autonomous Database.
+This directory contains demo schemas that can be installed automatically by Select AI Apex in new Autonomous Database deployments.
 
-## Available demos
+Deploy Studio reads `manifest.json` to list grant schema options. Each entry points to a folder that follows the same contract:
 
-- `sh_demo`: compact Sales History demo schema installed as `SH_DEMO`.
-- `flexcube_demo`: banking demo assets staged for future automated loading.
+- `manifest.json`: schema metadata for the specific demo.
+- `data/*.json`: table and column metadata used for documentation, Select AI comments and future loaders.
+- `install.sql`: idempotent ADMIN script that creates or refreshes the demo schema, applies comments and grants `SELECT` to `SELECT_AI_APP`.
 
-Bundled demo schemas use the same application password generated or supplied for the APEX workspace administrator during Deploy Studio runs.
+The demo schema password is the APEX application password supplied during deployment. This lets a new database behave like an existing database with user-owned source schemas, without relying on Oracle-maintained sample users.

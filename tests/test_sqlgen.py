@@ -1,3 +1,4 @@
+from dataclasses import replace
 from pathlib import Path
 import unittest
 
@@ -49,6 +50,10 @@ def new_sample_options() -> DeploymentOptions:
     )
 
 
+def new_flexcube_options() -> DeploymentOptions:
+    return replace(new_sample_options(), schemas=["FLEXCUBE_DEMO"])
+
+
 class SqlGenerationTests(unittest.TestCase):
     def test_render_plan_uses_grants_not_select_any_table(self) -> None:
         rendered = render_plan(options())
@@ -74,6 +79,15 @@ class SqlGenerationTests(unittest.TestCase):
         self.assertIn("CREATE TABLE SH_DEMO.SALES", rendered.admin_sql)
         self.assertIn('GRANT SELECT ON SH_DEMO."', rendered.admin_sql)
         self.assertIn("Bundled Demo Schemas", rendered.report_markdown)
+
+    def test_new_flexcube_schema_uses_manifest_demo_installer(self) -> None:
+        rendered = render_plan(new_flexcube_options())
+
+        self.assertIn('"owner": "FLEXCUBE_DEMO"', object_list_json(new_flexcube_options()))
+        self.assertIn("data/demo/flexcube_demo/install.sql", rendered.admin_sql)
+        self.assertIn("CREATE USER FLEXCUBE_DEMO", rendered.admin_sql)
+        self.assertIn("CREATE TABLE \"FLEXCUBE_DEMO\"", rendered.admin_sql)
+        self.assertIn("FLEX_STTM_CUSTOMER", rendered.admin_sql)
 
     def test_report_documents_outputs_and_profile(self) -> None:
         rendered = render_plan(options())

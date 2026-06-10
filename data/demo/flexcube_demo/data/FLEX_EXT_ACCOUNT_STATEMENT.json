@@ -1,0 +1,448 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_EXT_ACCOUNT_STATEMENT",
+  "source_file_name": "FLEX_EXT_ACCOUNT_STATEMENT.csv",
+  "table_comment": "Tabla de transacciones de estados de cuenta externos con indicadores de transacciones ocultas y montos de estado de cuenta.",
+  "columns": [
+    {
+      "column_name": "TRN_REF_NO",
+      "data_type": "VARCHAR2(17)",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Trn Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Trn Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Txn Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_CODE",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Identificador de producto usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Product Code",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Value Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ac Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT_NO",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Account No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Código de negocio usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Monto monetario usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Lcy Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Monto de la transacción del estado de cuenta usado para filtros por umbral.",
+      "ui_display": "Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "DRCR_IND",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Drcr Ind",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODULE",
+      "data_type": "CHAR(3)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Atributo MODULE de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Module",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Atributo INSTRUMENT_NO de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Instrument No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXTENDED_CODE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Código de negocio usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Extended Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "RELATED_CUSTOMER",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Identificador de cliente usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Related Customer",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_INIT_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Txn Init Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXTRACTION_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Extraction Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_ENTRY_SR_NO",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo AC_ENTRY_SR_NO de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ac Entry Sr No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Atributo EVENT de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Event",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT_TAG",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Monto monetario usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Amount Tag",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ofs Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFS_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ofs Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_SR_NO",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo EVENT_SR_NO de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Event Sr No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Código de moneda usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ac Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "GROUP_TXN_COUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Atributo GROUP_TXN_COUNT de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Group Txn Count",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "HIDE_TXN_IN_STMT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Indicador de transacción oculta en estado de cuenta. Y significa que la transacción está oculta.",
+      "ui_display": "Hide Txn In Stmt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "PERIOD_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Código de negocio usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Period Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_ID",
+      "data_type": "VARCHAR2(43)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Txn Id",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXT_OFSTXN_CODE",
+      "data_type": "VARCHAR2(15)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Código de negocio usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Ext Ofstxn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_1",
+      "data_type": "VARCHAR2(52)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo DATA_1 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_2",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Atributo DATA_2 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_3",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo DATA_3 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_4",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo DATA_4 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_5",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Atributo DATA_5 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 5",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_6",
+      "data_type": "VARCHAR2(52)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Atributo DATA_6 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 6",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_7",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Atributo DATA_7 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 7",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_8",
+      "data_type": "VARCHAR2(53)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Atributo DATA_8 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 8",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATA_9",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Atributo DATA_9 de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Data 9",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CBII_INFO",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Atributo CBII_INFO de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Cbii Info",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BATCH_REF_NO",
+      "data_type": "VARCHAR2(50)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Batch Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRN_CODE_TRANS",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Atributo TRN_CODE_TRANS de la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Trn Code Trans",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REAL_DT_TIME",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 43,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Real Dt Time",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "SOURCE_CODE",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 44,
+      "comment": "Código de negocio usado por la tabla FLEX_EXT_ACCOUNT_STATEMENT.",
+      "ui_display": "Source Code",
+      "classification": "code",
+      "primary_key": false
+    }
+  ]
+}

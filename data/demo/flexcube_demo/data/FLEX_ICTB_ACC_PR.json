@@ -1,0 +1,348 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_ICTB_ACC_PR",
+  "source_file_name": "FLEX_ICTB_ACC_PR.csv",
+  "table_comment": "Tabla de procesamiento de intereses por cuenta. LAST_LIQ_DT almacena la última fecha de liquidación de intereses.",
+  "columns": [
+    {
+      "column_name": "BRN",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Atributo BRN de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Atributo PROD de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Prod",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SC_MAP_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Sc Map Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "GC_MAP_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Gc Map Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_CALC_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Last Calc Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_LIQ_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Last Liq Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_LIQ_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Liq Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_ACCR_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Last Accr Dt",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_ACCR_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Accr Dt",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_SCHD_LIQ_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Last Schd Liq Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "INC_MTH",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Atributo INC_MTH de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Inc Mth",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_SCHD_LIQ_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Schd Liq Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIRST_CALC_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "First Calc Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_SCHD_ACCR_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Schd Accr Dt",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD_TYPE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Atributo PROD_TYPE de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Prod Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "HAS_ACCR",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Has Accr",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_CALC_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Calc Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROD_ACCR",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Prod Accr",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "HAS_PROBLEMS",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo HAS_PROBLEMS de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Has Problems",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BKVAL_RECALC_FLAG",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Bkval Recalc Flag",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "BKVAL_MINCALC_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Bkval Mincalc Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "STOP_IC",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo STOP_IC de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Stop Ic",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIRST_FIRST_CALC_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "First First Calc Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "NEXT_EVENT_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Next Event Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACLASS",
+      "data_type": "VARCHAR2(6 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo ACLASS de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Aclass",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROCESS",
+      "data_type": "NUMBER(2)",
+      "nullable": "N",
+      "ordinal_position": 28,
+      "comment": "Atributo PROCESS de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Process",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIS_REFERENCE",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Mis Reference",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEPOSIT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Atributo DEPOSIT de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Deposit",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IMAT_PROBLEMS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Atributo IMAT_PROBLEMS de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Imat Problems",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEFER_LIQ_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Defer Liq Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TAX_PRODUCT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Identificador de producto usado por la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Tax Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "HAS_IADJ",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo HAS_IADJ de la tabla FLEX_ICTB_ACC_PR.",
+      "ui_display": "Has Iadj",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

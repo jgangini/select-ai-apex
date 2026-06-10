@@ -1,0 +1,228 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_CATM_AMOUNT_BLOCKS",
+  "source_file_name": "FLEX_CATM_AMOUNT_BLOCKS.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_CATM_AMOUNT_BLOCKS generados desde .source.",
+  "columns": [
+    {
+      "column_name": "BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT_BLOCK_NO",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Monto monetario usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Amount Block No",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Monto monetario usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "EFFECTIVE_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Effective Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXPIRY_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Expiry Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Atributo MOD_NO de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REMARKS",
+      "data_type": "VARCHAR2(255)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Atributo REMARKS de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Remarks",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXPIRY_HOUR",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Atributo EXPIRY_HOUR de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Expiry Hour",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXPIRY_MINUTE",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo EXPIRY_MINUTE de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Expiry Minute",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT_BLK_TYPE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Monto monetario usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Amount Blk Type",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMT_BLOCK_TYPE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Monto monetario usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Amt Block Type",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRIORITY",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo PRIORITY de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Priority",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DELINQUENCY_PRODUCT",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Identificador de producto usado por la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Delinquency Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECK_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo CHECK_NO de la tabla FLEX_CATM_AMOUNT_BLOCKS.",
+      "ui_display": "Check No",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

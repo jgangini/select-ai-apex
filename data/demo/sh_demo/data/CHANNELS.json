@@ -1,0 +1,38 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "CHANNELS",
+  "source_file_name": "CHANNELS.json",
+  "table_comment": "Sales channel dimension, such as direct, internet, partner and retail.",
+  "columns": [
+    {
+      "column_name": "CHANNEL_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Sales channel identifier.",
+      "ui_display": "Channel Id",
+      "classification": "channel",
+      "primary_key": true
+    },
+    {
+      "column_name": "CHANNEL_DESC",
+      "data_type": "VARCHAR2(40)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Sales channel description.",
+      "ui_display": "Channel Desc",
+      "classification": "channel",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHANNEL_CLASS",
+      "data_type": "VARCHAR2(40)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Sales channel class used for grouping.",
+      "ui_display": "Channel Class",
+      "classification": "channel",
+      "primary_key": false
+    }
+  ]
+}
