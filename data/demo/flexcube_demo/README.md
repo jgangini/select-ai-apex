@@ -1,12 +1,12 @@
 # FLEXCUBE_DEMO - Core Banking
 
-`FLEXCUBE_DEMO` is a core banking metadata catalog for testing Select AI Apex against a broader operational model. It groups account balances, accounting entries, customers, limits, loans, teller operations, transaction logs and product metadata into a normal user-owned schema.
+`FLEXCUBE_DEMO` is a core banking demo dataset for testing Select AI Apex with a broader operational model. It includes account balances, accounting entries, customers, limits, loans, teller operations, transaction logs and product metadata.
 
-Use this demo for questions such as:
+Use this demo for questions about:
 
 - account balance and transaction activity by branch or currency
-- customer/account relationships and product usage
-- loan or deposit operational analysis
-- accounting event, clearing and teller operation exploration
+- customer and account relationships
+- loan, deposit and product operations
+- accounting events, clearing and teller activity
 
-The current dataset is metadata-first: `data/*.json` defines the tables, columns, comments and classifications. `install.sql` creates the empty tables with comments and grants read access to `SELECT_AI_APP`; row payloads can be added later without changing the demo manifest contract.
+The folder follows the standard demo contract: `manifest.json`, metadata in `data/*.json`, seed rows in `data/*.csv`, and a generated `install.sql`. The installer creates `FLEXCUBE_DEMO`, applies table and column comments for Select AI precision, loads the CSV rows and grants `SELECT` on every table to the Select AI profile schema.

@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "CUSTOMERS",
-  "source_file_name": "CUSTOMERS.json",
+  "source_file_name": "CUSTOMERS.csv",
   "table_comment": "Customer dimension with geography, income level and credit limit.",
   "columns": [
     {
@@ -93,6 +93,20 @@
       "ui_display": "Cust Credit Limit",
       "classification": "amount",
       "primary_key": false
+    }
+  ],
+  "foreign_keys": [
+    {
+      "name": "SH_DEMO_CUSTOMERS_COUNTRY_FK",
+      "columns": [
+        "COUNTRY_ID"
+      ],
+      "references": {
+        "table": "COUNTRIES",
+        "columns": [
+          "COUNTRY_ID"
+        ]
+      }
     }
   ]
 }

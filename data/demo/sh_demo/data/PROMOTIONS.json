@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "PROMOTIONS",
-  "source_file_name": "PROMOTIONS.json",
+  "source_file_name": "PROMOTIONS.csv",
   "table_comment": "Promotion dimension with marketing campaign names, categories and campaign cost.",
   "columns": [
     {

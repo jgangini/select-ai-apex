@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "COUNTRIES",
-  "source_file_name": "COUNTRIES.json",
+  "source_file_name": "COUNTRIES.csv",
   "table_comment": "Country and region dimension for Sales History demo analytics.",
   "columns": [
     {

@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "CHANNELS",
-  "source_file_name": "CHANNELS.json",
+  "source_file_name": "CHANNELS.csv",
   "table_comment": "Sales channel dimension, such as direct, internet, partner and retail.",
   "columns": [
     {

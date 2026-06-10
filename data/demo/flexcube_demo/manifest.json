@@ -70,5 +70,7 @@
     "FLEX_TDTB_OPERATION",
     "FLEX_TDTB_OPERATION_ARCHIVE",
     "FLEX_TDTM_RATE_MASTER"
-  ]
+  ],
+  "data_format": "json+csv",
+  "row_source": "data/*.csv"
 }

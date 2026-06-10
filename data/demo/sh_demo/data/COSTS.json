@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "COSTS",
-  "source_file_name": "COSTS.json",
+  "source_file_name": "COSTS.csv",
   "table_comment": "Product cost fact table with unit cost and unit price by product and date.",
   "columns": [
     {
@@ -43,6 +43,32 @@
       "ui_display": "Unit Price",
       "classification": "amount",
       "primary_key": false
+    }
+  ],
+  "foreign_keys": [
+    {
+      "name": "SH_DEMO_COSTS_PRODUCT_FK",
+      "columns": [
+        "PROD_ID"
+      ],
+      "references": {
+        "table": "PRODUCTS",
+        "columns": [
+          "PROD_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_COSTS_TIME_FK",
+      "columns": [
+        "TIME_ID"
+      ],
+      "references": {
+        "table": "TIMES",
+        "columns": [
+          "TIME_ID"
+        ]
+      }
     }
   ]
 }

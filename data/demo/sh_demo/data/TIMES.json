@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "TIMES",
-  "source_file_name": "TIMES.json",
+  "source_file_name": "TIMES.csv",
   "table_comment": "Calendar time dimension used to aggregate sales by month, quarter and year.",
   "columns": [
     {

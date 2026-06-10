@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "SALES",
-  "source_file_name": "SALES.json",
+  "source_file_name": "SALES.csv",
   "table_comment": "Sales fact table with product, customer, date, channel, promotion, quantity and sold amount.",
   "columns": [
     {
@@ -73,6 +73,68 @@
       "ui_display": "Amount Sold",
       "classification": "amount",
       "primary_key": false
+    }
+  ],
+  "foreign_keys": [
+    {
+      "name": "SH_DEMO_SALES_PRODUCT_FK",
+      "columns": [
+        "PROD_ID"
+      ],
+      "references": {
+        "table": "PRODUCTS",
+        "columns": [
+          "PROD_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_CUSTOMER_FK",
+      "columns": [
+        "CUST_ID"
+      ],
+      "references": {
+        "table": "CUSTOMERS",
+        "columns": [
+          "CUST_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_TIME_FK",
+      "columns": [
+        "TIME_ID"
+      ],
+      "references": {
+        "table": "TIMES",
+        "columns": [
+          "TIME_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_CHANNEL_FK",
+      "columns": [
+        "CHANNEL_ID"
+      ],
+      "references": {
+        "table": "CHANNELS",
+        "columns": [
+          "CHANNEL_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_PROMO_FK",
+      "columns": [
+        "PROMO_ID"
+      ],
+      "references": {
+        "table": "PROMOTIONS",
+        "columns": [
+          "PROMO_ID"
+        ]
+      }
     }
   ]
 }

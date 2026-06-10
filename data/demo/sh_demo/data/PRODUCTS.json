@@ -1,7 +1,7 @@
 {
   "owner_name": "SH_DEMO",
   "table_name": "PRODUCTS",
-  "source_file_name": "PRODUCTS.json",
+  "source_file_name": "PRODUCTS.csv",
   "table_comment": "Product dimension with category, subcategory and list price.",
   "columns": [
     {

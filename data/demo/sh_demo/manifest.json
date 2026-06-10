@@ -19,5 +19,7 @@
     "PROMOTIONS",
     "SALES",
     "COSTS"
-  ]
+  ],
+  "data_format": "json+csv",
+  "row_source": "data/*.csv"
 }

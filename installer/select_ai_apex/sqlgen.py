@@ -452,8 +452,8 @@ def render_report(options: DeploymentOptions) -> str:
 ```
 
 ## Bundled Demo Schemas
-When `--mode new` targets a bundled demo such as `SH` or `SH_DEMO`, the generated ADMIN SQL installs the repository-owned demo schema from `data/demo/sh_demo/install.sql`.
-The Select AI profile points to `SH_DEMO`, which includes demo tables, constraints and comments for metadata accuracy.
+When `--mode new` targets a bundled demo listed in `data/demo/manifest.json`, the generated ADMIN SQL installs that repository-owned demo schema from `data/demo/<folder>/install.sql`.
+The Select AI profile points to the resolved demo schema, such as `SH_DEMO` or `FLEXCUBE_DEMO`, including tables, seed data, constraints when present, and comments for metadata accuracy.
 The demo schema password is the generated or supplied APEX application password.
 
 ## Executed Steps
