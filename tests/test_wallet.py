@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 
 from test_support import repo_tempdir
-from select_ai_apex.wallet import list_wallet_dsn_aliases
+from installer.wallet import list_wallet_dsn_aliases
 
 
 class WalletTests(unittest.TestCase):

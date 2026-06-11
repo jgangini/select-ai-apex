@@ -1,6 +1,0 @@
-CUST_ID,CUST_FIRST_NAME,CUST_LAST_NAME,CUST_GENDER,CUST_CITY,CUST_STATE_PROVINCE,COUNTRY_ID,CUST_INCOME_LEVEL,CUST_CREDIT_LIMIT
-100,Ava,Johnson,F,Chicago,Illinois,US,High,18000
-110,Liam,Martinez,M,Austin,Texas,US,Medium,9500
-120,Mia,Chen,F,Toronto,Ontario,CA,Medium,8200
-130,Oliver,Smith,M,London,England,GB,High,21000
-140,Yuki,Tanaka,F,Tokyo,Tokyo,JP,High,24000

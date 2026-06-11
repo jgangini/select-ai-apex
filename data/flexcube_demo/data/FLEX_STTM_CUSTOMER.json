@@ -1,0 +1,38 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_STTM_CUSTOMER",
+  "source_file_name": "FLEX_STTM_CUSTOMER.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTM_CUSTOMER generados desde .source.",
+  "columns": [
+    {
+      "column_name": "CUSTOMER_NO",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de cliente usado por la tabla FLEX_STTM_CUSTOMER.",
+      "ui_display": "Customer No",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "LANGUAGE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Atributo LANGUAGE de la tabla FLEX_STTM_CUSTOMER.",
+      "ui_display": "Language",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUSTOMER_NAME1",
+      "data_type": "VARCHAR2(105 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Identificador de cliente usado por la tabla FLEX_STTM_CUSTOMER.",
+      "ui_display": "Customer Name1",
+      "classification": "customer",
+      "primary_key": false
+    }
+  ]
+}

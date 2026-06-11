@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "default_app": "chatdb-es-2024",
+  "apps": [
+    {
+      "id": "chatdb-es-2024",
+      "label": "Autonomous DB + Select AI",
+      "export_path": "apex/chatdb-es-2024.sql",
+      "workspace": "SELECT_AI_APEX",
+      "application_alias": "SELECT_AI_APEX",
+      "application_name": "Autonomous DB + Select AI",
+      "supported_database_versions": ["19c", "26ai"],
+      "recommended_database_version": "26ai",
+      "features": {
+        "chat": ["19c", "26ai"],
+        "nl2sql": ["19c", "26ai"]
+      }
+    },
+    {
+      "id": "ask-oracle-chatbot",
+      "label": "Ask Oracle",
+      "export_path": "apex/ADB-AskOracle-Chatbot-2026-03-04.sql",
+      "workspace": "SELECT_AI_APEX",
+      "application_alias": "ASK_ORACLE",
+      "application_name": "Ask Oracle",
+      "supported_database_versions": ["19c", "26ai"],
+      "recommended_database_version": "26ai",
+      "features": {
+        "chat": ["19c", "26ai"],
+        "nl2sql": ["19c", "26ai"],
+        "ai_agents": ["19c", "26ai"],
+        "rag": ["26ai"]
+      }
+    }
+  ]
+}

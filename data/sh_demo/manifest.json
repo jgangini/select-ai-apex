@@ -1,0 +1,25 @@
+{
+  "schema": "SH_DEMO",
+  "aliases": [
+    "SH"
+  ],
+  "label": "Sales History",
+  "domain": "Sales Analytics",
+  "use_case": "Sales History",
+  "metadata_path": "data",
+  "loader": "metadata_csv",
+  "source": "https://github.com/oracle-samples/db-sample-schemas/tree/main/sales_history",
+  "description": "Compact sales star schema for Select AI Apex validation.",
+  "tables": [
+    "COUNTRIES",
+    "CHANNELS",
+    "PRODUCTS",
+    "CUSTOMERS",
+    "TIMES",
+    "PROMOTIONS",
+    "SALES",
+    "COSTS"
+  ],
+  "data_format": "json+csv",
+  "row_source": "data/*.csv"
+}

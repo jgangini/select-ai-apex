@@ -2,11 +2,11 @@ from dataclasses import replace
 from pathlib import Path
 import unittest
 
-from select_ai_apex.models import DeploymentOptions
-from select_ai_apex.db import split_sql_script
-from select_ai_apex.oci_config import OciConfig
-from select_ai_apex.sqlgen import object_list_json, render_plan
-from select_ai_apex.validators import DbObject
+from installer.models import DeploymentOptions
+from installer.db import split_sql_script
+from installer.oci_config import OciConfig
+from installer.sqlgen import object_list_json, render_plan
+from installer.validators import DbObject
 
 
 def options() -> DeploymentOptions:
@@ -74,7 +74,7 @@ class SqlGenerationTests(unittest.TestCase):
 
         self.assertIn('"owner": "SH_DEMO"', object_list_json(new_sample_options()))
         self.assertNotIn('"owner": "SH"', object_list_json(new_sample_options()))
-        self.assertIn("data/demo/sh_demo/manifest.json", rendered.admin_sql)
+        self.assertIn("data/sh_demo/manifest.json", rendered.admin_sql)
         self.assertIn("CREATE USER SH_DEMO", rendered.admin_sql)
         self.assertIn('CREATE TABLE "SH_DEMO"."SALES"', rendered.admin_sql)
         self.assertIn('GRANT SELECT ON "SH_DEMO"."', rendered.admin_sql)
@@ -85,7 +85,7 @@ class SqlGenerationTests(unittest.TestCase):
         rendered = render_plan(new_flexcube_options())
 
         self.assertIn('"owner": "FLEXCUBE_DEMO"', object_list_json(new_flexcube_options()))
-        self.assertIn("data/demo/flexcube_demo/manifest.json", rendered.admin_sql)
+        self.assertIn("data/flexcube_demo/manifest.json", rendered.admin_sql)
         self.assertIn("CREATE USER FLEXCUBE_DEMO", rendered.admin_sql)
         self.assertIn("CREATE TABLE \"FLEXCUBE_DEMO\"", rendered.admin_sql)
         self.assertIn("FLEX_STTM_CUSTOMER", rendered.admin_sql)

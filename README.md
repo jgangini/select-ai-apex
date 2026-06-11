@@ -20,7 +20,7 @@ Select AI APEX is an independent deployment project. Terraform creates or refere
 py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 $env:PYTHONPATH = "installer"
-.\.venv\Scripts\python.exe -m select_ai_apex.cli --help
+.\.venv\Scripts\python.exe -m installer.cli --help
 ```
 
 If you install the package, the console script is:
@@ -95,8 +95,8 @@ select-ai-apex install `
 
 New database deployments can use demo schemas stored in this repository instead of relying on Oracle-maintained sample users existing in the target database.
 
-- `data/demo/sh_demo` installs `SH_DEMO`, a compact Sales History demo with tables, constraints, comments and grants for Select AI.
-- `data/demo/flexcube_demo` installs `FLEXCUBE_DEMO`, a banking demo loaded from JSON metadata and CSV rows.
+- `data/sh_demo` installs `SH_DEMO`, a compact Sales History demo with tables, constraints, comments and grants for Select AI.
+- `data/flexcube_demo` installs `FLEXCUBE_DEMO`, a banking demo loaded from JSON metadata and CSV rows.
 
 `SH` is accepted as a compatibility alias for `SH_DEMO`, but new deployments should use `SH_DEMO` explicitly. The demo schema password is the same APEX application password generated or supplied during deployment. Demo datasets do not version monolithic `install.sql` files; table DDL is rendered from `data/*.json` and rows are loaded from `data/*.csv` with batch inserts.
 
@@ -119,7 +119,7 @@ The CLI writes:
 
 The generated SQL does not use `SELECT ANY TABLE`. Access is controlled by grants to `SELECT_AI_APP`.
 
-For new databases, the generated SQL creates bundled demo schemas such as `SH_DEMO` from `data/demo` metadata, then the loader imports CSV rows. This avoids depending on preexisting `HR` or `SH` users in Autonomous Database, grants the demo tables to `SELECT_AI_APP`, and points the Select AI profile to the installed demo schema.
+For new databases, the generated SQL creates bundled demo schemas such as `SH_DEMO` from `data` metadata, then the loader imports CSV rows. This avoids depending on preexisting `HR` or `SH` users in Autonomous Database, grants the demo tables to `SELECT_AI_APP`, and points the Select AI profile to the installed demo schema.
 
 To add more data later:
 

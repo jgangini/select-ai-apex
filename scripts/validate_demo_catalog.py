@@ -4,9 +4,9 @@ from pathlib import Path
 import sys
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO_ROOT / "installer"))
+sys.path.insert(0, str(REPO_ROOT))
 
-from select_ai_apex.demo_data import validate_demo_catalog
+from installer.demo_data import validate_demo_catalog
 
 
 def main() -> int:

@@ -1,9 +1,9 @@
 from pathlib import Path
 import unittest
 
-from select_ai_apex.models import DeploymentOptions
-from select_ai_apex.oci_config import OciConfig
-from select_ai_apex.terraform_vars import terraform_tfvars
+from installer.models import DeploymentOptions
+from installer.oci_config import OciConfig
+from installer.terraform_vars import terraform_tfvars
 
 
 class TerraformVarsTests(unittest.TestCase):

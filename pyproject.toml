@@ -25,12 +25,12 @@ dev = [
 ]
 
 [project.scripts]
-select-ai-apex = "select_ai_apex.cli:main"
+select-ai-apex = "installer.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["installer"]
+where = ["."]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["installer"]
+pythonpath = ["."]
 addopts = "-q"

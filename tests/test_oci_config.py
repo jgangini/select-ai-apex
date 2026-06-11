@@ -1,6 +1,6 @@
 import unittest
 
-from select_ai_apex.oci_config import parse_oci_config_text
+from installer.oci_config import parse_oci_config_text
 
 
 class OciConfigTests(unittest.TestCase):

@@ -2,7 +2,7 @@ from pathlib import Path
 import unittest
 
 from test_support import repo_tempdir
-from select_ai_apex.cli import main
+from installer.cli import main
 
 
 def write_inputs(tmp_path: Path) -> tuple[Path, Path]:

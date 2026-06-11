@@ -1,0 +1,58 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "TIMES",
+  "source_file_name": "TIMES.csv",
+  "table_comment": "Calendar time dimension used to aggregate sales by month, quarter and year.",
+  "columns": [
+    {
+      "column_name": "TIME_ID",
+      "data_type": "DATE",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Calendar date identifier.",
+      "ui_display": "Time Id",
+      "classification": "date",
+      "primary_key": true
+    },
+    {
+      "column_name": "CALENDAR_YEAR",
+      "data_type": "NUMBER(4)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Calendar year number.",
+      "ui_display": "Calendar Year",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CALENDAR_QUARTER_DESC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Calendar quarter label, for example 2025 Q1.",
+      "ui_display": "Calendar Quarter Desc",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CALENDAR_MONTH_DESC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Calendar month label.",
+      "ui_display": "Calendar Month Desc",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DAY_NAME",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 5,
+      "comment": "Day name for the calendar date.",
+      "ui_display": "Day Name",
+      "classification": "date",
+      "primary_key": false
+    }
+  ]
+}
