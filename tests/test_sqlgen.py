@@ -74,18 +74,18 @@ class SqlGenerationTests(unittest.TestCase):
 
         self.assertIn('"owner": "SH_DEMO"', object_list_json(new_sample_options()))
         self.assertNotIn('"owner": "SH"', object_list_json(new_sample_options()))
-        self.assertIn("data/demo/sh_demo/install.sql", rendered.admin_sql)
+        self.assertIn("data/demo/sh_demo/manifest.json", rendered.admin_sql)
         self.assertIn("CREATE USER SH_DEMO", rendered.admin_sql)
         self.assertIn('CREATE TABLE "SH_DEMO"."SALES"', rendered.admin_sql)
         self.assertIn('GRANT SELECT ON "SH_DEMO"."', rendered.admin_sql)
-        self.assertIn("PROMPT Loading SH_DEMO.SALES from SALES.csv", rendered.admin_sql)
+        self.assertIn("CSV rows are loaded by the Select AI Apex loader", rendered.admin_sql)
         self.assertIn("Bundled Demo Schemas", rendered.report_markdown)
 
     def test_new_flexcube_schema_uses_manifest_demo_installer(self) -> None:
         rendered = render_plan(new_flexcube_options())
 
         self.assertIn('"owner": "FLEXCUBE_DEMO"', object_list_json(new_flexcube_options()))
-        self.assertIn("data/demo/flexcube_demo/install.sql", rendered.admin_sql)
+        self.assertIn("data/demo/flexcube_demo/manifest.json", rendered.admin_sql)
         self.assertIn("CREATE USER FLEXCUBE_DEMO", rendered.admin_sql)
         self.assertIn("CREATE TABLE \"FLEXCUBE_DEMO\"", rendered.admin_sql)
         self.assertIn("FLEX_STTM_CUSTOMER", rendered.admin_sql)

@@ -10,7 +10,7 @@ GRANT SELECT ON OWNER.TABLE TO SELECT_AI_APP;
 
 When `--schemas HR,SH` is supplied for an existing database, the generated admin SQL grants current tables, views, and materialized views in those schemas to `SELECT_AI_APP`. The Select AI profile uses owner-level `object_list` entries so future tables can be added by running more object grants and recreating the profile.
 
-For `--mode new`, Oracle-maintained sample schemas such as `HR` or `SH` may be locked/protected. The generated SQL replicates those schemas to normal demo schemas such as `HR_DEMO` or `SH_DEMO`, grants the demo schema tables to `SELECT_AI_APP`, and scopes the Select AI profile to the demo schema. The original Oracle-maintained schema is left unchanged.
+For `--mode new`, Oracle-maintained sample schemas such as `HR` or `SH` may be locked/protected or absent. The installer creates normal demo schemas such as `SH_DEMO` from repository JSON metadata and CSV rows, grants the demo schema tables to `SELECT_AI_APP`, and scopes the Select AI profile to the demo schema. The original Oracle-maintained schema is left unchanged.
 
 The installer does not render `GRANT SELECT ANY TABLE`.
 

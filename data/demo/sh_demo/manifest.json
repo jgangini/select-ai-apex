@@ -6,8 +6,8 @@
   "label": "Sales History",
   "domain": "Sales Analytics",
   "use_case": "Sales History",
-  "install": "install.sql",
   "metadata_path": "data",
+  "loader": "metadata_csv",
   "source": "https://github.com/oracle-samples/db-sample-schemas/tree/main/sales_history",
   "description": "Compact sales star schema for Select AI Apex validation.",
   "tables": [

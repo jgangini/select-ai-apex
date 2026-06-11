@@ -9,4 +9,4 @@ Use this demo for questions about:
 - loan, deposit and product operations
 - accounting events, clearing and teller activity
 
-The folder follows the standard demo contract: `manifest.json`, metadata in `data/*.json`, seed rows in `data/*.csv`, and a generated `install.sql`. The installer creates `FLEXCUBE_DEMO`, applies table and column comments for Select AI precision, loads the CSV rows and grants `SELECT` on every table to the Select AI profile schema.
+The folder follows the standard demo contract: `manifest.json`, metadata in `data/*.json`, and seed rows in `data/*.csv`. The loader creates `FLEXCUBE_DEMO`, applies table and column comments for Select AI precision, loads the CSV rows with batch inserts, and grants `SELECT` on every table to the Select AI profile schema.

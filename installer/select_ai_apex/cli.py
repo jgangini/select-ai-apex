@@ -19,6 +19,7 @@ from .constants import (
     DEFAULT_WORKSPACE,
 )
 from .db import connect_with_wallet, execute_sql_text
+from .demo_data import DemoSchemaEntry, demo_entry_for_schema, load_demo_schema_rows
 from .models import DeploymentOptions
 from .oci_config import read_oci_config
 from .report import write_rendered_plan
@@ -142,6 +143,24 @@ def run_plan(args: argparse.Namespace) -> int:
     return 0
 
 
+def selected_demo_entries(options: DeploymentOptions) -> list[DemoSchemaEntry]:
+    if options.mode != "new":
+        return []
+    entries: list[DemoSchemaEntry] = []
+    seen: set[str] = set()
+    for schema in options.schemas:
+        entry = demo_entry_for_schema(schema)
+        if entry and entry.schema not in seen:
+            seen.add(entry.schema)
+            entries.append(entry)
+    for db_object in options.tables:
+        entry = demo_entry_for_schema(db_object.owner)
+        if entry and entry.schema not in seen:
+            seen.add(entry.schema)
+            entries.append(entry)
+    return entries
+
+
 def run_install(args: argparse.Namespace) -> int:
     options = options_from_args(args)
     missing = []
@@ -174,6 +193,10 @@ def run_install(args: argparse.Namespace) -> int:
         )
         try:
             execute_sql_text(admin_connection, rendered.admin_sql)
+            for entry in selected_demo_entries(options):
+                results = load_demo_schema_rows(admin_connection, entry)
+                row_count = sum(result.rows for result in results)
+                print(f"Loaded {row_count} rows into {entry.schema} from data/demo/{entry.folder}/data")
         finally:
             admin_connection.close()
 

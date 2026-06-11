@@ -11,8 +11,8 @@
       "label": "Sales History",
       "domain": "Sales Analytics",
       "use_case": "Sales History",
-      "install": "install.sql",
       "metadata_path": "data",
+      "loader": "metadata_csv",
       "status": "ready",
       "description": "Compact sales star schema with customers, products, channels, promotions, time, sales and costs.",
       "tables": [
@@ -37,8 +37,8 @@
       "label": "FLEXCUBE Demo",
       "domain": "Core Banking",
       "use_case": "Core Banking",
-      "install": "install.sql",
       "metadata_path": "data",
+      "loader": "metadata_csv",
       "status": "ready",
       "description": "Core banking metadata catalog for accounts, customers, limits, accounting entries, loans, teller and transaction analysis.",
       "tables": [

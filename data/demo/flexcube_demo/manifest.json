@@ -6,8 +6,8 @@
   "label": "FLEXCUBE Demo",
   "domain": "Core Banking",
   "use_case": "Core Banking",
-  "install": "install.sql",
   "metadata_path": "data",
+  "loader": "metadata_csv",
   "source": "FLEXCUBE metadata export curated for Select AI Apex demos",
   "description": "Core banking metadata catalog for Select AI Apex validation.",
   "tables": [
