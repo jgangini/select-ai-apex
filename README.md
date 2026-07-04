@@ -4,6 +4,8 @@ Automated deployment project for Oracle Select AI on Autonomous Database `19c` o
 
 Select AI APEX is an independent deployment project. Terraform creates or references Autonomous Database resources, and the CLI connects through a wallet, prepares the Select AI profile schema, imports the APEX export, and writes an auditable report of what was executed.
 
+Deploy Studio reads [`deploy-studio.json`](deploy-studio.json) from an immutable release commit, runs `terraform/` in OCI Resource Manager, and then invokes the repository-owned `deploy/hooks/post_apply.py` installer. The hook exchanges data only through temporary `0600` files and never returns passwords, OCI keys, or wallet contents as outputs.
+
 ## What It Deploys
 
 - Autonomous Database `19c` or `26ai`, new or existing.
@@ -44,10 +46,12 @@ select-ai-apex install `
   --oci-config .\.oci\config `
   --oci-key .\.oci\key.pem `
   --schemas HR `
+  --schema-passwords-file .\schema-passwords.json `
   --tables HR.EMPLOYEES,HR.DEPARTMENTS
 ```
 
 If `--dsn` is omitted, the CLI reads `tnsnames.ora` inside the wallet and picks the first alias.
+The optional schema-password file is a JSON object keyed only by selected `--schemas`; it lets each owner grant its current tables, views, and materialized views to `SELECT_AI_APP`. Keep the file private and delete it after installation. Its contents are never copied to generated outputs.
 
 ## New Database
 

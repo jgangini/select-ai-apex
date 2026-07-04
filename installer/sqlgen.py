@@ -96,6 +96,24 @@ END;
     return "\n\n".join(statements)
 
 
+def render_owner_grants(app_schema: str) -> str:
+    target = sql_identifier(app_schema)
+    object_types = csv_quote(["TABLE", "VIEW", "MATERIALIZED VIEW"])
+    return f"""DECLARE
+  l_sql VARCHAR2(32767);
+BEGIN
+  FOR obj IN (
+    SELECT DISTINCT object_name
+      FROM user_objects
+     WHERE object_type IN ({object_types})
+  ) LOOP
+    l_sql := 'GRANT SELECT ON "' || REPLACE(obj.object_name, '"', '""') || '" TO {target}';
+    EXECUTE IMMEDIATE l_sql;
+  END LOOP;
+END;
+/"""
+
+
 def render_admin_sql(options: DeploymentOptions) -> str:
     app_schema = sql_identifier(options.app_schema)
     workspace = sql_identifier(options.workspace)

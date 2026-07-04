@@ -4,6 +4,8 @@ This package creates or references Oracle Autonomous Database resources for
 Select AI APEX deployments. The APEX application is installed by the
 `select-ai-apex` CLI after a wallet is available.
 
+OCI user, fingerprint, and key-path variables are optional: local CLI runs can provide them, while OCI Resource Manager uses its managed provider authentication. Deploy Studio supplies the database passwords and invokes the repository-owned post-apply hook; local CLI runs may leave the infrastructure passwords empty to use Terraform-generated values.
+
 Typical flow for a new database:
 
 ```powershell
