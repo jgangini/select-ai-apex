@@ -7,13 +7,11 @@ on:
     tags:
       - "v*"
     paths:
-      - "deploy-studio.json"
       - "terraform/**"
       - "deploy/hooks/**"
       - ".github/workflows/terraform.yml"
   pull_request:
     paths:
-      - "deploy-studio.json"
       - "terraform/**"
       - "deploy/hooks/**"
       - ".github/workflows/terraform.yml"

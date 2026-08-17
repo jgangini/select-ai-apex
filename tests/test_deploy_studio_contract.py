@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class DeployStudioContractTests(unittest.TestCase):
     def test_contract_points_to_existing_terraform_and_hook(self) -> None:
-        contract = json.loads((ROOT / "deploy-studio.json").read_text(encoding="utf-8"))
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
 
         self.assertEqual(contract["schema_version"], 1)
         self.assertEqual(contract["project_id"], "select-ai-apex")
@@ -31,7 +31,7 @@ class DeployStudioContractTests(unittest.TestCase):
         self.assertTrue(all((ROOT / path).exists() for path in contract["post_apply"]["include_paths"]))
 
     def test_declared_outputs_are_not_secrets(self) -> None:
-        contract = json.loads((ROOT / "deploy-studio.json").read_text(encoding="utf-8"))
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
         forbidden = ("password", "private_key", "wallet_base64", "secret")
 
         self.assertFalse(any(token in name.lower() for name in contract["outputs"] for token in forbidden))

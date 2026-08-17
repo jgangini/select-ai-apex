@@ -1,6 +1,6 @@
 # Select AI APEX Repository Instructions
 
-- The Deploy Studio contract is `deploy-studio.json`; keep the Terraform package at `terraform/` for CLI compatibility.
+- The Deploy Studio contract is `terraform/deploy-studio.json`; keep the Terraform package at the root `terraform/` directory.
 - The repository-owned post-apply entrypoint is `deploy/hooks/post_apply.py`; it must use only the temporary file paths provided by Deploy Studio and must never put secrets in events or outputs.
 - Never commit `.oci`, wallets, passwords, Terraform state, generated SQL, or `outputs/`.
 - Keep infrastructure names derived from `deployment_suffix`; legacy name variables are compatibility overrides only.
