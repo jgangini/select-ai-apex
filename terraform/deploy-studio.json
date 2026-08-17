@@ -106,6 +106,29 @@
       }
     ]
   },
+  "presentation": {
+    "title": "Select AI Apex",
+    "summary": "Deploys a Select AI APEX experience on Autonomous Database without a persistent application VM.",
+    "tags": ["APEX", "Autonomous AI Database", "Select AI", "Generative AI"],
+    "image": "/assets/select-ai-apex.png",
+    "image_alt": "Select AI APEX application preview",
+    "href": "https://github.com/jgangini/select-ai-apex"
+  },
+  "run_steps": [
+    {"key": "queue", "label": "Queue"},
+    {"key": "credentials", "label": "OCI credentials"},
+    {"key": "compartment", "label": "Compartment"},
+    {"key": "policies", "label": "IAM policies"},
+    {"key": "stack", "label": "APEX Terraform package"},
+    {"key": "plan", "label": "Database plan"},
+    {"key": "apply", "label": "Database apply"},
+    {"key": "database", "label": "Autonomous Database"},
+    {"key": "wallet", "label": "Database wallet"},
+    {"key": "application", "label": "Select AI and APEX setup"},
+    {"key": "artifacts", "label": "Wallet and APEX summary"},
+    {"key": "email", "label": "Access email"},
+    {"key": "complete", "label": "Ready"}
+  ],
   "outputs": ["application_url", "adb_db_name", "autonomous_database_id"],
   "artifacts": ["deployment-report.md", "adb_wallet.zip"],
   "post_apply": {
