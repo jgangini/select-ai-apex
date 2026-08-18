@@ -46,12 +46,11 @@ select-ai-apex install `
   --oci-config .\.oci\config `
   --oci-key .\.oci\key.pem `
   --schemas HR `
-  --schema-passwords-file .\schema-passwords.json `
   --tables HR.EMPLOYEES,HR.DEPARTMENTS
 ```
 
 If `--dsn` is omitted, the CLI reads `tnsnames.ora` inside the wallet and picks the first alias.
-The optional schema-password file is a JSON object keyed only by selected `--schemas`; it lets each owner grant its current tables, views, and materialized views to `SELECT_AI_APP`. Keep the file private and delete it after installation. Its contents are never copied to generated outputs.
+The supplied `ADMIN` account performs the object-level grants for the selected schemas. The deployment stops if that account lacks a required grant privilege; it never accepts or stores source-schema passwords.
 
 ## New Database
 

@@ -1,12 +1,10 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 import tempfile
 import zipfile
 from pathlib import Path
-from typing import Callable
 
 from .constants import (
     DEFAULT_APEX_ALIAS,
@@ -26,13 +24,12 @@ from .models import DeploymentOptions
 from .oci_config import read_oci_config
 from .report import write_rendered_plan
 from .secrets import generate_oracle_password
-from .sqlgen import render_owner_grants, render_plan
+from .sqlgen import render_plan
 from .terraform_vars import write_terraform_tfvars
 from .validators import (
     ValidationError,
     normalize_csv_identifiers,
     normalize_db_objects,
-    normalize_schema_passwords,
     validate_ocid,
 )
 from .wallet import extract_wallet, list_wallet_dsn_aliases
@@ -63,7 +60,6 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--dsn", default="")
     parser.add_argument("--admin-user", default="ADMIN")
     parser.add_argument("--admin-password", default="")
-    parser.add_argument("--schema-passwords-file", type=Path)
     parser.add_argument("--workspace", default=DEFAULT_WORKSPACE)
     parser.add_argument("--app-schema", default=DEFAULT_APP_SCHEMA)
     parser.add_argument("--app-schema-password", default="")
@@ -80,16 +76,6 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
 
 
-def read_schema_passwords_file(path: Path | None, selected_schemas: list[str]) -> dict[str, str]:
-    if path is None:
-        return {}
-    try:
-        values = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise ValidationError("schema passwords file must be readable JSON") from exc
-    return normalize_schema_passwords(values, selected_schemas)
-
-
 def options_from_args(args: argparse.Namespace) -> DeploymentOptions:
     oci_config = read_oci_config(args.oci_config, profile=args.oci_profile)
     oci_private_key = args.oci_key.read_text(encoding="utf-8")
@@ -101,13 +87,6 @@ def options_from_args(args: argparse.Namespace) -> DeploymentOptions:
     apex_password = args.apex_password or generate_oracle_password()
     compartment_id = validate_ocid(args.oci_compartment_id, "oci_compartment_id")
     existing_adb_ocid = validate_ocid(args.existing_autonomous_database_ocid, "existing_autonomous_database_ocid")
-    source_schema_passwords = read_schema_passwords_file(
-        args.schema_passwords_file,
-        schemas,
-    )
-    if source_schema_passwords and args.mode != "existing":
-        raise ValidationError("schema passwords are supported only in existing database mode")
-
     wallet = args.wallet
     dsn = args.dsn
     if wallet and not dsn:
@@ -142,7 +121,6 @@ def options_from_args(args: argparse.Namespace) -> DeploymentOptions:
         db_version=args.db_version,
         workload=args.workload,
         existing_autonomous_database_ocid=existing_adb_ocid,
-        source_schema_passwords=source_schema_passwords,
     )
 
 
@@ -187,31 +165,6 @@ def selected_demo_entries(options: DeploymentOptions) -> list[DemoSchemaEntry]:
     return entries
 
 
-def grant_source_schema_access(
-    options: DeploymentOptions,
-    wallet_dir: Path,
-    *,
-    connector: Callable[..., object] = connect_with_wallet,
-    executor: Callable[[object, str], int] = execute_sql_text,
-) -> None:
-    if options.mode != "existing" or not options.source_schema_passwords:
-        return
-    passwords = normalize_schema_passwords(options.source_schema_passwords, options.schemas)
-    grants_sql = render_owner_grants(options.app_schema)
-    for schema, password in passwords.items():
-        connection = connector(
-            user=schema,
-            password=password,
-            dsn=options.dsn,
-            wallet_dir=wallet_dir,
-            wallet_password=options.wallet_password,
-        )
-        try:
-            executor(connection, grants_sql)
-        finally:
-            connection.close()  # type: ignore[attr-defined]
-
-
 def run_install(args: argparse.Namespace) -> int:
     options = options_from_args(args)
     missing = []
@@ -250,8 +203,6 @@ def run_install(args: argparse.Namespace) -> int:
                 print(f"Loaded {row_count} rows into {entry.schema} from data/{entry.folder}/data")
         finally:
             admin_connection.close()
-
-        grant_source_schema_access(options, wallet_dir)
 
         app_connection = connect_with_wallet(
             user=options.app_schema,

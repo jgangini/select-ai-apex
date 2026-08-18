@@ -19,7 +19,6 @@ if str(ROOT) not in sys.path:
 
 from installer.cli import main as installer_main  # noqa: E402
 from installer import demo_data as demo_data_module  # noqa: E402
-from installer.validators import normalize_csv_identifiers, normalize_schema_passwords  # noqa: E402
 
 
 MAX_STAGED_FILES = 1000
@@ -28,7 +27,6 @@ SECRET_INPUT_NAMES = {
     "autonomous_database_admin_password",
     "autonomous_database_wallet_password",
     "autonomous_database_developer_password",
-    "select_ai_schema_passwords",
 }
 
 
@@ -41,18 +39,6 @@ def _json_file(path: str, label: str) -> dict[str, object]:
     return value
 
 
-def _write_private_json(path: Path, value: Mapping[str, str]) -> None:
-    descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
-    try:
-        handle = os.fdopen(descriptor, "w", encoding="utf-8")
-    except Exception:
-        os.close(descriptor)
-        raise
-    with handle:
-        json.dump(value, handle, separators=(",", ":"))
-    path.chmod(0o600)
-
-
 def _required(values: Mapping[str, object], name: str) -> str:
     value = str(values.get(name, "")).strip()
     if not value:
@@ -63,23 +49,18 @@ def _required(values: Mapping[str, object], name: str) -> str:
 def _hook_inputs(
     context: Mapping[str, object],
     secrets: Mapping[str, object],
-) -> tuple[dict[str, object], dict[str, str]]:
+) -> dict[str, object]:
     public_inputs = context.get("inputs", {})
     secret_inputs = secrets.get("inputs", {})
-    schema_passwords = secrets.get("select_ai_schema_passwords", {})
     if not isinstance(public_inputs, dict):
         raise ValueError("Deploy Studio context.inputs must be an object")
     if not isinstance(secret_inputs, dict):
         raise ValueError("Deploy Studio secrets.inputs must be an object")
-    if not isinstance(schema_passwords, dict) or not all(
-        isinstance(name, str) and isinstance(password, str)
-        for name, password in schema_passwords.items()
-    ):
-        raise ValueError("Deploy Studio secrets.select_ai_schema_passwords must be a string map")
     inputs = {name: value for name, value in public_inputs.items() if name not in SECRET_INPUT_NAMES}
     inputs.update(secret_inputs)
-    inputs.pop("select_ai_schema_passwords", None)
-    return inputs, schema_passwords
+    if str(inputs.get("autonomous_database_mode", "new")) == "existing":
+        inputs["select_ai_grant_schemas"] = _required(inputs, "existing_select_ai_grant_schemas")
+    return inputs
 
 
 def _application(app_id: str) -> dict[str, object]:
@@ -209,7 +190,6 @@ def _installer_arguments(
     output_dir: Path,
     application: Mapping[str, object],
     apex_archive: Path,
-    schema_passwords_path: Path | None,
 ) -> list[str]:
     compartment = context.get("compartment", {})
     compartment_id = str(compartment.get("id", "")) if isinstance(compartment, dict) else ""
@@ -260,8 +240,6 @@ def _installer_arguments(
         arguments.extend(
             ["--existing-autonomous-database-ocid", _required(inputs, "existing_autonomous_database_ocid")]
         )
-    if schema_passwords_path is not None:
-        arguments.extend(["--schema-passwords-file", str(schema_passwords_path)])
     return arguments
 
 
@@ -271,22 +249,11 @@ def run_hook(
 ) -> None:
     context = _json_file(_required(environment, "DEPLOY_STUDIO_CONTEXT"), "Deploy Studio context")
     secrets = _json_file(_required(environment, "DEPLOY_STUDIO_SECRETS"), "Deploy Studio secrets")
-    inputs, raw_schema_passwords = _hook_inputs(context, secrets)
-    raw_schemas = _required(inputs, "select_ai_grant_schemas")
-    schema_passwords = normalize_schema_passwords(
-        raw_schema_passwords,
-        normalize_csv_identifiers(raw_schemas, "schema"),
-    )
-    if schema_passwords and str(inputs.get("autonomous_database_mode", "new")) != "existing":
-        raise ValueError("schema passwords are supported only in existing database mode")
+    inputs = _hook_inputs(context, secrets)
 
     with tempfile.TemporaryDirectory(prefix="select-ai-apex-hook-") as temporary:
         stage_root = Path(temporary) / "source"
         output_dir = Path(temporary) / "installer-output"
-        schema_passwords_path = None
-        if schema_passwords:
-            schema_passwords_path = Path(temporary) / "schema-passwords.json"
-            _write_private_json(schema_passwords_path, schema_passwords)
         application = _application(str(inputs.get("select_ai_apex_app_id", "chatdb-es-2024")))
         apex_archive = _stage_source_assets(
             Path(_required(environment, "DEPLOY_STUDIO_SOURCE_ARCHIVE")),
@@ -301,7 +268,6 @@ def run_hook(
             output_dir,
             application,
             apex_archive,
-            schema_passwords_path,
         )
         captured = io.StringIO()
         previous_demo_root = demo_data_module.DEMO_ROOT

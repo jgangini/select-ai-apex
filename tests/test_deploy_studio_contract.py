@@ -26,7 +26,6 @@ class DeployStudioContractTests(unittest.TestCase):
                 "autonomous_database_admin_password",
                 "autonomous_database_wallet_password",
                 "autonomous_database_developer_password",
-                "select_ai_schema_passwords",
             ],
         )
         self.assertTrue(all((ROOT / path).exists() for path in contract["post_apply"]["include_paths"]))
@@ -46,7 +45,8 @@ class DeployStudioContractTests(unittest.TestCase):
         workspace_username = next(field for field in fields if field["name"] == "application_username")
         workspace_password = next(field for field in fields if field["name"] == "autonomous_database_developer_password")
         model = next(field for field in fields if field["name"] == "select_ai_model")
-        schema_passwords = next(field for field in fields if field["name"] == "select_ai_schema_passwords")
+        new_database_schemas = next(field for field in fields if field["name"] == "select_ai_grant_schemas")
+        existing_database_schemas = next(field for field in fields if field["name"] == "existing_select_ai_grant_schemas")
         self.assertEqual(profile["transform"], "database_profile")
         self.assertEqual(profile["visible_when"], {"field": "autonomous_database_mode", "equals": "new"})
         self.assertEqual(database_ocid["label"], "Database OCID")
@@ -54,7 +54,12 @@ class DeployStudioContractTests(unittest.TestCase):
         self.assertEqual(workspace_password["label"], "APEX workspace password")
         self.assertEqual(model["group"], "enterprise_ai")
         self.assertEqual(model["options_source"], "oci_genai_chat_models")
-        self.assertEqual(schema_passwords["visible_when"], {"field": "autonomous_database_mode", "equals": "existing"})
+        self.assertEqual(new_database_schemas["default"], "SH_DEMO,FLEXCUBE_DEMO")
+        self.assertTrue(new_database_schemas["multiple"])
+        self.assertEqual(new_database_schemas["visible_when"], {"field": "autonomous_database_mode", "equals": "new"})
+        self.assertTrue(existing_database_schemas["multiple"])
+        self.assertEqual(existing_database_schemas["options_source"], "oci_autonomous_database_schemas")
+        self.assertEqual(existing_database_schemas["visible_when"], {"field": "autonomous_database_mode", "equals": "existing"})
 
     def test_declared_outputs_are_not_secrets(self) -> None:
         contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))

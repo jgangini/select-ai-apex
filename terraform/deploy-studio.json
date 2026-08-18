@@ -80,22 +80,32 @@
       {
         "name": "select_ai_grant_schemas",
         "label": "Schemas exposed to Select AI",
-        "type": "text",
+        "type": "select",
         "required": true,
-        "default": "SH_DEMO",
-        "group": "apex_application"
+        "default": "SH_DEMO,FLEXCUBE_DEMO",
+        "multiple": true,
+        "group": "apex_application",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "new"
+        },
+        "options": [
+          {"value": "SH_DEMO", "label": "Sales History (SH_DEMO)"},
+          {"value": "FLEXCUBE_DEMO", "label": "Core Banking (FLEXCUBE_DEMO)"}
+        ]
       },
       {
-        "name": "select_ai_schema_passwords",
-        "label": "Existing schema passwords (JSON)",
-        "type": "password",
-        "required": false,
-        "secret": true,
+        "name": "existing_select_ai_grant_schemas",
+        "label": "Schemas exposed to Select AI",
+        "type": "select",
+        "required": true,
+        "multiple": true,
         "group": "apex_application",
         "visible_when": {
           "field": "autonomous_database_mode",
           "equals": "existing"
-        }
+        },
+        "options_source": "oci_autonomous_database_schemas"
       },
       {
         "name": "application_username",
@@ -162,8 +172,7 @@
     "secret_inputs": [
       "autonomous_database_admin_password",
       "autonomous_database_wallet_password",
-      "autonomous_database_developer_password",
-      "select_ai_schema_passwords"
+      "autonomous_database_developer_password"
     ],
     "timeout_seconds": 1800,
     "requires_oci_credentials": true

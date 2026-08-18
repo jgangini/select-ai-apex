@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Iterable, Mapping
 
 ORACLE_IDENTIFIER_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_$#]{0,127}$")
 OCI_OCID_RE = re.compile(r"^ocid1\.[a-z0-9]+\.")
@@ -53,28 +52,6 @@ def normalize_db_objects(raw: str | None) -> list[DbObject]:
         name = normalize_identifier(pieces[1], "table name")
         objects.append(DbObject(owner=owner, name=name))
     return sorted(dict.fromkeys(objects))
-
-
-def normalize_schema_passwords(
-    values: object,
-    selected_schemas: Iterable[str],
-) -> dict[str, str]:
-    if not isinstance(values, Mapping):
-        raise ValidationError("schema passwords file must contain a JSON object")
-    allowed = {normalize_identifier(schema, "selected schema") for schema in selected_schemas}
-    normalized: dict[str, str] = {}
-    for raw_schema, raw_password in values.items():
-        if not isinstance(raw_schema, str):
-            raise ValidationError("schema password keys must be Oracle identifiers")
-        schema = normalize_identifier(raw_schema, "schema password owner")
-        if schema not in allowed:
-            raise ValidationError(f"schema password owner is not selected: {schema}")
-        if schema in normalized:
-            raise ValidationError(f"duplicate schema password owner: {schema}")
-        if not isinstance(raw_password, str) or not raw_password:
-            raise ValidationError(f"schema password must be a non-empty string: {schema}")
-        normalized[schema] = raw_password
-    return normalized
 
 
 def validate_ocid(value: str | None, label: str) -> str | None:

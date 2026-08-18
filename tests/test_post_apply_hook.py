@@ -1,7 +1,5 @@
 import json
-import os
 from pathlib import Path
-import stat
 import tempfile
 import unittest
 import zipfile
@@ -52,7 +50,7 @@ class PostApplyHookTests(unittest.TestCase):
                             "autonomous_database_admin_password": "PublicAdminMustNotWin",
                             "autonomous_database_wallet_password": "PublicWalletMustNotWin",
                             "autonomous_database_developer_password": "PublicDeveloperMustNotWin",
-                            "select_ai_schema_passwords": {"SH": "PublicSchemaMustNotWin"},
+                            "existing_select_ai_grant_schemas": "SH",
                         },
                         "terraform_outputs": {
                             "application_url": "https://example.invalid/ords/",
@@ -71,7 +69,6 @@ class PostApplyHookTests(unittest.TestCase):
                             "autonomous_database_wallet_password": "WalletPass123",
                             "autonomous_database_developer_password": "DeveloperPass123",
                         },
-                        "select_ai_schema_passwords": {"SH": "SchemaPass123"},
                     }
                 ),
                 encoding="utf-8",
@@ -101,14 +98,7 @@ class PostApplyHookTests(unittest.TestCase):
                 self.assertEqual(arguments[arguments.index("--app-schema-password") + 1], "DeveloperPass123")
                 self.assertEqual(arguments[arguments.index("--apex-user") + 1], "SELECT_AI_ADMIN")
                 self.assertEqual(arguments[arguments.index("--model") + 1], "cohere.command-a-03-2025")
-                schema_passwords_file = Path(arguments[arguments.index("--schema-passwords-file") + 1])
-                self.assertEqual(
-                    json.loads(schema_passwords_file.read_text(encoding="utf-8")),
-                    {"SH": "SchemaPass123"},
-                )
-                if os.name != "nt":
-                    self.assertEqual(stat.S_IMODE(schema_passwords_file.stat().st_mode), 0o600)
-                self.assertNotIn("SchemaPass123", " ".join(arguments))
+                self.assertFalse(any(argument.startswith("--schema-password") for argument in arguments))
                 apex_archive = Path(arguments[arguments.index("--apex-archive") + 1])
                 self.assertEqual(apex_archive.read_text(encoding="utf-8"), "-- selected export")
                 self.assertTrue((demo_data.DEMO_ROOT / "sh_demo" / "data" / "example.json").is_file())
@@ -128,15 +118,13 @@ class PostApplyHookTests(unittest.TestCase):
             self.assertNotIn("AdminPass123", rendered)
             self.assertNotIn("WalletPass123", rendered)
             self.assertNotIn("DeveloperPass123", rendered)
-            self.assertNotIn("SchemaPass123", rendered)
 
-            merged_inputs, schema_passwords = _hook_inputs(
+            merged_inputs = _hook_inputs(
                 json.loads(context.read_text(encoding="utf-8")),
                 json.loads(secrets.read_text(encoding="utf-8")),
             )
             self.assertEqual(merged_inputs["autonomous_database_admin_password"], "AdminPass123")
-            self.assertNotIn("select_ai_schema_passwords", merged_inputs)
-            self.assertEqual(schema_passwords, {"SH": "SchemaPass123"})
+            self.assertEqual(merged_inputs["select_ai_grant_schemas"], "SH")
 
 
 if __name__ == "__main__":

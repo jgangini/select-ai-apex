@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 
 from .constants import (
@@ -49,7 +49,6 @@ class DeploymentOptions:
     db_version: str = "26ai"
     workload: str = "OLTP"
     existing_autonomous_database_ocid: str | None = None
-    source_schema_passwords: dict[str, str] = field(default_factory=dict, repr=False)
 
 
 @dataclass(frozen=True)
