@@ -43,9 +43,11 @@ class DeployStudioContractTests(unittest.TestCase):
         self.assertLess(names.index("existing_autonomous_database_ocid"), names.index("autonomous_database_version"))
         profile = next(field for field in fields if field["name"] == "autonomous_database_version")
         model = next(field for field in fields if field["name"] == "select_ai_model")
+        schema_passwords = next(field for field in fields if field["name"] == "select_ai_schema_passwords")
         self.assertEqual(profile["transform"], "database_profile")
         self.assertEqual(model["group"], "enterprise_ai")
         self.assertEqual(model["options_source"], "oci_genai_chat_models")
+        self.assertEqual(schema_passwords["visible_when"], {"field": "autonomous_database_mode", "equals": "existing"})
 
     def test_declared_outputs_are_not_secrets(self) -> None:
         contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))

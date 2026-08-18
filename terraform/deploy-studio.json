@@ -16,7 +16,7 @@
     "fields": [
       {
         "name": "autonomous_database_mode",
-        "label": "Autonomous Database mode",
+        "label": "Database mode",
         "type": "select",
         "required": true,
         "default": "new",
@@ -28,7 +28,7 @@
       },
       {
         "name": "existing_autonomous_database_ocid",
-        "label": "Existing Autonomous Database OCID",
+        "label": "Existing database OCID",
         "type": "text",
         "required": false,
         "group": "database",
@@ -87,7 +87,11 @@
         "type": "password",
         "required": false,
         "secret": true,
-        "group": "apex_application"
+        "group": "apex_application",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "existing"
+        }
       },
       {
         "name": "application_username",
@@ -99,7 +103,7 @@
       },
       {
         "name": "autonomous_database_admin_password",
-        "label": "Autonomous Database ADMIN password",
+        "label": "Database admin password",
         "type": "password",
         "required": true,
         "secret": true,
@@ -107,7 +111,7 @@
       },
       {
         "name": "autonomous_database_wallet_password",
-        "label": "Autonomous Database wallet password",
+        "label": "Database wallet password",
         "type": "password",
         "required": true,
         "secret": true,
