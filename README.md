@@ -14,7 +14,7 @@ Deploy Studio reads [`terraform/deploy-studio.json`](terraform/deploy-studio.jso
 - OCI Generative AI credential using OCI `config` and `key.pem`.
 - Select AI profile `GROK_REASONING` using `xai.grok-4-fast-reasoning` by default.
 - APEX workspace `SELECT_AI_APEX` and app alias `SELECT_AI_APEX`.
-- The upstream APEX export from `oracle-ai/select-ai-openai`.
+- Versioned APEX exports, including Ask Oracle v5.0.0.1 (2026-08-06) from Oracle DevRel. The selected export and its source SHA-256 are declared in `apex/manifest.json`.
 
 ## Install Locally
 

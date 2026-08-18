@@ -18,6 +18,7 @@
         "type": "select",
         "required": true,
         "default": "new",
+        "group": "database",
         "options": [
           {"value": "new", "label": "Create new"},
           {"value": "existing", "label": "Use existing"}
@@ -27,7 +28,12 @@
         "name": "existing_autonomous_database_ocid",
         "label": "Existing Autonomous Database OCID",
         "type": "text",
-        "required": false
+        "required": false,
+        "group": "database",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "existing"
+        }
       },
       {
         "name": "autonomous_database_version",
@@ -35,6 +41,7 @@
         "type": "select",
         "required": true,
         "default": "26ai",
+        "group": "database",
         "options": [
           {"value": "26ai", "label": "26ai"},
           {"value": "19c", "label": "19c"}
@@ -46,6 +53,7 @@
         "type": "select",
         "required": true,
         "default": "DW",
+        "group": "database",
         "options": [
           {"value": "DW", "label": "Data Warehouse"},
           {"value": "OLTP", "label": "Transaction Processing"}
@@ -56,10 +64,12 @@
         "label": "APEX application",
         "type": "select",
         "required": true,
-        "default": "chatdb-es-2024",
+        "default": "ask-oracle-chatbot-2026-08-06",
+        "group": "apex_application",
         "options": [
           {"value": "chatdb-es-2024", "label": "Autonomous DB + Select AI"},
-          {"value": "ask-oracle-chatbot", "label": "Ask Oracle"}
+          {"value": "ask-oracle-chatbot", "label": "Ask Oracle (2026-03-04)"},
+          {"value": "ask-oracle-chatbot-2026-08-06", "label": "Ask Oracle v5.0.0.1 (2026-08-06)"}
         ]
       },
       {
@@ -67,42 +77,48 @@
         "label": "Schemas exposed to Select AI",
         "type": "text",
         "required": true,
-        "default": "SH_DEMO"
+        "default": "SH_DEMO",
+        "group": "apex_application"
       },
       {
         "name": "select_ai_schema_passwords",
         "label": "Existing schema passwords (JSON)",
         "type": "password",
         "required": false,
-        "secret": true
+        "secret": true,
+        "group": "apex_application"
       },
       {
         "name": "application_username",
         "label": "APEX workspace administrator username",
         "type": "text",
         "required": true,
-        "default": "SELECT_AI_ADMIN"
+        "default": "SELECT_AI_ADMIN",
+        "group": "apex_application"
       },
       {
         "name": "autonomous_database_admin_password",
         "label": "Autonomous Database ADMIN password",
         "type": "password",
         "required": true,
-        "secret": true
+        "secret": true,
+        "group": "database"
       },
       {
         "name": "autonomous_database_wallet_password",
         "label": "Autonomous Database wallet password",
         "type": "password",
         "required": true,
-        "secret": true
+        "secret": true,
+        "group": "database"
       },
       {
         "name": "autonomous_database_developer_password",
         "label": "APEX workspace administrator password",
         "type": "password",
         "required": true,
-        "secret": true
+        "secret": true,
+        "group": "apex_application"
       }
     ]
   },

@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 import unittest
@@ -35,6 +36,14 @@ class DeployStudioContractTests(unittest.TestCase):
         forbidden = ("password", "private_key", "wallet_base64", "secret")
 
         self.assertFalse(any(token in name.lower() for name in contract["outputs"] for token in forbidden))
+
+    def test_ask_oracle_v5001_export_matches_its_declared_official_hash(self) -> None:
+        manifest = json.loads((ROOT / "apex" / "manifest.json").read_text(encoding="utf-8"))
+        application = next(item for item in manifest["apps"] if item["id"] == "ask-oracle-chatbot-2026-08-06")
+        export = ROOT / application["export_path"]
+
+        self.assertEqual(export.stat().st_size, application["source"]["size_bytes"])
+        self.assertEqual(hashlib.sha256(export.read_bytes()).hexdigest(), application["source"]["sha256"])
 
 
 if __name__ == "__main__":

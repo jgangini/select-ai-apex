@@ -139,11 +139,11 @@ variable "select_ai_grant_schemas" {
 variable "select_ai_apex_app_id" {
   description = "Repository APEX application id installed by the post-apply hook."
   type        = string
-  default     = "chatdb-es-2024"
+  default     = "ask-oracle-chatbot-2026-08-06"
 
   validation {
-    condition     = contains(["chatdb-es-2024", "ask-oracle-chatbot"], var.select_ai_apex_app_id)
-    error_message = "select_ai_apex_app_id must be chatdb-es-2024 or ask-oracle-chatbot."
+    condition     = contains(["chatdb-es-2024", "ask-oracle-chatbot", "ask-oracle-chatbot-2026-08-06"], var.select_ai_apex_app_id)
+    error_message = "select_ai_apex_app_id must be chatdb-es-2024, ask-oracle-chatbot, or ask-oracle-chatbot-2026-08-06."
   }
 }
 
