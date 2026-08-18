@@ -62,7 +62,8 @@
         "type": "select",
         "required": true,
         "group": "enterprise_ai",
-        "options_source": "oci_genai_chat_models"
+        "options_source": "oci_genai_chat_models",
+        "options_value": "display_name"
       },
       {
         "name": "select_ai_apex_app_id",
