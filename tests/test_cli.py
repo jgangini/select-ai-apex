@@ -2,7 +2,7 @@ from pathlib import Path
 import unittest
 
 from test_support import repo_tempdir
-from installer.cli import main
+from installer.cli import _existing_apex_application_id, main
 
 
 def write_inputs(tmp_path: Path) -> tuple[Path, Path]:
@@ -23,6 +23,26 @@ def write_inputs(tmp_path: Path) -> tuple[Path, Path]:
 
 
 class CliTests(unittest.TestCase):
+    def test_existing_apex_application_id_returns_exact_alias(self) -> None:
+        class Cursor:
+            def execute(self, *_args, **_kwargs):
+                return None
+
+            def fetchall(self):
+                return [(100,)]
+
+            def close(self):
+                return None
+
+        class Connection:
+            def cursor(self):
+                return Cursor()
+
+        self.assertEqual(
+            _existing_apex_application_id(Connection(), "SELECT_AI_APEX", "ASK_ORACLE"),
+            100,
+        )
+
     def test_plan_writes_expected_artifacts(self) -> None:
         with repo_tempdir() as tmp:
             tmp_path = Path(tmp)

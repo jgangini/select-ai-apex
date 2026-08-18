@@ -35,6 +35,26 @@ from .validators import (
 from .wallet import extract_wallet, list_wallet_dsn_aliases
 
 
+def _existing_apex_application_id(connection, workspace: str, alias: str) -> int | None:
+    cursor = connection.cursor()
+    try:
+        cursor.execute(
+            "select application_id from apex_applications "
+            "where workspace = :workspace and alias = :alias",
+            workspace=workspace,
+            alias=alias,
+        )
+        rows = cursor.fetchall()
+        if len(rows) > 1:
+            raise ValidationError(
+                "Expected at most one APEX application; "
+                f"found {len(rows)} for alias {alias}"
+            )
+        return int(rows[0][0]) if rows else None
+    finally:
+        cursor.close()
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="select-ai-apex", description="Deploy Select AI + APEX on Autonomous Database.")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -214,23 +234,24 @@ def run_install(args: argparse.Namespace) -> int:
         installed_application_id: int | None = None
         try:
             execute_sql_text(app_connection, rendered.app_sql)
-            execute_sql_text(app_connection, rendered.apex_prelude_sql)
-            execute_sql_text(app_connection, apex_export.read_text(encoding="utf-8", errors="replace"))
-            execute_sql_text(app_connection, rendered.apex_post_sql)
-            cursor = app_connection.cursor()
-            try:
-                cursor.execute(
-                    "select application_id from apex_applications "
-                    "where workspace = :workspace and alias = :alias",
-                    workspace=options.workspace,
-                    alias=options.apex_alias,
+            installed_application_id = _existing_apex_application_id(
+                app_connection,
+                options.workspace,
+                options.apex_alias,
+            )
+            if installed_application_id is None:
+                execute_sql_text(app_connection, rendered.apex_prelude_sql)
+                execute_sql_text(app_connection, apex_export.read_text(encoding="utf-8", errors="replace"))
+                installed_application_id = _existing_apex_application_id(
+                    app_connection,
+                    options.workspace,
+                    options.apex_alias,
                 )
-                row = cursor.fetchone()
-                if not row:
+                if installed_application_id is None:
                     raise ValidationError("APEX application metadata was not found after import")
-                installed_application_id = int(row[0])
-            finally:
-                cursor.close()
+            else:
+                print(f"Reusing APEX application {installed_application_id} for alias {options.apex_alias}")
+            execute_sql_text(app_connection, rendered.apex_post_sql)
         finally:
             app_connection.close()
 
