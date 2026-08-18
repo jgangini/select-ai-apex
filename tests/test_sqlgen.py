@@ -60,10 +60,13 @@ class SqlGenerationTests(unittest.TestCase):
 
         self.assertNotIn("GRANT SELECT ANY TABLE", rendered.admin_sql)
         self.assertIn('GRANT SELECT ON "SH"."CUSTOMERS" TO SELECT_AI_APP;', rendered.admin_sql)
+        self.assertIn("GRANT EXECUTE ON DBMS_CLOUD_AI_AGENT TO SELECT_AI_APP;", rendered.admin_sql)
         self.assertIn("DBMS_CLOUD_AI.CREATE_PROFILE", rendered.app_sql)
         self.assertIn("xai.grok-4-fast-reasoning", rendered.app_sql)
         self.assertIn("APEX_APPLICATION_INSTALL.SET_AUTO_INSTALL_SUP_OBJ(TRUE)", rendered.apex_prelude_sql)
         self.assertIn("CLOUD_AI_PROFILE", rendered.apex_post_sql)
+        self.assertIn("ALTER PROCEDURE PROCESS_PROMPT_REQUEST COMPILE", rendered.apex_post_sql)
+        self.assertIn("Ask Oracle PROCESS_PROMPT_REQUEST did not compile", rendered.apex_post_sql)
 
     def test_object_list_prefers_schema_scope_for_future_grants(self) -> None:
         self.assertIn('"owner": "HR"', object_list_json(options()))

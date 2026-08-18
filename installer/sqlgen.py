@@ -136,6 +136,7 @@ GRANT CREATE SYNONYM TO {app_schema};
 GRANT DWROLE TO {app_schema};
 GRANT EXECUTE ON DBMS_CLOUD TO {app_schema};
 GRANT EXECUTE ON DBMS_CLOUD_AI TO {app_schema};
+GRANT EXECUTE ON DBMS_CLOUD_AI_AGENT TO {app_schema};
 
 BEGIN
   EXECUTE IMMEDIATE 'GRANT EXECUTE ON DBMS_CLOUD_PIPELINE TO {app_schema}';
@@ -321,6 +322,30 @@ BEGIN
     p_preference => 'CLOUD_AI_PROFILE',
     p_value      => LOWER({sql_string(options.profile_name)}),
     p_user       => {sql_string(options.apex_user)});
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'ALTER PROCEDURE PROCESS_PROMPT_REQUEST COMPILE';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -4043 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+DECLARE
+  l_invalid NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO l_invalid
+    FROM USER_OBJECTS
+   WHERE OBJECT_NAME = 'PROCESS_PROMPT_REQUEST'
+     AND OBJECT_TYPE = 'PROCEDURE'
+     AND STATUS = 'INVALID';
+  IF l_invalid > 0 THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Ask Oracle PROCESS_PROMPT_REQUEST did not compile');
+  END IF;
 END;
 /
 
