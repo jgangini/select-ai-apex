@@ -28,7 +28,7 @@
       },
       {
         "name": "existing_autonomous_database_ocid",
-        "label": "Existing database OCID",
+        "label": "Database OCID",
         "type": "text",
         "required": false,
         "group": "database",
@@ -45,6 +45,10 @@
         "default": "26ai:DW",
         "transform": "database_profile",
         "group": "database",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "new"
+        },
         "options": [
           {"value": "26ai:DW", "label": "Oracle AI Database 26ai — Data Warehouse"},
           {"value": "26ai:OLTP", "label": "Oracle AI Database 26ai — Transaction Processing"},
@@ -95,7 +99,7 @@
       },
       {
         "name": "application_username",
-        "label": "APEX workspace administrator username",
+        "label": "APEX workspace username",
         "type": "text",
         "required": true,
         "default": "SELECT_AI_ADMIN",
@@ -119,7 +123,7 @@
       },
       {
         "name": "autonomous_database_developer_password",
-        "label": "APEX workspace administrator password",
+        "label": "APEX workspace password",
         "type": "password",
         "required": true,
         "secret": true,
