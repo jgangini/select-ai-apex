@@ -10,6 +10,7 @@ import re
 import sys
 import tempfile
 from typing import Callable, Mapping, Sequence
+from urllib.parse import quote, urlsplit, urlunsplit
 import zipfile
 
 
@@ -72,6 +73,16 @@ def _application(app_id: str) -> dict[str, object]:
         if isinstance(application, dict) and application.get("id") == app_id:
             return application
     raise ValueError(f"unsupported Select AI APEX application: {app_id}")
+
+
+def _apex_application_url(base_url: str, workspace: str, alias: str) -> str:
+    if not base_url.strip():
+        return ""
+    parsed = urlsplit(base_url.strip())
+    if parsed.scheme != "https" or not parsed.netloc:
+        raise ValueError("Terraform returned an invalid APEX URL")
+    path = f"/ords/r/{quote(workspace.lower(), safe='')}/{quote(alias.lower(), safe='')}/home"
+    return urlunsplit((parsed.scheme, parsed.netloc, path, "", ""))
 
 
 def _demo_folders(raw_schemas: str) -> set[str]:
@@ -280,9 +291,21 @@ def run_hook(
         if exit_code:
             raise RuntimeError("Select AI APEX installer failed")
 
-        report = (output_dir / "deployment-report.md").read_bytes()
         terraform_outputs = context.get("terraform_outputs", {})
         safe_outputs = terraform_outputs if isinstance(terraform_outputs, dict) else {}
+        application_url = _apex_application_url(
+            str(safe_outputs.get("application_url", "")),
+            str(application.get("workspace", "SELECT_AI_APEX")),
+            str(application.get("application_alias", "SELECT_AI_APEX")),
+        )
+        report_path = output_dir / "deployment-report.md"
+        if application_url:
+            report_path.write_text(
+                report_path.read_text(encoding="utf-8")
+                + f"\n## Application Access\n- URL: `{application_url}`\n",
+                encoding="utf-8",
+            )
+        report = report_path.read_bytes()
         result = {
             "events": [{"level": "success", "message": "Select AI APEX installation completed."}],
             "artifacts": [
@@ -293,9 +316,12 @@ def run_hook(
                 }
             ],
             "outputs": {
-                name: safe_outputs[name]
-                for name in ("application_url", "adb_db_name", "autonomous_database_id")
-                if name in safe_outputs
+                **({"application_url": application_url} if application_url else {}),
+                **{
+                    name: safe_outputs[name]
+                    for name in ("adb_db_name", "autonomous_database_id")
+                    if name in safe_outputs
+                },
             },
         }
         output_path = Path(_required(environment, "DEPLOY_STUDIO_OUTPUT"))

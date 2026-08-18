@@ -4,11 +4,21 @@ import tempfile
 import unittest
 import zipfile
 
-from deploy.hooks.post_apply import _application, _hook_inputs, _stage_source_assets, run_hook
+from deploy.hooks.post_apply import _apex_application_url, _application, _hook_inputs, _stage_source_assets, run_hook
 from installer import demo_data
 
 
 class PostApplyHookTests(unittest.TestCase):
+    def test_apex_application_url_uses_workspace_and_alias(self) -> None:
+        self.assertEqual(
+            _apex_application_url(
+                "https://example.invalid/ords/apex",
+                "SELECT_AI_APEX",
+                "ASK_ORACLE",
+            ),
+            "https://example.invalid/ords/r/select_ai_apex/ask_oracle/home",
+        )
+
     def test_source_staging_rejects_path_traversal(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -115,6 +125,10 @@ class PostApplyHookTests(unittest.TestCase):
             result = json.loads(rendered)
             self.assertEqual(result["artifacts"][0]["name"], "deployment-report.md")
             self.assertEqual(result["outputs"]["adb_db_name"], "SELECTAI")
+            self.assertEqual(
+                result["outputs"]["application_url"],
+                "https://example.invalid/ords/r/select_ai_apex/select_ai_apex/home",
+            )
             self.assertNotIn("AdminPass123", rendered)
             self.assertNotIn("WalletPass123", rendered)
             self.assertNotIn("DeveloperPass123", rendered)

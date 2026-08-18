@@ -24,7 +24,7 @@ from .models import DeploymentOptions
 from .oci_config import read_oci_config
 from .report import write_rendered_plan
 from .secrets import generate_oracle_password
-from .sqlgen import render_plan
+from .sqlgen import render_plan, render_report
 from .terraform_vars import write_terraform_tfvars
 from .validators import (
     ValidationError,
@@ -211,13 +211,33 @@ def run_install(args: argparse.Namespace) -> int:
             wallet_dir=wallet_dir,
             wallet_password=options.wallet_password,
         )
+        installed_application_id: int | None = None
         try:
             execute_sql_text(app_connection, rendered.app_sql)
             execute_sql_text(app_connection, rendered.apex_prelude_sql)
             execute_sql_text(app_connection, apex_export.read_text(encoding="utf-8", errors="replace"))
             execute_sql_text(app_connection, rendered.apex_post_sql)
+            cursor = app_connection.cursor()
+            try:
+                cursor.execute(
+                    "select application_id from apex_applications "
+                    "where workspace = :workspace and alias = :alias",
+                    workspace=options.workspace,
+                    alias=options.apex_alias,
+                )
+                row = cursor.fetchone()
+                if not row:
+                    raise ValidationError("APEX application metadata was not found after import")
+                installed_application_id = int(row[0])
+            finally:
+                cursor.close()
         finally:
             app_connection.close()
+
+    (options.output_dir / "deployment-report.md").write_text(
+        render_report(options, installed_application_id=installed_application_id),
+        encoding="utf-8",
+    )
 
     print(f"Install completed. Report: {options.output_dir / 'deployment-report.md'}")
     return 0

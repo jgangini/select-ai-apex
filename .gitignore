@@ -1,6 +1,7 @@
 __pycache__/
 .pytest_cache/
 .test-tmp/
+.sentrux/
 .ruff_cache/
 .mypy_cache/
 .venv/

@@ -5,7 +5,7 @@ import unittest
 from installer.models import DeploymentOptions
 from installer.db import split_sql_script
 from installer.oci_config import OciConfig
-from installer.sqlgen import object_list_json, render_plan
+from installer.sqlgen import object_list_json, render_plan, render_report
 from installer.validators import DbObject
 
 
@@ -94,8 +94,10 @@ class SqlGenerationTests(unittest.TestCase):
         rendered = render_plan(options())
 
         self.assertIn("Select AI APEX Deployment Report", rendered.report_markdown)
-        self.assertIn("`GROK_REASONING`", rendered.report_markdown)
+        self.assertIn("`SELECT_AI_CHAT`", rendered.report_markdown)
+        self.assertIn("legacy profile cleanup", rendered.app_sql)
         self.assertIn("secrets.json", rendered.report_markdown)
+        self.assertIn("APEX application ID: `100`", render_report(options(), installed_application_id=100))
 
     def test_split_sql_ignores_export_header_comments_before_plsql(self) -> None:
         statements = split_sql_script(

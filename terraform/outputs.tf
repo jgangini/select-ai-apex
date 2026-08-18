@@ -1,6 +1,6 @@
 output "application_url" {
   description = "Select AI Apex APEX URL."
-  value       = try(local.autonomous_database_connection_urls.apex_url, "")
+  value       = try(local.autonomous_database_connection_urls[0].apex_url, "")
 }
 
 output "adb_db_name" {
