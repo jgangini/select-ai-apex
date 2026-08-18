@@ -8,7 +8,9 @@
   "capabilities": {
     "compartment_modes": ["new", "existing"],
     "requires_genai_region": true,
-    "database_profile": "new_or_existing"
+    "database_profile": "new_or_existing",
+    "region_selection": "subscribed_compatible",
+    "regional_requirements": ["genai_chat"]
   },
   "form": {
     "fields": [
@@ -37,27 +39,26 @@
       },
       {
         "name": "autonomous_database_version",
-        "label": "Autonomous Database version",
+        "label": "Database profile",
         "type": "select",
         "required": true,
-        "default": "26ai",
+        "default": "26ai:DW",
+        "transform": "database_profile",
         "group": "database",
         "options": [
-          {"value": "26ai", "label": "26ai"},
-          {"value": "19c", "label": "19c"}
+          {"value": "26ai:DW", "label": "Oracle AI Database 26ai — Data Warehouse"},
+          {"value": "26ai:OLTP", "label": "Oracle AI Database 26ai — Transaction Processing"},
+          {"value": "19c:DW", "label": "Autonomous Database 19c — Data Warehouse"},
+          {"value": "19c:OLTP", "label": "Autonomous Database 19c — Transaction Processing"}
         ]
       },
       {
-        "name": "autonomous_database_workload",
-        "label": "Autonomous Database workload",
+        "name": "select_ai_model",
+        "label": "Generative AI chat model",
         "type": "select",
         "required": true,
-        "default": "DW",
-        "group": "database",
-        "options": [
-          {"value": "DW", "label": "Data Warehouse"},
-          {"value": "OLTP", "label": "Transaction Processing"}
-        ]
+        "group": "enterprise_ai",
+        "options_source": "oci_genai_chat_models"
       },
       {
         "name": "select_ai_apex_app_id",

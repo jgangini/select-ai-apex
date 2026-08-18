@@ -31,6 +31,22 @@ class DeployStudioContractTests(unittest.TestCase):
         )
         self.assertTrue(all((ROOT / path).exists() for path in contract["post_apply"]["include_paths"]))
 
+    def test_contract_uses_the_shared_genai_and_database_profile_standard(self) -> None:
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+        capabilities = contract["capabilities"]
+        fields = contract["form"]["fields"]
+        names = [field["name"] for field in fields]
+
+        self.assertEqual(capabilities["region_selection"], "subscribed_compatible")
+        self.assertEqual(capabilities["regional_requirements"], ["genai_chat"])
+        self.assertLess(names.index("autonomous_database_mode"), names.index("existing_autonomous_database_ocid"))
+        self.assertLess(names.index("existing_autonomous_database_ocid"), names.index("autonomous_database_version"))
+        profile = next(field for field in fields if field["name"] == "autonomous_database_version")
+        model = next(field for field in fields if field["name"] == "select_ai_model")
+        self.assertEqual(profile["transform"], "database_profile")
+        self.assertEqual(model["group"], "enterprise_ai")
+        self.assertEqual(model["options_source"], "oci_genai_chat_models")
+
     def test_declared_outputs_are_not_secrets(self) -> None:
         contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
         forbidden = ("password", "private_key", "wallet_base64", "secret")

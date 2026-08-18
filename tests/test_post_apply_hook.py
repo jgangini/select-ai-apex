@@ -45,6 +45,7 @@ class PostApplyHookTests(unittest.TestCase):
                             "existing_autonomous_database_ocid": "ocid1.autonomousdatabase.oc1..example",
                             "autonomous_database_version": "26ai",
                             "autonomous_database_workload": "DW",
+                            "select_ai_model": "cohere.command-a-03-2025",
                             "select_ai_grant_schemas": "SH",
                             "select_ai_apex_app_id": "chatdb-es-2024",
                             "application_username": "SELECT_AI_ADMIN",
@@ -99,6 +100,7 @@ class PostApplyHookTests(unittest.TestCase):
                 self.assertEqual(arguments[arguments.index("--wallet-password") + 1], "WalletPass123")
                 self.assertEqual(arguments[arguments.index("--app-schema-password") + 1], "DeveloperPass123")
                 self.assertEqual(arguments[arguments.index("--apex-user") + 1], "SELECT_AI_ADMIN")
+                self.assertEqual(arguments[arguments.index("--model") + 1], "cohere.command-a-03-2025")
                 schema_passwords_file = Path(arguments[arguments.index("--schema-passwords-file") + 1])
                 self.assertEqual(
                     json.loads(schema_passwords_file.read_text(encoding="utf-8")),

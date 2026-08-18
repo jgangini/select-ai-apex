@@ -227,6 +227,8 @@ def _installer_arguments(
         str(inputs.get("autonomous_database_version", "26ai")),
         "--workload",
         str(inputs.get("autonomous_database_workload", "DW")),
+        "--model",
+        _required(inputs, "select_ai_model"),
         "--schemas",
         _required(inputs, "select_ai_grant_schemas"),
         "--wallet",
