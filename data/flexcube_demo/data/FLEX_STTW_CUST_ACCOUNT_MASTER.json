@@ -1,0 +1,118 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_STTW_CUST_ACCOUNT_MASTER",
+  "source_file_name": "FLEX_STTW_CUST_ACCOUNT_MASTER.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTW_CUST_ACCOUNT_MASTER generados desde .source.",
+  "columns": [
+    {
+      "column_name": "CUST_AC_NO",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Cust Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "LATEST_VERSION_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Atributo LATEST_VERSION_NO de la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Latest Version No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo MOD_NO de la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTW_CUST_ACCOUNT_MASTER.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "select-ai-apex"
+version = "0.1.0"
+description = "Automated deployment for Oracle Select AI and an APEX application on Autonomous Database."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Joel Gangini" }]
+license = { text = "MIT" }
+dependencies = [
+  "oracledb>=2.5.0",
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+select-ai-apex = "installer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

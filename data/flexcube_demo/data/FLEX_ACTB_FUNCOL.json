@@ -1,0 +1,278 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_ACTB_FUNCOL",
+  "source_file_name": "FLEX_ACTB_FUNCOL.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_ACTB_FUNCOL generados desde .source.",
+  "columns": [
+    {
+      "column_name": "BRANCH",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAILABLEDATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Availabledate",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRNREFNO",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Trnrefno",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRNCODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo TRNCODE de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Trncode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_SEQ_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Atributo EVENT_SEQ_NO de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Event Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Monto monetario usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "BANKCODE",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo BANKCODE de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Bankcode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COLLECT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Atributo COLLECT de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Collect",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAILABLE_HOUR",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo AVAILABLE_HOUR de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Available Hour",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVAILABLE_MINUTE",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Atributo AVAILABLE_MINUTE de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Available Minute",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PKEY",
+      "data_type": "NUMBER(22)",
+      "nullable": "N",
+      "ordinal_position": 12,
+      "comment": "Atributo PKEY de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Pkey",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Txn Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_HOUSE",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Atributo CLEARING_HOUSE de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Clearing House",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_NO",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Atributo INSTRUMENT_NO de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Instrument No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_INIT_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Txn Init Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMPENSATION_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Compensation Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Código de moneda usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo MOD_NO de la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODULE_CODE",
+      "data_type": "VARCHAR2(2 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Código de negocio usado por la tabla FLEX_ACTB_FUNCOL.",
+      "ui_display": "Module Code",
+      "classification": "code",
+      "primary_key": false
+    }
+  ]
+}

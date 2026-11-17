@@ -1,0 +1,348 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_ISTB_MULTIMODE_CONT_DETAILS",
+  "source_file_name": "FLEX_ISTB_MULTIMODE_CONT_DETAILS.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS generados desde .source.",
+  "columns": [
+    {
+      "column_name": "CONTRACT_REF_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Contract Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "EVENT_SEQ_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Atributo EVENT_SEQ_NO de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Event Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROLE_CODE",
+      "data_type": "VARCHAR2(15)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Código de negocio usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Role Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "SEQ_NO",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Atributo SEQ_NO de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Seq No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYMENT_MODE",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 5,
+      "comment": "Atributo PAYMENT_MODE de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Payment Mode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SETTLEMENT_CCY",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Código de moneda usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Settlement Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "SETTLEMENT_FCY_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Monto monetario usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Settlement Fcy Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "SETTLEMENT_LCY_AMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Monto monetario usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Settlement Lcy Amt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "SETTLEMENT_ACC_BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Settlement Acc Brn",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "SETTLEMENT_ACCOUNT",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Settlement Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "EX_RATE",
+      "data_type": "NUMBER(16,8)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Ex Rate",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSTRUMENT_NO",
+      "data_type": "VARCHAR2(17)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Atributo INSTRUMENT_NO de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Instrument No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_BANK",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Atributo CLEARING_BANK de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Clearing Bank",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_BRANCH",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Clearing Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "ROUTING_NO",
+      "data_type": "VARCHAR2(27)",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Atributo ROUTING_NO de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Routing No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "END_POINT",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Atributo END_POINT de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "End Point",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PC_CATEGORY",
+      "data_type": "VARCHAR2(4)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Atributo PC_CATEGORY de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Pc Category",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXTERNAL_ACCOUNT",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "External Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXTERNAL_ACC_NAME",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "External Acc Name",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CARD_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo CARD_NO de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Card No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYMENT_REF_NO",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Payment Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "FLAG_ALLOCATION",
+      "data_type": "CHAR(1)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Flag Allocation",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DATE_BANK",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Value Date Bank",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DATE_CUST",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Value Date Cust",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "SECTOR_CODE",
+      "data_type": "VARCHAR2(9)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Código de negocio usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Sector Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYMENT_REMARKS",
+      "data_type": "VARCHAR2(255)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo PAYMENT_REMARKS de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Payment Remarks",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAY_RECEIVE",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo PAY_RECEIVE de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Pay Receive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODE_TXN_REF_NO",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Mode Txn Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "SOURCE_CODE",
+      "data_type": "VARCHAR2(16)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Código de negocio usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Source Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "EDIT_ALLOWED",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Atributo EDIT_ALLOWED de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Edit Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LOAN_ACCOUNT_NO",
+      "data_type": "VARCHAR2(35)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Loan Account No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "MODE_TXN_STAT",
+      "data_type": "VARCHAR2(1)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Mode Txn Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAT_TD_ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Mat Td Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_AC_CLASS",
+      "data_type": "VARCHAR2(6)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo TD_AC_CLASS de la tabla FLEX_ISTB_MULTIMODE_CONT_DETAILS.",
+      "ui_display": "Td Ac Class",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

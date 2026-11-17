@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "project_id": "select-ai-apex",
+  "terraform": {
+    "path": "terraform",
+    "package_oci_credentials": false
+  },
+  "capabilities": {
+    "compartment_modes": ["new", "existing"],
+    "requires_genai_region": true,
+    "database_profile": "new_or_existing",
+    "region_selection": "subscribed_compatible",
+    "regional_requirements": ["genai_chat"]
+  },
+  "form": {
+    "fields": [
+      {
+        "name": "autonomous_database_mode",
+        "label": "Database mode",
+        "type": "select",
+        "required": true,
+        "default": "new",
+        "group": "database",
+        "options": [
+          {"value": "new", "label": "Create new"},
+          {"value": "existing", "label": "Use existing"}
+        ]
+      },
+      {
+        "name": "existing_autonomous_database_ocid",
+        "label": "Database OCID",
+        "type": "text",
+        "required": false,
+        "group": "database",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "existing"
+        }
+      },
+      {
+        "name": "autonomous_database_version",
+        "label": "Database profile",
+        "type": "select",
+        "required": true,
+        "default": "26ai:DW",
+        "transform": "database_profile",
+        "group": "database",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "new"
+        },
+        "options": [
+          {"value": "26ai:DW", "label": "Oracle AI Database 26ai — Data Warehouse"},
+          {"value": "26ai:OLTP", "label": "Oracle AI Database 26ai — Transaction Processing"},
+          {"value": "19c:DW", "label": "Autonomous Database 19c — Data Warehouse"},
+          {"value": "19c:OLTP", "label": "Autonomous Database 19c — Transaction Processing"}
+        ]
+      },
+      {
+        "name": "select_ai_model",
+        "label": "Generative AI chat model",
+        "type": "select",
+        "required": true,
+        "group": "enterprise_ai",
+        "options_source": "oci_genai_chat_models"
+      },
+      {
+        "name": "select_ai_apex_app_id",
+        "label": "APEX application",
+        "type": "select",
+        "required": true,
+        "default": "ask-oracle-chatbot-2026-08-06",
+        "group": "apex_application",
+        "options": [
+          {"value": "chatdb-es-2024", "label": "Autonomous DB + Select AI"},
+          {"value": "ask-oracle-chatbot", "label": "Ask Oracle (2026-03-04)"},
+          {"value": "ask-oracle-chatbot-2026-08-06", "label": "Ask Oracle v5.0.0.1 (2026-08-06)"}
+        ]
+      },
+      {
+        "name": "select_ai_grant_schemas",
+        "label": "Schemas exposed to Select AI",
+        "type": "select",
+        "required": true,
+        "default": "SH_DEMO,FLEXCUBE_DEMO",
+        "multiple": true,
+        "group": "apex_application",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "new"
+        },
+        "options": [
+          {"value": "SH_DEMO", "label": "Sales History (SH_DEMO)"},
+          {"value": "FLEXCUBE_DEMO", "label": "Core Banking (FLEXCUBE_DEMO)"}
+        ]
+      },
+      {
+        "name": "existing_select_ai_grant_schemas",
+        "label": "Schemas exposed to Select AI",
+        "type": "select",
+        "required": true,
+        "multiple": true,
+        "group": "apex_application",
+        "visible_when": {
+          "field": "autonomous_database_mode",
+          "equals": "existing"
+        },
+        "options_source": "oci_autonomous_database_schemas"
+      },
+      {
+        "name": "application_username",
+        "label": "APEX workspace username",
+        "type": "text",
+        "required": true,
+        "default": "SELECT_AI_ADMIN",
+        "group": "apex_application"
+      },
+      {
+        "name": "autonomous_database_admin_password",
+        "label": "Database admin password",
+        "type": "password",
+        "required": true,
+        "secret": true,
+        "group": "database"
+      },
+      {
+        "name": "autonomous_database_wallet_password",
+        "label": "Database wallet password",
+        "type": "password",
+        "required": true,
+        "secret": true,
+        "group": "database"
+      },
+      {
+        "name": "autonomous_database_developer_password",
+        "label": "APEX workspace password",
+        "type": "password",
+        "required": true,
+        "secret": true,
+        "group": "apex_application"
+      }
+    ]
+  },
+  "presentation": {
+    "title": "Select AI Apex",
+    "summary": "Deploys a Select AI APEX experience on Autonomous Database without a persistent application VM.",
+    "tags": ["APEX", "Autonomous AI Database", "Select AI", "Generative AI"],
+    "image": "/assets/select-ai-apex.png",
+    "image_alt": "Select AI APEX application preview",
+    "href": "https://github.com/jgangini/select-ai-apex"
+  },
+  "run_steps": [
+    {"key": "queue", "label": "Queue"},
+    {"key": "credentials", "label": "OCI credentials"},
+    {"key": "compartment", "label": "Compartment"},
+    {"key": "policies", "label": "IAM policies"},
+    {"key": "stack", "label": "APEX Terraform package"},
+    {"key": "plan", "label": "Database plan"},
+    {"key": "apply", "label": "Database apply"},
+    {"key": "database", "label": "Autonomous Database"},
+    {"key": "wallet", "label": "Database wallet"},
+    {"key": "application", "label": "Select AI and APEX setup"},
+    {"key": "artifacts", "label": "Wallet and APEX summary"},
+    {"key": "email", "label": "Access email"},
+    {"key": "complete", "label": "Ready"}
+  ],
+  "outputs": ["application_url", "adb_db_name", "autonomous_database_id"],
+  "artifacts": ["deployment-report.md", "adb_wallet.zip"],
+  "post_apply": {
+    "entrypoint": "deploy/hooks/post_apply.py",
+    "include_paths": ["installer", "apex/manifest.json", "data/manifest.json"],
+    "secret_inputs": [
+      "autonomous_database_admin_password",
+      "autonomous_database_wallet_password",
+      "autonomous_database_developer_password"
+    ],
+    "timeout_seconds": 1800,
+    "requires_oci_credentials": true
+  }
+}

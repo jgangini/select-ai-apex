@@ -1,0 +1,68 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_ICTB_ITM_TOV",
+  "source_file_name": "FLEX_ICTB_ITM_TOV.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_ICTB_ITM_TOV generados desde .source.",
+  "columns": [
+    {
+      "column_name": "ACC",
+      "data_type": "VARCHAR2(20)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Acc",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRN",
+      "data_type": "VARCHAR2(3)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Atributo BRN de la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Brn",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ITM_TYP",
+      "data_type": "CHAR(1)",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Atributo ITM_TYP de la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Itm Typ",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DT",
+      "data_type": "DATE",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_ITM",
+      "data_type": "NUMBER(10)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo DR_ITM de la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Dr Itm",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_UPD",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTB_ITM_TOV.",
+      "ui_display": "Last Upd",
+      "classification": "date",
+      "primary_key": false
+    }
+  ]
+}

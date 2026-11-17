@@ -1,0 +1,2878 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_STTM_CUST_ACCOUNT",
+  "source_file_name": "FLEX_STTM_CUST_ACCOUNT.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTM_CUST_ACCOUNT generados desde .source.",
+  "columns": [
+    {
+      "column_name": "ACY_AVL_BAL",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 1,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Avl Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Dr",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_TANK_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Tank Dr",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Cr",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_TANK_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Tank Cr",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_UNCOLLECTED",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Uncollected",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNAUTH_TANK_UNCOLLECTED",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Unauth Tank Uncollected",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_MTD_TOVER_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo ACY_MTD_TOVER_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Mtd Tover Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_MTD_TOVER_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Atributo LCY_MTD_TOVER_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Mtd Tover Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_MTD_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo ACY_MTD_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Mtd Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_MTD_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Atributo LCY_MTD_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Mtd Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_ACCRUED_DR_IC",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Accrued Dr Ic",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_ACCRUED_CR_IC",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Accrued Cr Ic",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATE_LAST_CR_ACTIVITY",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Date Last Cr Activity",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATE_LAST_DR_ACTIVITY",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Date Last Dr Activity",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATE_LAST_DR",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Date Last Dr",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATE_LAST_CR",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Date Last Cr",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_UNCOLLECTED",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Atributo ACY_UNCOLLECTED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Uncollected",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TOD_START_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tod Start Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TOD_END_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tod End Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DORMANCY_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dormancy Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DORMANCY_DAYS",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo DORMANCY_DAYS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dormancy Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "HAS_TOV",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Atributo HAS_TOV de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Has Tov",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Atributo ACY_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BRANCH_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 25,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Branch Code",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUST_AC_NO",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 26,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cust Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_DESC",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Atributo AC_DESC de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Desc",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUST_NO",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Identificador de cliente usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cust No",
+      "classification": "customer",
+      "primary_key": false
+    },
+    {
+      "column_name": "CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Código de moneda usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT_CLASS",
+      "data_type": "VARCHAR2(6 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Account Class",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_NO_DR",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat No Dr",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_NO_CR",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat No Cr",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_BLOCK",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Block",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_STOP_PAY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Stop Pay",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_DORMANT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Dormant",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "JOINT_AC_INDICATOR",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Joint Ac Indicator",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_OPEN_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Open Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_DAY",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Atributo AC_STMT_DAY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Day",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_CYCLE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Atributo AC_STMT_CYCLE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Cycle",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALT_AC_NO",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Alt Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHEQUE_BOOK_FACILITY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Atributo CHEQUE_BOOK_FACILITY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cheque Book Facility",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ATM_FACILITY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Atributo ATM_FACILITY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Atm Facility",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PASSBOOK_FACILITY",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 43,
+      "comment": "Atributo PASSBOOK_FACILITY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Passbook Facility",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_TYPE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 44,
+      "comment": "Atributo AC_STMT_TYPE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_HO_LINE",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 45,
+      "comment": "Atributo DR_HO_LINE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dr Ho Line",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_HO_LINE",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 46,
+      "comment": "Atributo CR_HO_LINE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cr Ho Line",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_CB_LINE",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 47,
+      "comment": "Atributo CR_CB_LINE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cr Cb Line",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_CB_LINE",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 48,
+      "comment": "Atributo DR_CB_LINE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dr Cb Line",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "SUBLIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 49,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Sublimit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "UNCOLL_FUNDS_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 50,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Uncoll Funds Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_FROZEN",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 51,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Frozen",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 52,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_BALANCE",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 53,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Balance",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_NO",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 54,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement No",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TOD_LIMIT_START_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 55,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tod Limit Start Date",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TOD_LIMIT_END_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 56,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tod Limit End Date",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "TOD_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 57,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tod Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "NOMINEE1",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 58,
+      "comment": "Atributo NOMINEE1 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Nominee1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NOMINEE2",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 59,
+      "comment": "Atributo NOMINEE2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Nominee2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_GL",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 60,
+      "comment": "Atributo DR_GL de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dr Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_GL",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 61,
+      "comment": "Atributo CR_GL de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cr Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECORD_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 62,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Record Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTH_STAT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 63,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Auth Stat",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "MOD_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 64,
+      "comment": "Atributo MOD_NO de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Mod No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 65,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Maker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 66,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Maker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 67,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Checker Id",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKER_DT_STAMP",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 68,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Checker Dt Stamp",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ONCE_AUTH",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 69,
+      "comment": "Información de usuario para auditoría o autorización usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Once Auth",
+      "classification": "audit",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIMIT_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 70,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Limit Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LINE_ID",
+      "data_type": "VARCHAR2(11 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 71,
+      "comment": "Atributo LINE_ID de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Line Id",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "OFFLINE_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 72,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Offline Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CAS_ACCOUNT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 73,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cas Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_OPENING_BAL",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 74,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Opening Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_OPENING_BAL",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 75,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Opening Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TODAY_TOVER_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 76,
+      "comment": "Atributo ACY_TODAY_TOVER_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Today Tover Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_TODAY_TOVER_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 77,
+      "comment": "Atributo LCY_TODAY_TOVER_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Today Tover Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TODAY_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 78,
+      "comment": "Atributo ACY_TODAY_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Today Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_TODAY_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 79,
+      "comment": "Atributo LCY_TODAY_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Today Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TANK_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 80,
+      "comment": "Atributo ACY_TANK_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Tank Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TANK_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 81,
+      "comment": "Atributo ACY_TANK_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Tank Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_TANK_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 82,
+      "comment": "Atributo LCY_TANK_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Tank Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_TANK_DR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 83,
+      "comment": "Atributo LCY_TANK_DR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Tank Dr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_TOVER_CR",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 84,
+      "comment": "Atributo LCY_TOVER_CR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Tover Cr",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_TANK_UNCOLLECTED",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 85,
+      "comment": "Atributo ACY_TANK_UNCOLLECTED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Tank Uncollected",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_CURR_BALANCE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 86,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Curr Balance",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LCY_CURR_BALANCE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 87,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lcy Curr Balance",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_BLOCKED_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 88,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Blocked Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LAST_CCY_CONV_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 89,
+      "comment": "Código de moneda usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Last Ccy Conv Date",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADDRESS1",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 90,
+      "comment": "Atributo ADDRESS1 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Address1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADDRESS2",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 91,
+      "comment": "Atributo ADDRESS2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Address2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADDRESS3",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 92,
+      "comment": "Atributo ADDRESS3 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Address3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ADDRESS4",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 93,
+      "comment": "Atributo ADDRESS4 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Address4",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_AC_NO",
+      "data_type": "VARCHAR2(32 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 94,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clearing Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CR_AUTO_EX_RATE_LMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 95,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cr Auto Ex Rate Lmt",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_AUTO_EX_RATE_LMT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 96,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dr Auto Ex Rate Lmt",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_BANK_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 97,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clearing Bank Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "GENERATE_ADVICE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 98,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Generate Advice",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_CYCLE2",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 99,
+      "comment": "Atributo AC_STMT_CYCLE2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Cycle2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_DAY2",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 100,
+      "comment": "Atributo AC_STMT_DAY2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Day2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CUMULATIVE_STMT2",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 101,
+      "comment": "Atributo CUMULATIVE_STMT2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cumulative Stmt2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_DATE2",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 102,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Date2",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_BALANCE2",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 103,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Balance2",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_NO2",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 104,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement No2",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_TYPE2",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 105,
+      "comment": "Atributo AC_STMT_TYPE2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Type2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_REQUIRED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 106,
+      "comment": "Atributo NETTING_REQUIRED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Netting Required",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "IBAN_AC_NO",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 107,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Iban Ac No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "NO_TURNOVER_NO_STMT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 108,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "No Turnover No Stmt",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "NO_TURNOVER_NO_STMT2",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 109,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "No Turnover No Stmt2",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIRST_OD_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 110,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "First Od Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_CODE_CATEGORY",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 111,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Code Category",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "DISPLAY_IBAN_IN_ADVICES",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 112,
+      "comment": "Atributo DISPLAY_IBAN_IN_ADVICES de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Display Iban In Advices",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIAB_ID",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 113,
+      "comment": "Atributo LIAB_ID de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Liab Id",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TYPE_OF_CHQ",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 114,
+      "comment": "Atributo TYPE_OF_CHQ de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Type Of Chq",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_TYPE3",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 115,
+      "comment": "Atributo AC_STMT_TYPE3 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Type3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_CYCLE3",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 116,
+      "comment": "Atributo AC_STMT_CYCLE3 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Cycle3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_DAY3",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 117,
+      "comment": "Atributo AC_STMT_DAY3 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Day3",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NO_TURNOVER_NO_STMT3",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 118,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "No Turnover No Stmt3",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_DATE3",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 119,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Date3",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_BALANCE3",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 120,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement Balance3",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_STATEMENT_NO3",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 121,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Statement No3",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_BILL_DAY",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 122,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Bill Day",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "DISCLAIMER_TEXT",
+      "data_type": "VARCHAR2(512 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 123,
+      "comment": "Atributo DISCLAIMER_TEXT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Disclaimer Text",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CB_ATM_WITHDRAWAL_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 124,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cb Atm Withdrawal Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CB_ATM_WITHDRAWAL_LIMIT_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 125,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cb Atm Withdrawal Limit Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ATH_ATM_WITHDRAWAL_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 126,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ath Atm Withdrawal Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ATH_ATM_WITHDRAWAL_LIMIT_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 127,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ath Atm Withdrawal Limit Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ICC_WITHDRAWAL_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 128,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Icc Withdrawal Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ICC_WITHDRAWAL_LIMIT_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 129,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Icc Withdrawal Limit Ccy",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "POS_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 130,
+      "comment": "Atributo POS_TXN_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Pos Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "WITHDRAWAL_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 131,
+      "comment": "Atributo WITHDRAWAL_TXN_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Withdrawal Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEPOSIT_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 132,
+      "comment": "Atributo DEPOSIT_TXN_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Deposit Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRANSFER_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 133,
+      "comment": "Atributo TRANSFER_TXN_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Transfer Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INQUIRY_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 134,
+      "comment": "Atributo INQUIRY_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Inquiry Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CTS_TXN_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 135,
+      "comment": "Atributo CTS_TXN_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cts Txn Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BILL_PAY_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 136,
+      "comment": "Atributo BILL_PAY_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Bill Pay Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "EMPL_INDICATOR",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 137,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Empl Indicator",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_STATUS",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 138,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Status",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "STATUS_SINCE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 139,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Status Since",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_DECEASED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 140,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Deceased",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "PROPAGATE_REPORTING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 141,
+      "comment": "Atributo PROPAGATE_REPORTING de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Propagate Reporting",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "STATUS_AUTO_MAN",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 142,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Status Auto Man",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_BILLING_TODATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 143,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Billing Todate",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "OVERDRAFT_SINCE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 144,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Overdraft Since",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACER",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 145,
+      "comment": "Atributo TRACER de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tracer",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACER_FREQUENCY",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 146,
+      "comment": "Atributo TRACER_FREQUENCY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tracer Frequency",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAX_TRACER",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 147,
+      "comment": "Atributo MAX_TRACER de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Max Tracer",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQ_CLASS",
+      "data_type": "VARCHAR2(10 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 148,
+      "comment": "Atributo LIQ_CLASS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Liq Class",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACER_START_DAYS",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 149,
+      "comment": "Atributo TRACER_START_DAYS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Tracer Start Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "RESET_STATEMENT_NO",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 150,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reset Statement No",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "RESET_MONTH",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 151,
+      "comment": "Atributo RESET_MONTH de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reset Month",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_RESET_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 152,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Reset Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_RESET_DATE2",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 153,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Reset Date2",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREVIOUS_RESET_DATE3",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 154,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Previous Reset Date3",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DATABASE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 155,
+      "comment": "Atributo DATABASE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Database",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_OVD_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 156,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Ovd Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "EOD_WASH_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 157,
+      "comment": "Atributo EOD_WASH_REQD de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Eod Wash Reqd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DISALLOW_CHANGES",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 158,
+      "comment": "Atributo DISALLOW_CHANGES de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Disallow Changes",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "OVERLINE_OD_SINCE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 159,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Overline Od Since",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_UNKNOWN_ADDRESS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 160,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Unknown Address",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_TEMPORARY_CLOSED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 161,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat Temporary Closed",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "GENERATE_STMT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 162,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Generate Stmt",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLEARING_HOUSE",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 163,
+      "comment": "Atributo CLEARING_HOUSE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clearing House",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMP_AMT_USAGE",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 164,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Comp Amt Usage",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "NONCOMP_AMT_USAGE",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 165,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Noncomp Amt Usage",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "COMBINED_AC_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 166,
+      "comment": "Atributo COMBINED_AC_REQD de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Combined Ac Reqd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TRACK_RECEIVABLE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 167,
+      "comment": "Atributo TRACK_RECEIVABLE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Track Receivable",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MSG_NETTING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 168,
+      "comment": "Atributo MSG_NETTING de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Msg Netting",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_NETTING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 169,
+      "comment": "Atributo AC_NETTING de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Netting",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "VERSION_NO",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 170,
+      "comment": "Atributo VERSION_NO de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Version No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHARGE_GROUP",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 171,
+      "comment": "Atributo CHARGE_GROUP de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Charge Group",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHARGE_STATEMENT_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 172,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Charge Statement Reqd",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_DELINQUENCY_BLOCK_AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 173,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Delinquency Block Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACY_DELINQUENCY_AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 174,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acy Delinquency Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECEIVABLE_AMOUNT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 175,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Receivable Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT_LINKED_DEPOSIT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 176,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Account Linked Deposit",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_LINKED_DEPOSIT_AMOUNT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 177,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Linked Deposit Amount",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIN_DEPOSIT_BREAKAGE_BAL",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 178,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Min Deposit Breakage Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEPOSIT_BREAKAGE_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 179,
+      "comment": "Atributo DEPOSIT_BREAKAGE_BASIS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Deposit Breakage Basis",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRINCIPAL_BREAKAGE_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 180,
+      "comment": "Atributo PRINCIPAL_BREAKAGE_BASIS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Principal Breakage Basis",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AVLBAL_TOV",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 181,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Avlbal Tov",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHARGE_DETAILS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 182,
+      "comment": "Atributo CHARGE_DETAILS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Charge Details",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REVAL_BAL",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 183,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reval Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "NETTING_IND",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 184,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Netting Ind",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "INTERDICT_CHECK_REQD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 185,
+      "comment": "Atributo INTERDICT_CHECK_REQD de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Interdict Check Reqd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT_TYPE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 186,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Account Type",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_STMT_DAY2",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 187,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Stmt Day2",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_STMT_DAY3",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 188,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Stmt Day3",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_STMT_TYPE2",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 189,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Stmt Type2",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_STMT_TYPE3",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 190,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Stmt Type3",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCOUNT_DERIVED_STATUS",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 191,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Account Derived Status",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTO_DEPOSITS_BAL",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 192,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Auto Deposits Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTO_REORDER_CHECK_LEAVES",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 193,
+      "comment": "Atributo AUTO_REORDER_CHECK_LEAVES de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Auto Reorder Check Leaves",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTO_REORDER_CHECK_LEVEL",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 194,
+      "comment": "Atributo AUTO_REORDER_CHECK_LEVEL de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Auto Reorder Check Level",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AUTO_REORDER_CHECK_REQUIRED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 195,
+      "comment": "Atributo AUTO_REORDER_CHECK_REQUIRED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Auto Reorder Check Required",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LATEST_RUNBAL_SUBMMITED",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 196,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Latest Runbal Submmited",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "LATEST_SRNO_SUBMITTED",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 197,
+      "comment": "Atributo LATEST_SRNO_SUBMITTED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Latest Srno Submitted",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MASTER_ACCOUNT_NO",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 198,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Master Account No",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_AC_SRNO_PRINTED_IN_PBK",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 199,
+      "comment": "Atributo PREV_AC_SRNO_PRINTED_IN_PBK de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Ac Srno Printed In Pbk",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_LINE_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 200,
+      "comment": "Atributo PREV_LINE_NO de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Line No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_PAGE_NO",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 201,
+      "comment": "Atributo PREV_PAGE_NO de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Page No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_RUNBAL_PRINTED_IN_PBK",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 202,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Runbal Printed In Pbk",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "REG_CC_AVAILABILITY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 203,
+      "comment": "Atributo REG_CC_AVAILABILITY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reg Cc Availability",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REG_CC_AVAILABLE_FUNDS",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 204,
+      "comment": "Atributo REG_CC_AVAILABLE_FUNDS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reg Cc Available Funds",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "STATEMENT_ACCOUNT",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 205,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Statement Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "SWEEP_TYPE",
+      "data_type": "NUMBER(22)",
+      "nullable": "Y",
+      "ordinal_position": 206,
+      "comment": "Atributo SWEEP_TYPE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Sweep Type",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REFERRAL_REQUIRED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 207,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Referral Required",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "ATM_DLY_AMT_LIMIT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 208,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Atm Dly Amt Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKBOOK_NAME_1",
+      "data_type": "VARCHAR2(105 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 209,
+      "comment": "Atributo CHECKBOOK_NAME_1 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Checkbook Name 1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHECKBOOK_NAME_2",
+      "data_type": "VARCHAR2(105 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 210,
+      "comment": "Atributo CHECKBOOK_NAME_2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Checkbook Name 2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LODGEMENT_BOOK_FACILITY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 211,
+      "comment": "Atributo LODGEMENT_BOOK_FACILITY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Lodgement Book Facility",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STAT_DE_POST",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 212,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stat De Post",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_LIST",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 213,
+      "comment": "Identificador de producto usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Product List",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "SPECIAL_CONDITION_PRODUCT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 214,
+      "comment": "Identificador de producto usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Special Condition Product",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "TD_CERT_PRINTED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 215,
+      "comment": "Atributo TD_CERT_PRINTED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Td Cert Printed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MIN_REQD_BAL",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 216,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Min Reqd Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "SPECIAL_CONDITION_TXNCODE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 217,
+      "comment": "Atributo SPECIAL_CONDITION_TXNCODE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Special Condition Txncode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE_LIST",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 218,
+      "comment": "Atributo TXN_CODE_LIST de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Txn Code List",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_INT_DUE",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 219,
+      "comment": "Atributo DR_INT_DUE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dr Int Due",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MANDATORY_STMT_TXN_COUNT",
+      "data_type": "NUMBER(5)",
+      "nullable": "Y",
+      "ordinal_position": 220,
+      "comment": "Atributo MANDATORY_STMT_TXN_COUNT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Mandatory Stmt Txn Count",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "FTXN_STMT_TXN_COUNT",
+      "data_type": "NUMBER(5)",
+      "nullable": "Y",
+      "ordinal_position": 221,
+      "comment": "Atributo FTXN_STMT_TXN_COUNT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ftxn Stmt Txn Count",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REQUEST_FOR_CLOSURE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 222,
+      "comment": "Atributo REQUEST_FOR_CLOSURE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Request For Closure",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PREV_PERIODIC_STMT_DT",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 223,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Prev Periodic Stmt Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_COUNT_SINCE_LAST_STMT",
+      "data_type": "NUMBER",
+      "nullable": "Y",
+      "ordinal_position": 224,
+      "comment": "Atributo TXN_COUNT_SINCE_LAST_STMT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Txn Count Since Last Stmt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LINKED_TO_LOC",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 225,
+      "comment": "Atributo LINKED_TO_LOC de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Linked To Loc",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DORM_ACC_BALANCE",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 226,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dorm Acc Balance",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "DORM_ACC_STATUS",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 227,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dorm Acc Status",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "OD_GL",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 228,
+      "comment": "Atributo OD_GL de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Od Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REASON_CODE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 229,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reason Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLOSURE_DAY",
+      "data_type": "NUMBER(5)",
+      "nullable": "Y",
+      "ordinal_position": 230,
+      "comment": "Atributo CLOSURE_DAY de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Closure Day",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLOS_REQ_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 231,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clos Req Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_DELIVERY_BLOCKED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 232,
+      "comment": "Atributo CHQ_DELIVERY_BLOCKED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Delivery Blocked",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_REGULAR",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 233,
+      "comment": "Atributo CHQ_REGULAR de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Regular",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_CONTINUOUS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 234,
+      "comment": "Atributo CHQ_CONTINUOUS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Continuous",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_BOOK_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 235,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Book Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_DELIVERY_OFFICE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 236,
+      "comment": "Atributo CHQ_DELIVERY_OFFICE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Delivery Office",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_DISPATCH_MODE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 237,
+      "comment": "Atributo CHQ_DISPATCH_MODE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Dispatch Mode",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REG_CHQ_CUST_ID_REQ",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 238,
+      "comment": "Atributo REG_CHQ_CUST_ID_REQ de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reg Chq Cust Id Req",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONT_CHQ_CUST_ID_REQ",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 239,
+      "comment": "Atributo CONT_CHQ_CUST_ID_REQ de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cont Chq Cust Id Req",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONT_CHQ_FIRST_NAME",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 240,
+      "comment": "Atributo CONT_CHQ_FIRST_NAME de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cont Chq First Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONT_CHQ_LAST_NAME",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 241,
+      "comment": "Atributo CONT_CHQ_LAST_NAME de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cont Chq Last Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_TP_CUST_ID",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 242,
+      "comment": "Atributo CHQ_TP_CUST_ID de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Tp Cust Id",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_TP_FIRST_NAME",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 243,
+      "comment": "Atributo CHQ_TP_FIRST_NAME de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Tp First Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHQ_TP_LAST_NAME",
+      "data_type": "VARCHAR2(35 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 244,
+      "comment": "Atributo CHQ_TP_LAST_NAME de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chq Tp Last Name",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AGREEMENT_ID",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 245,
+      "comment": "Atributo AGREEMENT_ID de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Agreement Id",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INACTIVE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 246,
+      "comment": "Atributo INACTIVE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Inactive",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "NOTARY_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 247,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Notary Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "CHG_REF_NO",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 248,
+      "comment": "Identificador de transacción o referencia usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Chg Ref No",
+      "classification": "reference",
+      "primary_key": false
+    },
+    {
+      "column_name": "REDIRECTION_BRANCH",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 249,
+      "comment": "Identificador de sucursal usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Redirection Branch",
+      "classification": "branch",
+      "primary_key": false
+    },
+    {
+      "column_name": "REDIRECTION_ACCOUNT",
+      "data_type": "VARCHAR2(30 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 250,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Redirection Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLOSURE_REMARKS",
+      "data_type": "VARCHAR2(250 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 251,
+      "comment": "Atributo CLOSURE_REMARKS de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Closure Remarks",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REASON_CD_FOR_BLOK",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 252,
+      "comment": "Atributo REASON_CD_FOR_BLOK de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Reason Cd For Blok",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "WITHDRAWL_REQ_NOTICE_PRD",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 253,
+      "comment": "Atributo WITHDRAWL_REQ_NOTICE_PRD de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Withdrawl Req Notice Prd",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PASSBOOK_NO",
+      "data_type": "VARCHAR2(16 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 254,
+      "comment": "Atributo PASSBOOK_NO de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Passbook No",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_SPECIAL_CYCLE1",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 255,
+      "comment": "Atributo AC_STMT_SPECIAL_CYCLE1 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Special Cycle1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_SPECIAL_DAY1",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 256,
+      "comment": "Atributo AC_STMT_SPECIAL_DAY1 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Special Day1",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_SPECIAL_CYCLE2",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 257,
+      "comment": "Atributo AC_STMT_SPECIAL_CYCLE2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Special Cycle2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_STMT_SPECIAL_DAY2",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 258,
+      "comment": "Atributo AC_STMT_SPECIAL_DAY2 de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Stmt Special Day2",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UNIVERSAL_LINE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 259,
+      "comment": "Atributo UNIVERSAL_LINE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Universal Line",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "INSURED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 260,
+      "comment": "Atributo INSURED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Insured",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "READJUSTABLE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 261,
+      "comment": "Atributo READJUSTABLE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Readjustable",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LEGAL_GUARDIAN",
+      "data_type": "VARCHAR2(12 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 262,
+      "comment": "Atributo LEGAL_GUARDIAN de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Legal Guardian",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "AC_OPERATION_ALLOWED",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 263,
+      "comment": "Atributo AC_OPERATION_ALLOWED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Ac Operation Allowed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "REDIRECTION_ACC_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 264,
+      "comment": "Código de moneda usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Redirection Acc Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_CR_BAL",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 265,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Allow Cr Bal",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "RQST_FOR_AOD_CLOSURE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 266,
+      "comment": "Atributo RQST_FOR_AOD_CLOSURE de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Rqst For Aod Closure",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DETERIORATION_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 267,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Deterioration Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AGREED_OD_LIMIT_AVAILAIBLE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 268,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Agreed Od Limit Availaible",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "AGREED_OD_START_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 269,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Agreed Od Start Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AGREED_OD_END_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 270,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Agreed Od End Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "AGREED_OD_LIMIT",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 271,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Agreed Od Limit",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_SUBSTATUS",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 272,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Substatus",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "TEMP_OD_FIXED",
+      "data_type": "NUMBER(22,3)",
+      "nullable": "Y",
+      "ordinal_position": 273,
+      "comment": "Atributo TEMP_OD_FIXED de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Temp Od Fixed",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "GLOBAL_ACCOUNT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 274,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Global Account",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "GLOBAL_SINCE_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 275,
+      "comment": "Monto monetario usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Global Since Date",
+      "classification": "amount",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONSOLIDATED_DEPOSIT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 276,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Consolidated Deposit",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_SUBSTAT_CHG_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 277,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Substat Chg Date",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACTIVATION_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 278,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Activation Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CONT_CHQ_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 279,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Cont Chq Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAX_WITHDRAWL_CNT_FOR_INT",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 280,
+      "comment": "Atributo MAX_WITHDRAWL_CNT_FOR_INT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Max Withdrawl Cnt For Int",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAX_PRNREADJ_WDRAWL_CNT",
+      "data_type": "NUMBER(3)",
+      "nullable": "Y",
+      "ordinal_position": 281,
+      "comment": "Atributo MAX_PRNREADJ_WDRAWL_CNT de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Max Prnreadj Wdrawl Cnt",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLOS_ESTIMATED_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 282,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clos Estimated Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "CLOS_ACTUAL_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 283,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Clos Actual Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACC_REOPEN_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 284,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Acc Reopen Date",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_LAST_UPD",
+      "data_type": "TIMESTAMP(6)",
+      "nullable": "Y",
+      "ordinal_position": 285,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dd Last Upd",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_CREATION_DT",
+      "data_type": "TIMESTAMP(6)",
+      "nullable": "Y",
+      "ordinal_position": 286,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dd Creation Dt",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "DD_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 287,
+      "comment": "Atributo DD_ID de la tabla FLEX_STTM_CUST_ACCOUNT.",
+      "ui_display": "Dd Id",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}

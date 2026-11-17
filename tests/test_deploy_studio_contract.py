@@ -1,0 +1,80 @@
+import hashlib
+import json
+from pathlib import Path
+import unittest
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class DeployStudioContractTests(unittest.TestCase):
+    def test_contract_points_to_existing_terraform_and_hook(self) -> None:
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(contract["schema_version"], 1)
+        self.assertEqual(contract["project_id"], "select-ai-apex")
+        self.assertTrue((ROOT / contract["terraform"]["path"]).is_dir())
+        self.assertTrue((ROOT / contract["post_apply"]["entrypoint"]).is_file())
+        self.assertEqual(contract["artifacts"], ["deployment-report.md", "adb_wallet.zip"])
+        self.assertEqual(
+            contract["post_apply"]["include_paths"],
+            ["installer", "apex/manifest.json", "data/manifest.json"],
+        )
+        self.assertEqual(
+            contract["post_apply"]["secret_inputs"],
+            [
+                "autonomous_database_admin_password",
+                "autonomous_database_wallet_password",
+                "autonomous_database_developer_password",
+            ],
+        )
+        self.assertTrue(all((ROOT / path).exists() for path in contract["post_apply"]["include_paths"]))
+
+    def test_contract_uses_the_shared_genai_and_database_profile_standard(self) -> None:
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+        capabilities = contract["capabilities"]
+        fields = contract["form"]["fields"]
+        names = [field["name"] for field in fields]
+
+        self.assertEqual(capabilities["region_selection"], "subscribed_compatible")
+        self.assertEqual(capabilities["regional_requirements"], ["genai_chat"])
+        self.assertLess(names.index("autonomous_database_mode"), names.index("existing_autonomous_database_ocid"))
+        self.assertLess(names.index("existing_autonomous_database_ocid"), names.index("autonomous_database_version"))
+        profile = next(field for field in fields if field["name"] == "autonomous_database_version")
+        database_ocid = next(field for field in fields if field["name"] == "existing_autonomous_database_ocid")
+        workspace_username = next(field for field in fields if field["name"] == "application_username")
+        workspace_password = next(field for field in fields if field["name"] == "autonomous_database_developer_password")
+        model = next(field for field in fields if field["name"] == "select_ai_model")
+        new_database_schemas = next(field for field in fields if field["name"] == "select_ai_grant_schemas")
+        existing_database_schemas = next(field for field in fields if field["name"] == "existing_select_ai_grant_schemas")
+        self.assertEqual(profile["transform"], "database_profile")
+        self.assertEqual(profile["visible_when"], {"field": "autonomous_database_mode", "equals": "new"})
+        self.assertEqual(database_ocid["label"], "Database OCID")
+        self.assertEqual(workspace_username["label"], "APEX workspace username")
+        self.assertEqual(workspace_password["label"], "APEX workspace password")
+        self.assertEqual(model["group"], "enterprise_ai")
+        self.assertEqual(model["options_source"], "oci_genai_chat_models")
+        self.assertEqual(new_database_schemas["default"], "SH_DEMO,FLEXCUBE_DEMO")
+        self.assertTrue(new_database_schemas["multiple"])
+        self.assertEqual(new_database_schemas["visible_when"], {"field": "autonomous_database_mode", "equals": "new"})
+        self.assertTrue(existing_database_schemas["multiple"])
+        self.assertEqual(existing_database_schemas["options_source"], "oci_autonomous_database_schemas")
+        self.assertEqual(existing_database_schemas["visible_when"], {"field": "autonomous_database_mode", "equals": "existing"})
+
+    def test_declared_outputs_are_not_secrets(self) -> None:
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+        forbidden = ("password", "private_key", "wallet_base64", "secret")
+
+        self.assertFalse(any(token in name.lower() for name in contract["outputs"] for token in forbidden))
+
+    def test_ask_oracle_v5001_export_matches_its_declared_official_hash(self) -> None:
+        manifest = json.loads((ROOT / "apex" / "manifest.json").read_text(encoding="utf-8"))
+        application = next(item for item in manifest["apps"] if item["id"] == "ask-oracle-chatbot-2026-08-06")
+        export = ROOT / application["export_path"]
+
+        self.assertEqual(export.stat().st_size, application["source"]["size_bytes"])
+        self.assertEqual(hashlib.sha256(export.read_bytes()).hexdigest(), application["source"]["sha256"])
+
+
+if __name__ == "__main__":
+    unittest.main()

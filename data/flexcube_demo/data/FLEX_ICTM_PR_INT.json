@@ -1,0 +1,428 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_ICTM_PR_INT",
+  "source_file_name": "FLEX_ICTM_PR_INT.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_ICTM_PR_INT generados desde .source.",
+  "columns": [
+    {
+      "column_name": "PRODUCT_CODE",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Identificador de producto usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Product Code",
+      "classification": "product",
+      "primary_key": false
+    },
+    {
+      "column_name": "RULE",
+      "data_type": "VARCHAR2(4 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 2,
+      "comment": "Atributo RULE de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Rule",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_DAYS",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Atributo LIQN_DAYS de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_MONTHS",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo LIQN_MONTHS de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Months",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_YEARS",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Atributo LIQN_YEARS de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Years",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_START_ACCOUNT",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 6,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Start Account",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_START_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Start Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_EOM",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Atributo LIQN_EOM de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Eom",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCR_PROD_LEVEL",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Accr Prod Level",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCR_FREQ",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Accr Freq",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCR_MONTH",
+      "data_type": "VARCHAR2(2 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 11,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Accr Month",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCR_EOM",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 12,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Accr Eom",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "ACCR_DAY",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 13,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Accr Day",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDE_CCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 14,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Ude Ccy",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIRST_CALC_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 15,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "First Calc Date",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "FIRST_ACCR_DATE",
+      "data_type": "DATE",
+      "nullable": "Y",
+      "ordinal_position": 16,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "First Accr Date",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "BACK_CALC_FLAG",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 17,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Back Calc Flag",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "TAX_CURRENCY",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 18,
+      "comment": "Código de moneda usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Tax Currency",
+      "classification": "currency",
+      "primary_key": false
+    },
+    {
+      "column_name": "RATE_TYPE",
+      "data_type": "VARCHAR2(8 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 19,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Rate Type",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "MID_SELL_BUY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 20,
+      "comment": "Atributo MID_SELL_BUY de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Mid Sell Buy",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DECIMAL_TREATMENT",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 21,
+      "comment": "Atributo DECIMAL_TREATMENT de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Decimal Treatment",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PNL_REPLACE",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 22,
+      "comment": "Atributo PNL_REPLACE de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Pnl Replace",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "TXN_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 23,
+      "comment": "Código de negocio usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Txn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "RECEIVABLE_GL",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 24,
+      "comment": "Atributo RECEIVABLE_GL de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Receivable Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "ALLOW_RECEIVABLE_TRACK",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 25,
+      "comment": "Atributo ALLOW_RECEIVABLE_TRACK de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Allow Receivable Track",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "MAX_RETRY",
+      "data_type": "NUMBER(4)",
+      "nullable": "Y",
+      "ordinal_position": 26,
+      "comment": "Atributo MAX_RETRY de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Max Retry",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "BOOK_DATE_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 27,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Book Date Basis",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "VALUE_DATE_BASIS",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 28,
+      "comment": "Fecha operativa o marca de tiempo usada por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Value Date Basis",
+      "classification": "date",
+      "primary_key": false
+    },
+    {
+      "column_name": "RELEASE_IN_BOD",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 29,
+      "comment": "Atributo RELEASE_IN_BOD de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Release In Bod",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDE_RATE_TYPE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 30,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Ude Rate Type",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "UDE_RATE_CODE",
+      "data_type": "VARCHAR2(8 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 31,
+      "comment": "Tasa o valor porcentual usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Ude Rate Code",
+      "classification": "rate",
+      "primary_key": false
+    },
+    {
+      "column_name": "BACK_UDE_FLAG",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 32,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Back Ude Flag",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "IC_MIS_TRACKING",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 33,
+      "comment": "Atributo IC_MIS_TRACKING de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Ic Mis Tracking",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_ENT_DAY",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 34,
+      "comment": "Atributo LIQN_ENT_DAY de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Ent Day",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYMENT_METHOD",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 35,
+      "comment": "Atributo PAYMENT_METHOD de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Payment Method",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DEFERRED_FLAG",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 36,
+      "comment": "Estado, bandera o indicador usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Deferred Flag",
+      "classification": "status",
+      "primary_key": false
+    },
+    {
+      "column_name": "CALC_DAYS",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 37,
+      "comment": "Atributo CALC_DAYS de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Calc Days",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_BF_MTHEND",
+      "data_type": "CHAR(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 38,
+      "comment": "Atributo LIQN_BF_MTHEND de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Bf Mthend",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DAYS_BF_MTHEND",
+      "data_type": "NUMBER(2)",
+      "nullable": "Y",
+      "ordinal_position": 39,
+      "comment": "Atributo DAYS_BF_MTHEND de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Days Bf Mthend",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "DR_INT_RECV_GL",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 40,
+      "comment": "Atributo DR_INT_RECV_GL de la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Dr Int Recv Gl",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LIQN_BASED_ON_ACC_OPNG",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 41,
+      "comment": "Identificador de cuenta usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Liqn Based On Acc Opng",
+      "classification": "account",
+      "primary_key": false
+    },
+    {
+      "column_name": "PRODUCT_CALC_TYPE",
+      "data_type": "VARCHAR2(1 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 42,
+      "comment": "Identificador de producto usado por la tabla FLEX_ICTM_PR_INT.",
+      "ui_display": "Product Calc Type",
+      "classification": "product",
+      "primary_key": false
+    }
+  ]
+}

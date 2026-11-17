@@ -1,0 +1,140 @@
+{
+  "owner_name": "SH_DEMO",
+  "table_name": "SALES",
+  "source_file_name": "SALES.csv",
+  "table_comment": "Sales fact table with product, customer, date, channel, promotion, quantity and sold amount.",
+  "columns": [
+    {
+      "column_name": "PROD_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Foreign key to the product sold.",
+      "ui_display": "Prod Id",
+      "classification": "product",
+      "primary_key": true
+    },
+    {
+      "column_name": "CUST_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Foreign key to the customer.",
+      "ui_display": "Cust Id",
+      "classification": "customer",
+      "primary_key": true
+    },
+    {
+      "column_name": "TIME_ID",
+      "data_type": "DATE",
+      "nullable": "N",
+      "ordinal_position": 3,
+      "comment": "Foreign key to the calendar date of the sale.",
+      "ui_display": "Time Id",
+      "classification": "date",
+      "primary_key": true
+    },
+    {
+      "column_name": "CHANNEL_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 4,
+      "comment": "Foreign key to the sales channel used for this sale.",
+      "ui_display": "Channel Id",
+      "classification": "channel",
+      "primary_key": true
+    },
+    {
+      "column_name": "PROMO_ID",
+      "data_type": "NUMBER",
+      "nullable": "N",
+      "ordinal_position": 5,
+      "comment": "Foreign key to the promotion applied to this sale.",
+      "ui_display": "Promo Id",
+      "classification": "promotion",
+      "primary_key": true
+    },
+    {
+      "column_name": "QUANTITY_SOLD",
+      "data_type": "NUMBER(10,2)",
+      "nullable": "N",
+      "ordinal_position": 6,
+      "comment": "Number of product units sold in the transaction.",
+      "ui_display": "Quantity Sold",
+      "classification": "measure",
+      "primary_key": false
+    },
+    {
+      "column_name": "AMOUNT_SOLD",
+      "data_type": "NUMBER(12,2)",
+      "nullable": "N",
+      "ordinal_position": 7,
+      "comment": "Revenue amount for the sale transaction.",
+      "ui_display": "Amount Sold",
+      "classification": "amount",
+      "primary_key": false
+    }
+  ],
+  "foreign_keys": [
+    {
+      "name": "SH_DEMO_SALES_PRODUCT_FK",
+      "columns": [
+        "PROD_ID"
+      ],
+      "references": {
+        "table": "PRODUCTS",
+        "columns": [
+          "PROD_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_CUSTOMER_FK",
+      "columns": [
+        "CUST_ID"
+      ],
+      "references": {
+        "table": "CUSTOMERS",
+        "columns": [
+          "CUST_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_TIME_FK",
+      "columns": [
+        "TIME_ID"
+      ],
+      "references": {
+        "table": "TIMES",
+        "columns": [
+          "TIME_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_CHANNEL_FK",
+      "columns": [
+        "CHANNEL_ID"
+      ],
+      "references": {
+        "table": "CHANNELS",
+        "columns": [
+          "CHANNEL_ID"
+        ]
+      }
+    },
+    {
+      "name": "SH_DEMO_SALES_PROMO_FK",
+      "columns": [
+        "PROMO_ID"
+      ],
+      "references": {
+        "table": "PROMOTIONS",
+        "columns": [
+          "PROMO_ID"
+        ]
+      }
+    }
+  ]
+}

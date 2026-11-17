@@ -1,0 +1,108 @@
+{
+  "owner_name": "FLEXCUBE_DEMO",
+  "table_name": "FLEX_STTM_EXTND_TRN_CODE_DTL",
+  "source_file_name": "FLEX_STTM_EXTND_TRN_CODE_DTL.csv",
+  "table_comment": "Datos fuente de la tabla FLEX_STTM_EXTND_TRN_CODE_DTL generados desde .source.",
+  "columns": [
+    {
+      "column_name": "TRN_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 1,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "EXTENDED_CODE",
+      "data_type": "VARCHAR2(5 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 2,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Extended Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "SHORT_DESCRIPTION",
+      "data_type": "VARCHAR2(14 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 3,
+      "comment": "Atributo SHORT_DESCRIPTION de la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Short Description",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "LONG_DESCRIPTION",
+      "data_type": "VARCHAR2(45 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 4,
+      "comment": "Atributo LONG_DESCRIPTION de la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Long Description",
+      "classification": "",
+      "primary_key": false
+    },
+    {
+      "column_name": "POS_CODE",
+      "data_type": "VARCHAR2(9 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 5,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Pos Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "LANGUAGE_CODE",
+      "data_type": "VARCHAR2(3 CHAR)",
+      "nullable": "N",
+      "ordinal_position": 6,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Language Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "ATM_TRN_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 7,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Atm Trn Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "CARD_APP_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 8,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Card App Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "PAYEE_CODE",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 9,
+      "comment": "Código de negocio usado por la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Payee Code",
+      "classification": "code",
+      "primary_key": false
+    },
+    {
+      "column_name": "SCR_FI_NO",
+      "data_type": "VARCHAR2(20 CHAR)",
+      "nullable": "Y",
+      "ordinal_position": 10,
+      "comment": "Atributo SCR_FI_NO de la tabla FLEX_STTM_EXTND_TRN_CODE_DTL.",
+      "ui_display": "Scr Fi No",
+      "classification": "",
+      "primary_key": false
+    }
+  ]
+}
