@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "execution_source": "oci_resource_manager",
   "project_id": "select-ai-apex",
   "terraform": {
     "path": "terraform",
@@ -10,9 +11,69 @@
     "requires_genai_region": true,
     "database_profile": "new_or_existing",
     "region_selection": "subscribed_compatible",
-    "regional_requirements": ["genai_chat"]
+    "regional_requirements": ["genai_chat"],
+    "default_compartment_name": "select-ai-apex",
+    "existing_database_wallet": "required"
   },
   "form": {
+    "groups": [
+      {
+        "id": "credentials",
+        "title": "OCI credentials",
+        "items": [
+          {"kind": "control", "name": "oci_config", "label": "OCI config"},
+          {"kind": "control", "name": "oci_key", "label": "API private key"}
+        ]
+      },
+      {
+        "id": "services",
+        "title": "Services to deploy",
+        "items": [
+          {"kind": "control", "name": "oci_region", "label": "OCI Region", "span": 2},
+          {
+            "kind": "control",
+            "name": "compartment_mode",
+            "label": "Compartment mode",
+            "options": [
+              {"value": "new", "label": "New compartment"},
+              {"value": "existing", "label": "Existing compartment"}
+            ]
+          },
+          {"kind": "control", "name": "new_compartment", "label": "New compartment name"},
+          {"kind": "control", "name": "existing_compartment", "label": "Existing compartment"}
+        ]
+      },
+      {
+        "id": "database",
+        "title": "Autonomous Database",
+        "items": [
+          {"kind": "field", "name": "autonomous_database_mode"},
+          {"kind": "field", "name": "existing_autonomous_database_ocid"},
+          {"kind": "field", "name": "autonomous_database_version"},
+          {"kind": "control", "name": "database_wallet", "label": "Database wallet ZIP", "span": 2},
+          {"kind": "field", "name": "autonomous_database_admin_password"},
+          {"kind": "field", "name": "autonomous_database_wallet_password"}
+        ]
+      },
+      {
+        "id": "enterprise_ai",
+        "title": "Generative AI",
+        "items": [
+          {"kind": "field", "name": "select_ai_model", "span": 2}
+        ]
+      },
+      {
+        "id": "apex_application",
+        "title": "Oracle APEX",
+        "items": [
+          {"kind": "field", "name": "select_ai_apex_app_id", "span": 2},
+          {"kind": "field", "name": "select_ai_grant_schemas", "span": 2},
+          {"kind": "field", "name": "existing_select_ai_grant_schemas", "span": 2},
+          {"kind": "field", "name": "application_username"},
+          {"kind": "field", "name": "autonomous_database_developer_password"}
+        ]
+      }
+    ],
     "fields": [
       {
         "name": "autonomous_database_mode",
@@ -30,12 +91,10 @@
         "name": "existing_autonomous_database_ocid",
         "label": "Database OCID",
         "type": "text",
-        "required": false,
+        "required": true,
         "group": "database",
-        "visible_when": {
-          "field": "autonomous_database_mode",
-          "equals": "existing"
-        }
+        "visible_when": {"field": "autonomous_database_mode", "equals": "existing"},
+        "pattern": "ocid1\\.autonomousdatabase\\.[a-z0-9\\-]+\\.[a-z0-9\\-]*\\.[a-z0-9]+"
       },
       {
         "name": "autonomous_database_version",
@@ -45,16 +104,37 @@
         "default": "26ai:DW",
         "transform": "database_profile",
         "group": "database",
-        "visible_when": {
-          "field": "autonomous_database_mode",
-          "equals": "new"
-        },
+        "visible_when": {"field": "autonomous_database_mode", "equals": "new"},
         "options": [
           {"value": "26ai:DW", "label": "Oracle AI Database 26ai — Data Warehouse"},
           {"value": "26ai:OLTP", "label": "Oracle AI Database 26ai — Transaction Processing"},
           {"value": "19c:DW", "label": "Autonomous Database 19c — Data Warehouse"},
           {"value": "19c:OLTP", "label": "Autonomous Database 19c — Transaction Processing"}
         ]
+      },
+      {
+        "name": "autonomous_database_admin_password",
+        "label": "Database admin password",
+        "type": "password",
+        "required": true,
+        "secret": true,
+        "group": "database",
+        "min_length": 12,
+        "max_length": 30,
+        "generate_password": true,
+        "generate_password_when": {"field": "autonomous_database_mode", "equals": "new"}
+      },
+      {
+        "name": "autonomous_database_wallet_password",
+        "label": "Database wallet password",
+        "type": "password",
+        "required": true,
+        "secret": true,
+        "group": "database",
+        "min_length": 12,
+        "max_length": 30,
+        "generate_password": true,
+        "generate_password_when": {"field": "autonomous_database_mode", "equals": "new"}
       },
       {
         "name": "select_ai_model",
@@ -85,10 +165,7 @@
         "default": "SH_DEMO,FLEXCUBE_DEMO",
         "multiple": true,
         "group": "apex_application",
-        "visible_when": {
-          "field": "autonomous_database_mode",
-          "equals": "new"
-        },
+        "visible_when": {"field": "autonomous_database_mode", "equals": "new"},
         "options": [
           {"value": "SH_DEMO", "label": "Sales History (SH_DEMO)"},
           {"value": "FLEXCUBE_DEMO", "label": "Core Banking (FLEXCUBE_DEMO)"}
@@ -101,10 +178,7 @@
         "required": true,
         "multiple": true,
         "group": "apex_application",
-        "visible_when": {
-          "field": "autonomous_database_mode",
-          "equals": "existing"
-        },
+        "visible_when": {"field": "autonomous_database_mode", "equals": "existing"},
         "options_source": "oci_autonomous_database_schemas"
       },
       {
@@ -113,23 +187,8 @@
         "type": "text",
         "required": true,
         "default": "SELECT_AI_ADMIN",
-        "group": "apex_application"
-      },
-      {
-        "name": "autonomous_database_admin_password",
-        "label": "Database admin password",
-        "type": "password",
-        "required": true,
-        "secret": true,
-        "group": "database"
-      },
-      {
-        "name": "autonomous_database_wallet_password",
-        "label": "Database wallet password",
-        "type": "password",
-        "required": true,
-        "secret": true,
-        "group": "database"
+        "group": "apex_application",
+        "pattern": "[A-Za-z][A-Za-z0-9_]{0,127}"
       },
       {
         "name": "autonomous_database_developer_password",
@@ -137,12 +196,17 @@
         "type": "password",
         "required": true,
         "secret": true,
-        "group": "apex_application"
+        "group": "apex_application",
+        "min_length": 12,
+        "max_length": 30,
+        "generate_password": true,
+        "pattern": "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^'\"\\s]+"
       }
-    ]
+    ],
+    "email_access_fields": ["application_username", "autonomous_database_developer_password"]
   },
   "presentation": {
-    "title": "Select AI Apex",
+    "title": "Select AI APEX",
     "summary": "Deploys a Select AI APEX experience on Autonomous Database without a persistent application VM.",
     "tags": ["APEX", "Autonomous AI Database", "Select AI", "Generative AI"],
     "image": "/assets/select-ai-apex.png",
@@ -150,19 +214,50 @@
     "href": "https://github.com/jgangini/select-ai-apex"
   },
   "run_steps": [
-    {"key": "queue", "label": "Queue"},
-    {"key": "credentials", "label": "OCI credentials"},
-    {"key": "compartment", "label": "Compartment"},
-    {"key": "policies", "label": "IAM policies"},
-    {"key": "stack", "label": "APEX Terraform package"},
-    {"key": "plan", "label": "Database plan"},
-    {"key": "apply", "label": "Database apply"},
-    {"key": "database", "label": "Autonomous Database"},
-    {"key": "wallet", "label": "Database wallet"},
-    {"key": "application", "label": "Select AI and APEX setup"},
-    {"key": "artifacts", "label": "Wallet and APEX summary"},
-    {"key": "email", "label": "Access email"},
-    {"key": "complete", "label": "Ready"}
+    {
+      "key": "queue",
+      "label": "Queue"
+    },
+    {
+      "key": "credentials",
+      "label": "OCI credentials"
+    },
+    {
+      "key": "compartment",
+      "label": "Compartment"
+    },
+    {
+      "key": "policies",
+      "label": "IAM policies"
+    },
+    {
+      "key": "stack",
+      "label": "APEX Terraform package"
+    },
+    {
+      "key": "plan",
+      "label": "Database plan"
+    },
+    {
+      "key": "apply",
+      "label": "Database apply"
+    },
+    {
+      "key": "application",
+      "label": "Select AI and APEX setup"
+    },
+    {
+      "key": "artifacts",
+      "label": "Wallet and APEX summary"
+    },
+    {
+      "key": "email",
+      "label": "Access email"
+    },
+    {
+      "key": "complete",
+      "label": "Ready"
+    }
   ],
   "outputs": ["application_url", "adb_db_name", "autonomous_database_id"],
   "artifacts": ["deployment-report.md", "adb_wallet.zip"],
@@ -176,5 +271,30 @@
     ],
     "timeout_seconds": 1800,
     "requires_oci_credentials": true
+  },
+  "email": {
+    "services": [
+      {
+        "title": "Autonomous Database",
+        "fields": [
+          {"label": "Database name", "output": "adb_db_name"},
+          {"label": "User", "value": "ADMIN"}
+        ]
+      },
+      {
+        "title": "Oracle APEX",
+        "fields": [
+          {"label": "Access URL", "output": "application_url", "link": true},
+          {"label": "User", "input": "application_username"},
+          {"label": "Password", "input": "autonomous_database_developer_password"}
+        ]
+      }
+    ],
+    "attachments": [
+      "adb_wallet.zip",
+      "deployment-report.md",
+      "deployment.log",
+      "resource-manager-terraform-source.zip"
+    ]
   }
 }

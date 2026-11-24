@@ -3,6 +3,5 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$env:PYTHONPATH = "installer"
 & $Python -m unittest discover -s tests -v
 exit $LASTEXITCODE

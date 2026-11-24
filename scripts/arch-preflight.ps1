@@ -7,13 +7,15 @@ try {
         Get-Content "graphify-out/GRAPH_REPORT.md" -TotalCount 80
     }
 
-    if (Test-Path ".sentrux/rules.toml") {
-        if (Get-Command sentrux -ErrorAction SilentlyContinue) {
-            sentrux gate --save .
+    if (Get-Command sentrux -ErrorAction SilentlyContinue) {
+        sentrux gate --save .
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+        if (Test-Path ".sentrux/rules.toml") {
             sentrux check .
-        } else {
-            Write-Warning "Sentrux is configured but unavailable."
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         }
+    } else {
+        Write-Warning "Sentrux is unavailable. No baseline was saved."
     }
 } finally {
     Pop-Location

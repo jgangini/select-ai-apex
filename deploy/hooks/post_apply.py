@@ -41,10 +41,10 @@ def _json_file(path: str, label: str) -> dict[str, object]:
 
 
 def _required(values: Mapping[str, object], name: str) -> str:
-    value = str(values.get(name, "")).strip()
-    if not value:
+    value = str(values.get(name, ""))
+    if not value.strip():
         raise ValueError(f"missing required Deploy Studio input: {name}")
-    return value
+    return value if name in SECRET_INPUT_NAMES else value.strip()
 
 
 def _hook_inputs(
@@ -214,6 +214,8 @@ def _installer_arguments(
         _required(environment, "DEPLOY_STUDIO_OCI_CONFIG"),
         "--oci-key",
         _required(environment, "DEPLOY_STUDIO_OCI_KEY"),
+        "--region",
+        _required(context, "region"),
         "--db-version",
         str(inputs.get("autonomous_database_version", "26ai")),
         "--workload",
@@ -270,7 +272,9 @@ def run_hook(
             Path(_required(environment, "DEPLOY_STUDIO_SOURCE_ARCHIVE")),
             stage_root,
             application,
-            _required(inputs, "select_ai_grant_schemas"),
+            _required(inputs, "select_ai_grant_schemas")
+            if inputs.get("autonomous_database_mode", "new") == "new"
+            else "",
         )
         arguments = _installer_arguments(
             context,

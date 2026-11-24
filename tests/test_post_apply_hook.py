@@ -34,6 +34,27 @@ class PostApplyHookTests(unittest.TestCase):
                     "SH_DEMO",
                 )
 
+    def test_new_database_stages_each_application_and_selected_demos(self) -> None:
+        application_ids = ("chatdb-es-2024", "ask-oracle-chatbot", "ask-oracle-chatbot-2026-08-06")
+        applications = [_application(app_id) for app_id in application_ids]
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source_archive = root / "source.zip"
+            with zipfile.ZipFile(source_archive, "w") as archive:
+                for app in applications:
+                    archive.writestr(f"select-ai-apex-sha/{app['export_path']}", str(app["id"]))
+                archive.writestr("select-ai-apex-sha/data/sh_demo/data/example.json", "{}")
+                archive.writestr("select-ai-apex-sha/data/flexcube_demo/data/example.json", "{}")
+
+            for app in applications:
+                with self.subTest(app_id=app["id"]):
+                    stage_root = root / str(app["id"])
+                    export = _stage_source_assets(source_archive, stage_root, app, "SH_DEMO,FLEXCUBE_DEMO")
+                    self.assertEqual(export.read_text(encoding="utf-8"), str(app["id"]))
+                    self.assertEqual(list((stage_root / "apex").iterdir()), [export])
+                    self.assertTrue((stage_root / "data" / "sh_demo" / "data" / "example.json").is_file())
+                    self.assertTrue((stage_root / "data" / "flexcube_demo" / "data" / "example.json").is_file())
+
     def test_hook_stages_only_selected_assets_and_emits_safe_result(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -48,6 +69,7 @@ class PostApplyHookTests(unittest.TestCase):
                 json.dumps(
                     {
                         "compartment": {"id": "ocid1.compartment.oc1..example"},
+                        "region": "us-ashburn-1",
                         "inputs": {
                             "autonomous_database_mode": "existing",
                             "existing_autonomous_database_ocid": "ocid1.autonomousdatabase.oc1..example",
@@ -76,7 +98,7 @@ class PostApplyHookTests(unittest.TestCase):
                     {
                         "inputs": {
                             "autonomous_database_admin_password": "AdminPass123",
-                            "autonomous_database_wallet_password": "WalletPass123",
+                            "autonomous_database_wallet_password": " WalletPass123 ",
                             "autonomous_database_developer_password": "DeveloperPass123",
                         },
                     }
@@ -104,14 +126,15 @@ class PostApplyHookTests(unittest.TestCase):
 
             def fake_installer(arguments: list[str]) -> int:
                 self.assertEqual(arguments[arguments.index("--admin-password") + 1], "AdminPass123")
-                self.assertEqual(arguments[arguments.index("--wallet-password") + 1], "WalletPass123")
+                self.assertEqual(arguments[arguments.index("--wallet-password") + 1], " WalletPass123 ")
                 self.assertEqual(arguments[arguments.index("--app-schema-password") + 1], "DeveloperPass123")
                 self.assertEqual(arguments[arguments.index("--apex-user") + 1], "SELECT_AI_ADMIN")
                 self.assertEqual(arguments[arguments.index("--model") + 1], "cohere.command-a-03-2025")
+                self.assertEqual(arguments[arguments.index("--region") + 1], "us-ashburn-1")
                 self.assertFalse(any(argument.startswith("--schema-password") for argument in arguments))
                 apex_archive = Path(arguments[arguments.index("--apex-archive") + 1])
                 self.assertEqual(apex_archive.read_text(encoding="utf-8"), "-- selected export")
-                self.assertTrue((demo_data.DEMO_ROOT / "sh_demo" / "data" / "example.json").is_file())
+                self.assertFalse((demo_data.DEMO_ROOT / "sh_demo").exists())
                 self.assertFalse((demo_data.DEMO_ROOT / "flexcube_demo").exists())
                 self.assertFalse((demo_data.DEMO_ROOT.parent / "README.md").exists())
                 output_dir = Path(arguments[arguments.index("--output-dir") + 1])

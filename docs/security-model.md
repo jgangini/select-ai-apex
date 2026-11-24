@@ -1,19 +1,15 @@
 # Security Model
 
-`select-ai-apex` avoids broad table privileges by default.
-
-The installer creates or reuses the parsing/profile schema `SELECT_AI_APP`, then grants only the requested objects:
+The installer creates or reuses the parsing and profile schema `SELECT_AI_APP`. The database ADMIN account grants access to the selected objects:
 
 ```sql
 GRANT SELECT ON OWNER.TABLE TO SELECT_AI_APP;
 ```
 
-When `--schemas HR,SH` is supplied for an existing database, the generated ADMIN SQL grants current tables, views, and materialized views in those schemas to `SELECT_AI_APP`. A missing privilege fails the deployment instead of being hidden or replaced with source-schema credentials. The Select AI profile uses owner-level `object_list` entries so future tables can be added by running more object grants and recreating the profile.
+For an existing database, selecting a schema grants access to its current tables, views, and materialized views. A missing grant privilege stops installation. To expose another table later, grant it to `SELECT_AI_APP` and recreate the Select AI profile if its `object_list` needs to change. A profile with a schema-level list entry can use newly granted objects within that schema.
 
-For `--mode new`, Oracle-maintained sample schemas such as `HR` or `SH` may be locked/protected or absent. The installer creates normal demo schemas such as `SH_DEMO` from repository JSON metadata and CSV rows, grants the demo schema tables to `SELECT_AI_APP`, and scopes the Select AI profile to the demo schema. The original Oracle-maintained schema is left unchanged.
+For a new database, the installer builds selected demo schemas such as `SH_DEMO` from repository JSON metadata and CSV rows. It grants only the selected demo objects to the application schema. The demo schema password uses the APEX application password supplied to the installer.
 
-The installer does not render `GRANT SELECT ANY TABLE`.
+Keep OCI signing keys, database wallets, Terraform state, and generated files private. The local CLI writes credentials to `outputs/secrets.json` and embeds secrets in generated SQL for database and OCI credential setup. Git ignores `.oci/` and `outputs/`. The Deploy Studio hook uses its temporary workspace for these files and publishes the application URL, database metadata, and deployment report through the deployment result.
 
-Secrets are written only to `outputs/secrets.json`, and `outputs/` is ignored by git. Do not commit generated wallets, OCI private keys, admin passwords, or generated APEX/schema passwords.
-
-For OCI Generative AI, Oracle documentation states network ACL privileges are not required. The CLI renders a `DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE` block only when `--network-acl-host` is explicitly provided.
+The installer adds a network ACL for a custom host only when the operator supplies `--network-acl-host`. See [Oracle's Select AI examples](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-examples.html) for provider configuration.

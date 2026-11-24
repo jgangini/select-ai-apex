@@ -2,6 +2,16 @@ __pycache__/
 .pytest_cache/
 .test-tmp/
 .sentrux/
+.sentruxignore
+.graphify/
+graphify-out/
+.graphifyignore
+.archify/
+.archifyignore
+.codex/
+.agents/
+AGENTS.md
+tmp/
 .ruff_cache/
 .mypy_cache/
 .venv/
@@ -11,6 +21,10 @@ build/
 
 # Local credentials and generated deployment artifacts
 .oci/
+.local/
+.env
+.env.*
+!.env.example
 outputs/
 *.tfstate
 *.tfstate.*

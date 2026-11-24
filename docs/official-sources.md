@@ -9,3 +9,12 @@ This project follows these primary sources for the implementation choices:
 - APEX automatic supporting object installation: https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/SET_AUTO_INSTALL_SUP_OBJ-Procedure.html
 - APEX workspace creation and schema mapping APIs: https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/ADD_WORKSPACE-Procedure.html and https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/ADD_SCHEMA-Procedure.html
 - APEX user and preference APIs: https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/CREATE_USER-Procedure.html and https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/SET_PREFERENCE-Procedure.html
+
+
+## Project and trademarks
+
+Select AI APEX is an independent project and is not an official Oracle
+product. It is not affiliated with, endorsed by, or sponsored by Oracle
+Corporation. Oracle, OCI, APEX, and related marks are trademarks or registered
+trademarks of Oracle and/or its affiliates. Third-party trademarks, logos,
+service names, and assets remain the property of their respective owners.

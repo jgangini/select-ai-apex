@@ -438,7 +438,7 @@ The demo schema password is the generated or supplied APEX application password.
 7. Set the APEX `CLOUD_AI_PROFILE` preference for the generated workspace user.
 
 ## Notes
-- Secrets are written only to `outputs/secrets.json`, which is ignored by git.
+- Keep the generated SQL and `secrets.json` private. They contain credentials used during installation.
 - The generated SQL avoids `SELECT ANY TABLE`; data access is controlled by object grants.
 - For OCI Generative AI, Oracle documentation says network ACL is not required. A network ACL block is rendered only when `--network-acl-host` is provided.
 """

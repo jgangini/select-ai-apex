@@ -1,21 +1,7 @@
 # Terraform Package
 
-This package creates or references Oracle Autonomous Database resources for
-Select AI APEX deployments. The APEX application is installed by the
-`select-ai-apex` CLI after a wallet is available.
+The root `terraform/` package creates or references Autonomous Database for Select AI APEX. [The Deploy Studio contract](deploy-studio.json) points to the [post-apply hook](../deploy/hooks/post_apply.py), which uses a database wallet to run the Python installer after Terraform.
 
-OCI user, fingerprint, and key-path variables are optional: local CLI runs can provide them, while OCI Resource Manager uses its managed provider authentication. Deploy Studio supplies the database passwords and invokes the repository-owned post-apply hook; local CLI runs may leave the infrastructure passwords empty to use Terraform-generated values.
+OCI Resource Manager uses its managed provider authentication. Local Terraform commands can instead use the optional OCI user, fingerprint, and key-path variables. Database naming defaults are derived from `deployment_suffix`. The older name variables remain available as compatibility overrides.
 
-Typical flow for a new database:
-
-```powershell
-select-ai-apex plan --mode new --oci-config .oci/config --oci-key .oci/key.pem --oci-compartment-id ocid1.compartment.oc1..aaaa --schemas HR
-terraform -chdir=terraform init
-terraform -chdir=terraform apply -var-file=../outputs/terraform.tfvars.json
-terraform -chdir=terraform output -raw adb_wallet_base64 > ../outputs/adb_wallet.b64
-terraform -chdir=terraform output -raw adb_admin_password > ../outputs/adb-admin-password.txt
-terraform -chdir=terraform output -raw adb_wallet_password > ../outputs/wallet-password.txt
-```
-
-Decode `outputs/adb_wallet.b64` to `outputs/adb_wallet.zip`, then run
-`select-ai-apex install` with the generated wallet and passwords.
+Terraform returns the APEX base URL, database name, and database OCID. The installer uses the wallet and passwords supplied for the run, then returns the installed application's direct URL. Use [Deploy Studio](../docs/tutorial.md) for the end-to-end flow and the [validation commands](../docs/testing.md) to check the package locally.

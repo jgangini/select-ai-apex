@@ -4,6 +4,7 @@ import argparse
 import sys
 import tempfile
 import zipfile
+from dataclasses import replace
 from pathlib import Path
 
 from .constants import (
@@ -69,6 +70,7 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--oci-config", type=Path, required=True)
     parser.add_argument("--oci-profile", default="DEFAULT")
     parser.add_argument("--oci-key", type=Path, required=True)
+    parser.add_argument("--region", help="Override the OCI config region for Select AI and Terraform.")
     parser.add_argument("--oci-compartment-id")
     parser.add_argument("--existing-autonomous-database-ocid")
     parser.add_argument("--db-version", choices=["19c", "26ai"], default="26ai")
@@ -98,6 +100,8 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
 
 def options_from_args(args: argparse.Namespace) -> DeploymentOptions:
     oci_config = read_oci_config(args.oci_config, profile=args.oci_profile)
+    if args.region:
+        oci_config = replace(oci_config, region=args.region)
     oci_private_key = args.oci_key.read_text(encoding="utf-8")
     schemas = normalize_csv_identifiers(args.schemas, "schema")
     tables = normalize_db_objects(args.tables)

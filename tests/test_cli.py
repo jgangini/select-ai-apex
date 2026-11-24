@@ -69,3 +69,32 @@ class CliTests(unittest.TestCase):
             self.assertTrue((output / "executed-steps.sql").exists())
             self.assertTrue((output / "deployment-report.md").exists())
             self.assertTrue((output / "secrets.json").exists())
+            self.assertIn("us-chicago-1", (output / "deployment-report.md").read_text(encoding="utf-8"))
+
+    def test_plan_uses_effective_region_for_select_ai_and_terraform(self) -> None:
+        with repo_tempdir() as tmp:
+            tmp_path = Path(tmp)
+            config, key = write_inputs(tmp_path)
+            output = tmp_path / "outputs"
+
+            exit_code = main(
+                [
+                    "plan",
+                    "--mode",
+                    "new",
+                    "--oci-config",
+                    str(config),
+                    "--oci-key",
+                    str(key),
+                    "--region",
+                    "us-ashburn-1",
+                    "--schemas",
+                    "SH_DEMO",
+                    "--output-dir",
+                    str(output),
+                ]
+            )
+
+            self.assertEqual(exit_code, 0)
+            self.assertIn('"region": "us-ashburn-1"', (output / "02_select_ai_profile.sql").read_text(encoding="utf-8"))
+            self.assertIn('"region": "us-ashburn-1"', (output / "terraform.tfvars.json").read_text(encoding="utf-8"))
