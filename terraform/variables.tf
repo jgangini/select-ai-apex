@@ -137,13 +137,13 @@ variable "select_ai_grant_schemas" {
 }
 
 variable "select_ai_apex_app_id" {
-  description = "Ask Oracle application export installed by the post-apply hook."
+  description = "APEX application export installed by the post-apply hook."
   type        = string
   default     = "ask-oracle-chatbot-2026-11-18"
 
   validation {
-    condition     = var.select_ai_apex_app_id == "ask-oracle-chatbot-2026-11-18"
-    error_message = "Select AI APEX installs only Ask Oracle Select AI 5.0.0.2."
+    condition     = contains(["chatdb-es-2024", "ask-oracle-chatbot-2026-11-18"], var.select_ai_apex_app_id)
+    error_message = "Select either Chat DB or Ask Oracle 5.0.0.2."
   }
 }
 

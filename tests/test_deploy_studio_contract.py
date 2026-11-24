@@ -98,24 +98,30 @@ class DeployStudioContractTests(unittest.TestCase):
 
         self.assertFalse(any(token in name.lower() for name in contract["outputs"] for token in forbidden))
 
-    def test_only_ask_oracle_v5002_is_installed_and_matches_the_official_export(self) -> None:
+    def test_chat_db_and_ask_oracle_v5002_are_distinct_choices(self) -> None:
         manifest = json.loads((ROOT / "apex" / "manifest.json").read_text(encoding="utf-8"))
-        application, = manifest["apps"]
-        self.assertEqual(manifest["default_app"], application["id"])
-        self.assertEqual(application["label"], "Autonomous DB + Select AI")
-        self.assertEqual(application["application_version"], "5.0.0.2")
-        export = ROOT / application["export_path"]
+        chat_db, ask_oracle = manifest["apps"]
+        self.assertEqual((chat_db["id"], chat_db["label"]), ("chatdb-es-2024", "Chat DB"))
+        self.assertEqual((ask_oracle["id"], ask_oracle["label"]), ("ask-oracle-chatbot-2026-11-18", "Ask Oracle 5.0.0.2"))
+        self.assertEqual(manifest["default_app"], ask_oracle["id"])
+        self.assertNotEqual(chat_db["workspace"], ask_oracle["workspace"])
+        self.assertNotEqual(chat_db["parsing_schema"], ask_oracle["parsing_schema"])
+        self.assertEqual(ask_oracle["application_version"], "5.0.0.2")
+        export = ROOT / ask_oracle["export_path"]
 
-        self.assertEqual(list((ROOT / "apex").glob("*.sql")), [export])
-        self.assertEqual(export.stat().st_size, application["source"]["size_bytes"])
-        self.assertEqual(hashlib.sha256(export.read_bytes()).hexdigest(), application["source"]["sha256"])
-        with export.open(encoding="utf-8") as sql:
-            self.assertIn(f"p_release=>'{application['minimum_apex_version']}'", sql.read(4096))
+        self.assertEqual(set((ROOT / "apex").glob("*.sql")), {export, ROOT / chat_db["export_path"]})
+        self.assertEqual(export.stat().st_size, ask_oracle["source"]["size_bytes"])
+        self.assertEqual(hashlib.sha256(export.read_bytes()).hexdigest(), ask_oracle["source"]["sha256"])
+        for application in manifest["apps"]:
+            with (ROOT / application["export_path"]).open(encoding="utf-8") as sql:
+                self.assertIn(f"p_release=>'{application['minimum_apex_version']}'", sql.read(4096))
         contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
         field, = [field for field in contract["form"]["fields"] if field["name"] == "select_ai_apex_app_id"]
         self.assertEqual(field["label"], "APEX application")
-        self.assertEqual(field["default"], application["id"])
-        self.assertEqual(field["options"], [{"value": application["id"], "label": application["label"]}])
+        self.assertEqual(field["default"], ask_oracle["id"])
+        self.assertEqual(field["options"], [
+            {"value": application["id"], "label": application["label"]} for application in manifest["apps"]
+        ])
 
 
 if __name__ == "__main__":

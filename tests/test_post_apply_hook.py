@@ -35,22 +35,25 @@ class PostApplyHookTests(unittest.TestCase):
                     "SH_DEMO",
                 )
 
-    def test_new_database_stages_ask_oracle_and_selected_demos(self) -> None:
-        application = _application()
+    def test_new_database_stages_only_the_selected_application_and_demos(self) -> None:
+        applications = (_application("chatdb-es-2024"), _application())
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             source_archive = root / "source.zip"
             with zipfile.ZipFile(source_archive, "w") as archive:
-                archive.writestr(f"select-ai-apex-sha/{application['export_path']}", "Ask Oracle")
+                for application in applications:
+                    archive.writestr(f"select-ai-apex-sha/{application['export_path']}", application["id"])
                 archive.writestr("select-ai-apex-sha/data/sh_demo/data/example.json", "{}")
                 archive.writestr("select-ai-apex-sha/data/flexcube_demo/data/example.json", "{}")
 
-            stage_root = root / "stage"
-            export = _stage_source_assets(source_archive, stage_root, application, "SH_DEMO,FLEXCUBE_DEMO")
-            self.assertEqual(export.read_text(encoding="utf-8"), "Ask Oracle")
-            self.assertEqual(list((stage_root / "apex").iterdir()), [export])
-            self.assertTrue((stage_root / "data" / "sh_demo" / "data" / "example.json").is_file())
-            self.assertTrue((stage_root / "data" / "flexcube_demo" / "data" / "example.json").is_file())
+            for application in applications:
+                with self.subTest(application=application["id"]):
+                    stage_root = root / application["id"]
+                    export = _stage_source_assets(source_archive, stage_root, application, "SH_DEMO,FLEXCUBE_DEMO")
+                    self.assertEqual(export.read_text(encoding="utf-8"), application["id"])
+                    self.assertEqual(list((stage_root / "apex").iterdir()), [export])
+                    self.assertTrue((stage_root / "data" / "sh_demo" / "data" / "example.json").is_file())
+                    self.assertTrue((stage_root / "data" / "flexcube_demo" / "data" / "example.json").is_file())
 
     def test_hook_stages_only_selected_assets_and_emits_safe_result(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

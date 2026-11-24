@@ -3,8 +3,18 @@
   "default_app": "ask-oracle-chatbot-2026-11-18",
   "apps": [
     {
+      "id": "chatdb-es-2024",
+      "label": "Chat DB",
+      "export_path": "apex/chatdb-es-2024.sql",
+      "workspace": "SELECT_AI_APEX",
+      "parsing_schema": "SELECT_AI_APP",
+      "application_alias": "SELECT_AI_APEX",
+      "application_name": "Chat DB",
+      "minimum_apex_version": "24.1.0"
+    },
+    {
       "id": "ask-oracle-chatbot-2026-11-18",
-      "label": "Autonomous DB + Select AI",
+      "label": "Ask Oracle 5.0.0.2",
       "export_path": "apex/ADB-AskOracle-SelectAI-Chatbot-2026-11-18.sql",
       "workspace": "SELECT_AI_APEX_5002",
       "parsing_schema": "SELECT_AI_APP_5002",

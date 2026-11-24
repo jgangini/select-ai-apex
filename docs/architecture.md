@@ -15,15 +15,15 @@ Deploy Studio and Resource Manager handle provisioning. At runtime, APEX uses th
 | [Autonomous Database and wallet](../terraform/database.tf) | Provides the data and APEX runtime. The installer connects using a database wallet. |
 | [Post-apply hook](../deploy/hooks/post_apply.py) | Stages the selected APEX export and relevant demo assets from the release archive, runs the installer, and returns the application URL and deployment report. |
 | [Python installer](../installer/cli.py) | Prepares the parsing schema, grants access to selected data, sets up the workspace, creates the Select AI profile, and imports the application. |
-| [Ask Oracle Select AI 5.0.0.2](../apex/manifest.json) | The browser reaches the application in workspace `SELECT_AI_APEX_5002` through ORDS. The export requires Oracle APEX 26.1.6 or later. |
+| [APEX applications](../apex/manifest.json) | ORDS serves Chat DB in workspace `SELECT_AI_APEX` or Ask Oracle 5.0.0.2 in `SELECT_AI_APEX_5002`. Their exports require APEX 24.1 and 26.1.6 or later, respectively. |
 | [Select AI profile](../installer/sqlgen.py) | `DBMS_CLOUD_AI` ties the selected model to an OCI Generative AI credential and a list of allowed data objects. |
 
 ## Provisioning and installation
 
 1. Deploy Studio validates the OCI credentials and inputs, resolves the release to a commit, and submits the [Terraform package](../terraform/) to Resource Manager. The default name for a new compartment is `select-ai-apex`. Terraform derives its database names from the deployment suffix.
 2. Terraform creates or references the database. Deploy Studio supplies the hook with the wallet, the selected inputs, the release archive, and the OCI session files through its temporary workspace.
-3. The hook runs the installer. The database ADMIN connection checks the installed APEX release before preparing or reusing the `SELECT_AI_APP_5002` parsing schema and granting access to selected objects. For a newly created database, the loader seeds the selected demo schemas from [data metadata and CSV rows](../data/).
-4. The installer connects as the parsing schema to register the OCI credential and create the Select AI profile. It imports Ask Oracle 5.0.0.2 and its supporting objects, or reuses the application with the `ASK_ORACLE` alias in the 5.0.0.2 workspace. It sets the APEX user's `CLOUD_AI_PROFILE` preference to the installed profile.
+3. The hook runs the installer. The database ADMIN connection checks the installed APEX release before preparing the selected application's parsing schema and granting access to selected objects. For a newly created database, the loader seeds the selected demo schemas from [data metadata and CSV rows](../data/).
+4. The installer connects as the parsing schema to register the OCI credential and create the Select AI profile. It imports the selected APEX export and supporting objects, or reuses the application with the expected alias in its workspace. It sets the APEX user's `CLOUD_AI_PROFILE` preference to the installed profile.
 5. The hook returns the direct APEX URL and a report recording the selected model, data scope, workspace, application ID, and alias. See [Security model](security-model.md) for how to handle the wallet, the temporary installation files, and the generated SQL.
 
 ## Data scope and application compatibility

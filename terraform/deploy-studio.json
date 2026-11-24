@@ -152,7 +152,8 @@
         "default": "ask-oracle-chatbot-2026-11-18",
         "group": "apex_application",
         "options": [
-          {"value": "ask-oracle-chatbot-2026-11-18", "label": "Autonomous DB + Select AI"}
+          {"value": "chatdb-es-2024", "label": "Chat DB"},
+          {"value": "ask-oracle-chatbot-2026-11-18", "label": "Ask Oracle 5.0.0.2"}
         ]
       },
       {
@@ -205,7 +206,7 @@
   },
   "presentation": {
     "title": "Select AI APEX",
-    "summary": "Installs Ask Oracle Select AI 5.0.0.2 on Autonomous Database with Oracle APEX 26.1.6 or later.",
+    "summary": "Installs Chat DB or Ask Oracle 5.0.0.2 on Autonomous Database. Ask Oracle requires Oracle APEX 26.1.6 or later.",
     "tags": ["APEX", "Autonomous AI Database", "Select AI", "Generative AI"],
     "image": "/assets/select-ai-apex.png",
     "image_alt": "Select AI APEX application preview",
