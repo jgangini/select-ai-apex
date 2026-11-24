@@ -59,8 +59,8 @@ class SqlGenerationTests(unittest.TestCase):
         rendered = render_plan(options())
 
         self.assertNotIn("GRANT SELECT ANY TABLE", rendered.admin_sql)
-        self.assertIn('GRANT SELECT ON "SH"."CUSTOMERS" TO SELECT_AI_APP;', rendered.admin_sql)
-        self.assertIn("GRANT EXECUTE ON DBMS_CLOUD_AI_AGENT TO SELECT_AI_APP;", rendered.admin_sql)
+        self.assertIn('GRANT SELECT ON "SH"."CUSTOMERS" TO SELECT_AI_APP_5002;', rendered.admin_sql)
+        self.assertIn("GRANT EXECUTE ON DBMS_CLOUD_AI_AGENT TO SELECT_AI_APP_5002;", rendered.admin_sql)
         self.assertIn("DBMS_CLOUD_AI.CREATE_PROFILE", rendered.app_sql)
         self.assertIn("xai.grok-4-fast-reasoning", rendered.app_sql)
         self.assertIn("APEX_APPLICATION_INSTALL.SET_AUTO_INSTALL_SUP_OBJ(TRUE)", rendered.apex_prelude_sql)

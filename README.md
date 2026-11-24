@@ -31,8 +31,8 @@
 
 Open [Deploy Studio](https://cloudtechnext.net/#deploy) with an OCI API signing profile, permission to deploy in the target compartment, and a subscribed region that offers an OCI Generative AI chat model.
 
-1. Select **Select AI APEX** and [v1.3.5](https://github.com/jgangini/select-ai-apex/releases/tag/v1.3.5) or a newer Deploy Studio release. Attach the OCI config and API private key.
-2. For a first test, choose **Create new**, select Oracle AI Database 26ai, and use the **Sales History (SH_DEMO)** schema. Choose an available chat model and an APEX application.
+1. Select **Select AI APEX** and [v1.3.6](https://github.com/jgangini/select-ai-apex/releases/tag/v1.3.6) or a newer release. This installs **Ask Oracle Select AI 5.0.0.2**, which requires **Oracle APEX 26.1.6 or later**. Attach the OCI config and API private key.
+2. For a first test, choose **Create new**, select Oracle AI Database 26ai in a region with the required APEX version, and use the **Sales History (SH_DEMO)** schema. Choose an available chat model.
 3. Enter the Database ADMIN, wallet, and APEX workspace passwords. Select **Validate**, then **Deploy**.
 4. When the job succeeds, open the APEX URL, sign in with the workspace user, and ask for total sales by year. The [tutorial](docs/tutorial.md) walks through this check and the steps for reusing an existing database.
 

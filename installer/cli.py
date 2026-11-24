@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 import tempfile
 import zipfile
@@ -34,6 +35,30 @@ from .validators import (
     validate_ocid,
 )
 from .wallet import extract_wallet, list_wallet_dsn_aliases
+
+
+class ApexReleaseError(ValidationError):
+    """The installed APEX release cannot import the selected export."""
+
+
+def _check_apex_release(connection, export: Path) -> None:
+    with export.open(encoding="utf-8", errors="replace") as script:
+        release = re.search(r"\bp_release\s*=>\s*'([0-9]+(?:\.[0-9]+){2,4})'", script.read(65536))
+    if not release:
+        return
+    minimum = release[1]
+
+    with connection.cursor() as cursor:
+        cursor.execute("select version_no from apex_release")
+        row = cursor.fetchone()
+    current = str(row[0]).strip() if row else ""
+    if not re.fullmatch(r"[0-9]+(?:\.[0-9]+){1,4}", current):
+        raise ApexReleaseError(f"Could not determine the installed Oracle APEX version. APEX {minimum} or later is required.")
+    installed_parts = tuple(map(int, current.split(".")))
+    required_parts = tuple(map(int, minimum.split(".")))
+    width = max(len(installed_parts), len(required_parts))
+    if installed_parts + (0,) * (width - len(installed_parts)) < required_parts + (0,) * (width - len(required_parts)):
+        raise ApexReleaseError(f"Oracle APEX {minimum} or later is required. The target database has APEX {current}.")
 
 
 def _existing_apex_application_id(connection, workspace: str, alias: str) -> int | None:
@@ -220,6 +245,7 @@ def run_install(args: argparse.Namespace) -> int:
             wallet_password=options.wallet_password,
         )
         try:
+            _check_apex_release(admin_connection, apex_export)
             execute_sql_text(admin_connection, rendered.admin_sql)
             for entry in selected_demo_entries(options):
                 results = load_demo_schema_rows(admin_connection, entry)
@@ -268,7 +294,7 @@ def run_install(args: argparse.Namespace) -> int:
     return 0
 
 
-def main(argv: list[str] | None = None) -> int:
+def main(argv: list[str] | None = None, *, propagate_apex_release_error: bool = False) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
@@ -277,6 +303,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "install":
             return run_install(args)
     except ValidationError as exc:
+        if propagate_apex_release_error and isinstance(exc, ApexReleaseError):
+            raise
         parser.error(str(exc))
     return 1
 

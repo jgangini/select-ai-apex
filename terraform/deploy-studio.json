@@ -64,9 +64,8 @@
       },
       {
         "id": "apex_application",
-        "title": "Oracle APEX",
+        "title": "Ask Oracle Select AI 5.0.0.2",
         "items": [
-          {"kind": "field", "name": "select_ai_apex_app_id", "span": 2},
           {"kind": "field", "name": "select_ai_grant_schemas", "span": 2},
           {"kind": "field", "name": "existing_select_ai_grant_schemas", "span": 2},
           {"kind": "field", "name": "application_username"},
@@ -145,19 +144,6 @@
         "options_source": "oci_genai_chat_models"
       },
       {
-        "name": "select_ai_apex_app_id",
-        "label": "APEX application",
-        "type": "select",
-        "required": true,
-        "default": "ask-oracle-chatbot-2026-08-06",
-        "group": "apex_application",
-        "options": [
-          {"value": "chatdb-es-2024", "label": "Autonomous DB + Select AI"},
-          {"value": "ask-oracle-chatbot", "label": "Ask Oracle (2026-03-04)"},
-          {"value": "ask-oracle-chatbot-2026-08-06", "label": "Ask Oracle v5.0.0.1 (2026-08-06)"}
-        ]
-      },
-      {
         "name": "select_ai_grant_schemas",
         "label": "Schemas exposed to Select AI",
         "type": "select",
@@ -207,7 +193,7 @@
   },
   "presentation": {
     "title": "Select AI APEX",
-    "summary": "Deploys a Select AI APEX experience on Autonomous Database without a persistent application VM.",
+    "summary": "Installs Ask Oracle Select AI 5.0.0.2 on Autonomous Database with Oracle APEX 26.1.6 or later.",
     "tags": ["APEX", "Autonomous AI Database", "Select AI", "Generative AI"],
     "image": "/assets/select-ai-apex.png",
     "image_alt": "Select AI APEX application preview",

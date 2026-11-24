@@ -11,6 +11,10 @@ This project follows these primary sources for the implementation choices:
 - APEX user and preference APIs: https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/CREATE_USER-Procedure.html and https://docs.oracle.com/en/database/oracle/apex/24.1/aeapi/SET_PREFERENCE-Procedure.html
 
 
+## Ask Oracle Select AI export
+
+The bundled Ask Oracle Select AI 5.0.0.2 SQL export is reproduced unchanged from Oracle DevRel commit `9deedefbe8d075a30aad43412accc4578a20c530`. Copyright © Oracle and/or its affiliates. The export retains its original notice and is distributed under the Universal Permissive License 1.0. [Official release directory](https://github.com/oracle-devrel/oracle-autonomous-database-samples/tree/9deedefbe8d075a30aad43412accc4578a20c530/apex/Ask-Oracle-Select-AI-Chatbot/V%205.0.0.2) · [License text](../apex/UPL-1.0.txt)
+
 ## Project and trademarks
 
 Select AI APEX is an independent project and is not an official Oracle

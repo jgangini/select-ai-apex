@@ -6,6 +6,7 @@ import zipfile
 
 from deploy.hooks.post_apply import _apex_application_url, _application, _hook_inputs, _stage_source_assets, run_hook
 from installer import demo_data
+from installer.cli import ApexReleaseError
 
 
 class PostApplyHookTests(unittest.TestCase):
@@ -13,10 +14,10 @@ class PostApplyHookTests(unittest.TestCase):
         self.assertEqual(
             _apex_application_url(
                 "https://example.invalid/ords/apex",
-                "SELECT_AI_APEX",
+                "SELECT_AI_APEX_5002",
                 "ASK_ORACLE",
             ),
-            "https://example.invalid/ords/r/select_ai_apex/ask_oracle/home",
+            "https://example.invalid/ords/r/select_ai_apex_5002/ask_oracle/home",
         )
 
     def test_source_staging_rejects_path_traversal(self) -> None:
@@ -24,36 +25,32 @@ class PostApplyHookTests(unittest.TestCase):
             root = Path(temporary)
             source_archive = root / "source.zip"
             with zipfile.ZipFile(source_archive, "w") as archive:
-                archive.writestr("select-ai-apex-deadbeef/../apex/chatdb-es-2024.sql", "unsafe")
+                archive.writestr(f"select-ai-apex-deadbeef/../{_application()['export_path']}", "unsafe")
 
             with self.assertRaisesRegex(ValueError, "unsafe path"):
                 _stage_source_assets(
                     source_archive,
                     root / "stage",
-                    _application("chatdb-es-2024"),
+                    _application(),
                     "SH_DEMO",
                 )
 
-    def test_new_database_stages_each_application_and_selected_demos(self) -> None:
-        application_ids = ("chatdb-es-2024", "ask-oracle-chatbot", "ask-oracle-chatbot-2026-08-06")
-        applications = [_application(app_id) for app_id in application_ids]
+    def test_new_database_stages_ask_oracle_and_selected_demos(self) -> None:
+        application = _application()
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             source_archive = root / "source.zip"
             with zipfile.ZipFile(source_archive, "w") as archive:
-                for app in applications:
-                    archive.writestr(f"select-ai-apex-sha/{app['export_path']}", str(app["id"]))
+                archive.writestr(f"select-ai-apex-sha/{application['export_path']}", "Ask Oracle")
                 archive.writestr("select-ai-apex-sha/data/sh_demo/data/example.json", "{}")
                 archive.writestr("select-ai-apex-sha/data/flexcube_demo/data/example.json", "{}")
 
-            for app in applications:
-                with self.subTest(app_id=app["id"]):
-                    stage_root = root / str(app["id"])
-                    export = _stage_source_assets(source_archive, stage_root, app, "SH_DEMO,FLEXCUBE_DEMO")
-                    self.assertEqual(export.read_text(encoding="utf-8"), str(app["id"]))
-                    self.assertEqual(list((stage_root / "apex").iterdir()), [export])
-                    self.assertTrue((stage_root / "data" / "sh_demo" / "data" / "example.json").is_file())
-                    self.assertTrue((stage_root / "data" / "flexcube_demo" / "data" / "example.json").is_file())
+            stage_root = root / "stage"
+            export = _stage_source_assets(source_archive, stage_root, application, "SH_DEMO,FLEXCUBE_DEMO")
+            self.assertEqual(export.read_text(encoding="utf-8"), "Ask Oracle")
+            self.assertEqual(list((stage_root / "apex").iterdir()), [export])
+            self.assertTrue((stage_root / "data" / "sh_demo" / "data" / "example.json").is_file())
+            self.assertTrue((stage_root / "data" / "flexcube_demo" / "data" / "example.json").is_file())
 
     def test_hook_stages_only_selected_assets_and_emits_safe_result(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -77,7 +74,6 @@ class PostApplyHookTests(unittest.TestCase):
                             "autonomous_database_workload": "DW",
                             "select_ai_model": "cohere.command-a-03-2025",
                             "select_ai_grant_schemas": "SH",
-                            "select_ai_apex_app_id": "chatdb-es-2024",
                             "application_username": "SELECT_AI_ADMIN",
                             "autonomous_database_admin_password": "PublicAdminMustNotWin",
                             "autonomous_database_wallet_password": "PublicWalletMustNotWin",
@@ -109,8 +105,8 @@ class PostApplyHookTests(unittest.TestCase):
             key.write_text("test-key", encoding="utf-8")
             wallet.write_bytes(b"test-wallet")
             with zipfile.ZipFile(source_archive, "w") as archive:
-                archive.writestr("select-ai-apex-deadbeef/apex/chatdb-es-2024.sql", "-- selected export")
-                archive.writestr("select-ai-apex-deadbeef/apex/ADB-AskOracle-Chatbot-2026-03-04.sql", "-- other export")
+                archive.writestr(f"select-ai-apex-deadbeef/{_application()['export_path']}", "-- selected export")
+                archive.writestr("select-ai-apex-deadbeef/apex/unused.sql", "-- other asset")
                 archive.writestr("select-ai-apex-deadbeef/data/sh_demo/data/example.json", "{}")
                 archive.writestr("select-ai-apex-deadbeef/data/flexcube_demo/data/example.json", "{}")
                 archive.writestr("select-ai-apex-deadbeef/README.md", "not staged")
@@ -129,6 +125,8 @@ class PostApplyHookTests(unittest.TestCase):
                 self.assertEqual(arguments[arguments.index("--wallet-password") + 1], " WalletPass123 ")
                 self.assertEqual(arguments[arguments.index("--app-schema-password") + 1], "DeveloperPass123")
                 self.assertEqual(arguments[arguments.index("--apex-user") + 1], "SELECT_AI_ADMIN")
+                self.assertEqual(arguments[arguments.index("--workspace") + 1], "SELECT_AI_APEX_5002")
+                self.assertEqual(arguments[arguments.index("--app-schema") + 1], "SELECT_AI_APP_5002")
                 self.assertEqual(arguments[arguments.index("--model") + 1], "cohere.command-a-03-2025")
                 self.assertEqual(arguments[arguments.index("--region") + 1], "us-ashburn-1")
                 self.assertFalse(any(argument.startswith("--schema-password") for argument in arguments))
@@ -142,7 +140,7 @@ class PostApplyHookTests(unittest.TestCase):
                 (output_dir / "deployment-report.md").write_text("# safe report\n", encoding="utf-8")
                 return 0
 
-            run_hook(environment, installer=fake_installer)
+            self.assertEqual(run_hook(environment, installer=fake_installer), 0)
 
             rendered = output.read_text(encoding="utf-8")
             result = json.loads(rendered)
@@ -150,11 +148,19 @@ class PostApplyHookTests(unittest.TestCase):
             self.assertEqual(result["outputs"]["adb_db_name"], "SELECTAI")
             self.assertEqual(
                 result["outputs"]["application_url"],
-                "https://example.invalid/ords/r/select_ai_apex/select_ai_apex/home",
+                "https://example.invalid/ords/r/select_ai_apex_5002/ask_oracle/home",
             )
             self.assertNotIn("AdminPass123", rendered)
             self.assertNotIn("WalletPass123", rendered)
             self.assertNotIn("DeveloperPass123", rendered)
+
+            def incompatible_installer(_arguments: list[str]) -> int:
+                raise ApexReleaseError("Oracle APEX 26.1.6 or later is required.")
+
+            self.assertEqual(run_hook(environment, installer=incompatible_installer), 1)
+            self.assertEqual(json.loads(output.read_text(encoding="utf-8")), {
+                "events": [{"level": "error", "message": "Oracle APEX 26.1.6 or later is required."}],
+            })
 
             merged_inputs = _hook_inputs(
                 json.loads(context.read_text(encoding="utf-8")),

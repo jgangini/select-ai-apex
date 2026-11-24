@@ -98,13 +98,20 @@ class DeployStudioContractTests(unittest.TestCase):
 
         self.assertFalse(any(token in name.lower() for name in contract["outputs"] for token in forbidden))
 
-    def test_ask_oracle_v5001_export_matches_its_declared_official_hash(self) -> None:
+    def test_only_ask_oracle_v5002_is_installed_and_matches_the_official_export(self) -> None:
         manifest = json.loads((ROOT / "apex" / "manifest.json").read_text(encoding="utf-8"))
-        application = next(item for item in manifest["apps"] if item["id"] == "ask-oracle-chatbot-2026-08-06")
+        application, = manifest["apps"]
+        self.assertEqual(manifest["default_app"], application["id"])
+        self.assertEqual(application["label"], "Ask Oracle Select AI 5.0.0.2")
         export = ROOT / application["export_path"]
 
+        self.assertEqual(list((ROOT / "apex").glob("*.sql")), [export])
         self.assertEqual(export.stat().st_size, application["source"]["size_bytes"])
         self.assertEqual(hashlib.sha256(export.read_bytes()).hexdigest(), application["source"]["sha256"])
+        with export.open(encoding="utf-8") as sql:
+            self.assertIn(f"p_release=>'{application['minimum_apex_version']}'", sql.read(4096))
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+        self.assertFalse(any(field["name"] == "select_ai_apex_app_id" for field in contract["form"]["fields"]))
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 from contextlib import redirect_stderr, redirect_stdout
+from functools import partial
 import io
 import json
 import os
@@ -18,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from installer.cli import main as installer_main  # noqa: E402
+from installer.cli import ApexReleaseError, main as installer_main  # noqa: E402
 from installer import demo_data as demo_data_module  # noqa: E402
 
 
@@ -64,8 +65,9 @@ def _hook_inputs(
     return inputs
 
 
-def _application(app_id: str) -> dict[str, object]:
+def _application() -> dict[str, object]:
     manifest = _json_file(str(ROOT / "apex" / "manifest.json"), "APEX manifest")
+    app_id = _required(manifest, "default_app")
     applications = manifest.get("apps", [])
     if not isinstance(applications, list):
         raise ValueError("APEX manifest apps must be a list")
@@ -237,11 +239,13 @@ def _installer_arguments(
         "--apex-user",
         str(inputs.get("application_username", "SELECT_AI_ADMIN")),
         "--workspace",
-        str(application.get("workspace", "SELECT_AI_APEX")),
+        _required(application, "workspace"),
+        "--app-schema",
+        _required(application, "parsing_schema"),
         "--apex-alias",
-        str(application.get("application_alias", "SELECT_AI_APEX")),
+        _required(application, "application_alias"),
         "--apex-app-name",
-        str(application.get("application_name", "Autonomous DB + Select AI")),
+        _required(application, "application_name"),
         "--apex-archive",
         str(apex_archive),
         "--output-dir",
@@ -258,16 +262,17 @@ def _installer_arguments(
 
 def run_hook(
     environment: Mapping[str, str] = os.environ,
-    installer: Callable[[Sequence[str]], int] = installer_main,
-) -> None:
+    installer: Callable[[Sequence[str]], int] = partial(installer_main, propagate_apex_release_error=True),
+) -> int:
     context = _json_file(_required(environment, "DEPLOY_STUDIO_CONTEXT"), "Deploy Studio context")
     secrets = _json_file(_required(environment, "DEPLOY_STUDIO_SECRETS"), "Deploy Studio secrets")
     inputs = _hook_inputs(context, secrets)
+    output_path = Path(_required(environment, "DEPLOY_STUDIO_OUTPUT"))
 
     with tempfile.TemporaryDirectory(prefix="select-ai-apex-hook-") as temporary:
         stage_root = Path(temporary) / "source"
         output_dir = Path(temporary) / "installer-output"
-        application = _application(str(inputs.get("select_ai_apex_app_id", "chatdb-es-2024")))
+        application = _application()
         apex_archive = _stage_source_assets(
             Path(_required(environment, "DEPLOY_STUDIO_SOURCE_ARCHIVE")),
             stage_root,
@@ -290,6 +295,12 @@ def run_hook(
         try:
             with redirect_stdout(captured), redirect_stderr(captured):
                 exit_code = installer(arguments)
+        except ApexReleaseError as exc:
+            output_path.write_text(
+                json.dumps({"events": [{"level": "error", "message": str(exc)}]}),
+                encoding="utf-8",
+            )
+            return 1
         finally:
             demo_data_module.DEMO_ROOT = previous_demo_root
         if exit_code:
@@ -299,8 +310,8 @@ def run_hook(
         safe_outputs = terraform_outputs if isinstance(terraform_outputs, dict) else {}
         application_url = _apex_application_url(
             str(safe_outputs.get("application_url", "")),
-            str(application.get("workspace", "SELECT_AI_APEX")),
-            str(application.get("application_alias", "SELECT_AI_APEX")),
+            _required(application, "workspace"),
+            _required(application, "application_alias"),
         )
         report_path = output_dir / "deployment-report.md"
         if application_url:
@@ -328,9 +339,9 @@ def run_hook(
                 },
             },
         }
-        output_path = Path(_required(environment, "DEPLOY_STUDIO_OUTPUT"))
         output_path.write_text(json.dumps(result, separators=(",", ":")), encoding="utf-8")
+    return 0
 
 
 if __name__ == "__main__":
-    run_hook()
+    raise SystemExit(run_hook())

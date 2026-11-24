@@ -1,12 +1,12 @@
 # Security Model
 
-The installer creates or reuses the parsing and profile schema `SELECT_AI_APP`. The database ADMIN account grants access to the selected objects:
+The installer creates or reuses the parsing and profile schema `SELECT_AI_APP_5002`. The database ADMIN account grants access to the selected objects:
 
 ```sql
-GRANT SELECT ON OWNER.TABLE TO SELECT_AI_APP;
+GRANT SELECT ON OWNER.TABLE TO SELECT_AI_APP_5002;
 ```
 
-For an existing database, selecting a schema grants access to its current tables, views, and materialized views. A missing grant privilege stops installation. To expose another table later, grant it to `SELECT_AI_APP` and recreate the Select AI profile if its `object_list` needs to change. A profile with a schema-level list entry can use newly granted objects within that schema.
+For an existing database, selecting a schema grants access to its current tables, views, and materialized views. A missing grant privilege stops installation. To expose another table later, grant it to `SELECT_AI_APP_5002` and recreate the Select AI profile if its `object_list` needs to change. A profile with a schema-level list entry can use newly granted objects within that schema.
 
 For a new database, the installer builds selected demo schemas such as `SH_DEMO` from repository JSON metadata and CSV rows. It grants only the selected demo objects to the application schema. The demo schema password uses the APEX application password supplied to the installer.
 
