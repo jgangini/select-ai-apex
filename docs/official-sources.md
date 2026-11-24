@@ -21,6 +21,8 @@ Select AI APEX sends `LH` for Lakehouse and `OLTP` for Transaction Processing. O
 
 The bundled Ask Oracle Select AI 5.0.0.2 SQL export is reproduced unchanged from Oracle DevRel commit `9deedefbe8d075a30aad43412accc4578a20c530`. Copyright © Oracle and/or its affiliates. The export retains its original notice and is distributed under the Universal Permissive License 1.0. [Official release directory](https://github.com/oracle-devrel/oracle-autonomous-database-samples/tree/9deedefbe8d075a30aad43412accc4578a20c530/apex/Ask-Oracle-Select-AI-Chatbot/V%205.0.0.2) · [License text](../apex/UPL-1.0.txt)
 
+The installer appends a navigation style to the installed Ask Oracle application's existing stylesheet. The menu button has a centered icon and a 44-pixel square hit area. The side menu icons share the button's center line in both the expanded and collapsed states. [Oracle APEX application-wide styles](https://docs.oracle.com/en/database/oracle/apex/26.1/apxdc/configuring-application-wide-style-rules.html)
+
 ## Project and trademarks
 
 Select AI APEX is an independent project and is not an official Oracle

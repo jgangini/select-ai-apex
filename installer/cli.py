@@ -8,6 +8,7 @@ import zipfile
 from dataclasses import replace
 from pathlib import Path
 
+from .apex_navigation import apply_ask_oracle_navigation
 from .constants import (
     DEFAULT_APEX_ALIAS,
     DEFAULT_APEX_APP_NAME,
@@ -282,6 +283,8 @@ def run_install(args: argparse.Namespace) -> int:
             else:
                 print(f"Reusing APEX application {installed_application_id} for alias {options.apex_alias}")
             execute_sql_text(app_connection, rendered.apex_post_sql)
+            if options.apex_alias.upper() == DEFAULT_APEX_ALIAS:
+                apply_ask_oracle_navigation(app_connection, options.workspace, installed_application_id)
         finally:
             app_connection.close()
 

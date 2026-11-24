@@ -1,8 +1,11 @@
 from pathlib import Path
+import sys
+from types import SimpleNamespace
 import unittest
 from unittest.mock import MagicMock, patch
 
 from test_support import repo_tempdir
+from installer.apex_navigation import NAVIGATION_CSS, RAIL_NAVIGATION_CSS, apply_ask_oracle_navigation
 from installer.cli import ApexReleaseError, _check_apex_release, _existing_apex_application_id, main
 from installer.constants import DEFAULT_APEX_ARCHIVE
 
@@ -76,6 +79,28 @@ class CliTests(unittest.TestCase):
             _existing_apex_application_id(Connection(), "SELECT_AI_APEX", "ASK_ORACLE"),
             100,
         )
+
+    def test_ask_oracle_navigation_appends_once_to_the_existing_stylesheet(self) -> None:
+        original = b".custom-left-menu { position: fixed; }"
+        expected = original + NAVIGATION_CSS + RAIL_NAVIGATION_CSS
+
+        for current in (original, original + NAVIGATION_CSS):
+            with self.subTest(has_header_style=NAVIGATION_CSS in current):
+                connection = MagicMock()
+                cursor = connection.cursor.return_value.__enter__.return_value
+                cursor.fetchone.side_effect = [
+                    (7, "text/css", "utf-8", SimpleNamespace(read=lambda: current)),
+                    (7, "text/css", "utf-8", SimpleNamespace(read=lambda: expected)),
+                ]
+                with patch.dict(sys.modules, {"oracledb": SimpleNamespace(DB_TYPE_BLOB=object())}):
+                    self.assertTrue(apply_ask_oracle_navigation(connection, "WORKSPACE", 100))
+                    self.assertFalse(apply_ask_oracle_navigation(connection, "WORKSPACE", 100))
+
+                write, = [call for call in cursor.execute.call_args_list if "content" in call.kwargs]
+                self.assertEqual(write.kwargs["file_id"], 7)
+                self.assertEqual(write.kwargs["application_id"], 100)
+                self.assertEqual(write.kwargs["content"], expected)
+                connection.commit.assert_called_once()
 
     def test_plan_writes_expected_artifacts(self) -> None:
         with repo_tempdir() as tmp:
