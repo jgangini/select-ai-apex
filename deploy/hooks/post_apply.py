@@ -65,9 +65,9 @@ def _hook_inputs(
     return inputs
 
 
-def _application() -> dict[str, object]:
+def _application(app_id: str = "") -> dict[str, object]:
     manifest = _json_file(str(ROOT / "apex" / "manifest.json"), "APEX manifest")
-    app_id = _required(manifest, "default_app")
+    app_id = app_id or _required(manifest, "default_app")
     applications = manifest.get("apps", [])
     if not isinstance(applications, list):
         raise ValueError("APEX manifest apps must be a list")
@@ -272,7 +272,7 @@ def run_hook(
     with tempfile.TemporaryDirectory(prefix="select-ai-apex-hook-") as temporary:
         stage_root = Path(temporary) / "source"
         output_dir = Path(temporary) / "installer-output"
-        application = _application()
+        application = _application(str(inputs.get("select_ai_apex_app_id", "")))
         apex_archive = _stage_source_assets(
             Path(_required(environment, "DEPLOY_STUDIO_SOURCE_ARCHIVE")),
             stage_root,

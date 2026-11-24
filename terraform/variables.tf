@@ -136,6 +136,17 @@ variable "select_ai_grant_schemas" {
   }
 }
 
+variable "select_ai_apex_app_id" {
+  description = "Ask Oracle application export installed by the post-apply hook."
+  type        = string
+  default     = "ask-oracle-chatbot-2026-11-18"
+
+  validation {
+    condition     = var.select_ai_apex_app_id == "ask-oracle-chatbot-2026-11-18"
+    error_message = "Select AI APEX installs only Ask Oracle Select AI 5.0.0.2."
+  }
+}
+
 variable "_oci_autonomous_database" {
   description = "Scalable Autonomous Database profile for Select AI Apex launchpad deployments."
 

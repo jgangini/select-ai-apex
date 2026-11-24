@@ -64,8 +64,9 @@
       },
       {
         "id": "apex_application",
-        "title": "Ask Oracle Select AI 5.0.0.2",
+        "title": "Oracle APEX",
         "items": [
+          {"kind": "field", "name": "select_ai_apex_app_id", "span": 2},
           {"kind": "field", "name": "select_ai_grant_schemas", "span": 2},
           {"kind": "field", "name": "existing_select_ai_grant_schemas", "span": 2},
           {"kind": "field", "name": "application_username"},
@@ -142,6 +143,17 @@
         "required": true,
         "group": "enterprise_ai",
         "options_source": "oci_genai_chat_models"
+      },
+      {
+        "name": "select_ai_apex_app_id",
+        "label": "APEX application",
+        "type": "select",
+        "required": true,
+        "default": "ask-oracle-chatbot-2026-11-18",
+        "group": "apex_application",
+        "options": [
+          {"value": "ask-oracle-chatbot-2026-11-18", "label": "Autonomous DB + Select AI"}
+        ]
       },
       {
         "name": "select_ai_grant_schemas",

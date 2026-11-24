@@ -74,6 +74,7 @@ class PostApplyHookTests(unittest.TestCase):
                             "autonomous_database_workload": "DW",
                             "select_ai_model": "cohere.command-a-03-2025",
                             "select_ai_grant_schemas": "SH",
+                            "select_ai_apex_app_id": "ask-oracle-chatbot-2026-11-18",
                             "application_username": "SELECT_AI_ADMIN",
                             "autonomous_database_admin_password": "PublicAdminMustNotWin",
                             "autonomous_database_wallet_password": "PublicWalletMustNotWin",

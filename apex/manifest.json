@@ -4,12 +4,13 @@
   "apps": [
     {
       "id": "ask-oracle-chatbot-2026-11-18",
-      "label": "Ask Oracle Select AI 5.0.0.2",
+      "label": "Autonomous DB + Select AI",
       "export_path": "apex/ADB-AskOracle-SelectAI-Chatbot-2026-11-18.sql",
       "workspace": "SELECT_AI_APEX_5002",
       "parsing_schema": "SELECT_AI_APP_5002",
       "application_alias": "ASK_ORACLE",
       "application_name": "Ask Oracle Select AI",
+      "application_version": "5.0.0.2",
       "minimum_apex_version": "26.1.6",
       "source": {
         "repository": "https://github.com/oracle-devrel/oracle-autonomous-database-samples",

@@ -4,10 +4,10 @@
 
 You need access to [Deploy Studio](https://cloudtechnext.net/#deploy), an OCI config file and matching API signing key, and permission to use the target compartment, Resource Manager, Autonomous Database, and OCI Generative AI. Choose a subscribed region with an available chat model.
 
-1. In **Deploy Studio**, choose **Select AI APEX** and [v1.3.6](https://github.com/jgangini/select-ai-apex/releases/tag/v1.3.6) or a newer release. Ask Oracle Select AI 5.0.0.2 requires Oracle APEX 26.1.6 or later.
+1. In **Deploy Studio**, choose **Select AI APEX** and [v1.3.7](https://github.com/jgangini/select-ai-apex/releases/tag/v1.3.7) or a newer release. Ask Oracle Select AI 5.0.0.2 requires Oracle APEX 26.1.6 or later.
 2. In **OCI Credentials**, attach the OCI config and API private key. In **Services to deploy**, select the OCI region and either create a compartment or choose an existing one.
 3. In **Autonomous Database**, choose **Create new** and a 26ai profile. Set the database ADMIN and wallet passwords.
-4. Select a **Generative AI chat model**. Under **Ask Oracle Select AI 5.0.0.2**, select **Sales History (SH_DEMO)** as the schema to expose. Keep `SELECT_AI_ADMIN` as the workspace username or enter a different one, then provide the workspace password.
+4. Select a **Generative AI chat model**. In **Oracle APEX**, keep **Autonomous DB + Select AI** selected under **APEX application**, then select **Sales History (SH_DEMO)** as the schema to expose. Keep `SELECT_AI_ADMIN` as the workspace username or enter a different one, then provide the workspace password.
 5. Select **Validate**, then **Deploy**. Follow **Database plan**, **Database apply**, and **Select AI and APEX setup**. Wait for the job to succeed.
 6. Open the application URL from the completed job. Sign in with the APEX workspace credentials and ask, “Show total sales by year.” Confirm the result uses the Sales History schema. Review the deployment report to check the model, data scope, and application alias. The access email lists the database name and ADMIN user before the Oracle APEX URL and workspace credentials. Its attachments include the database wallet, deployment report, execution log, and Terraform source.
 

@@ -102,7 +102,8 @@ class DeployStudioContractTests(unittest.TestCase):
         manifest = json.loads((ROOT / "apex" / "manifest.json").read_text(encoding="utf-8"))
         application, = manifest["apps"]
         self.assertEqual(manifest["default_app"], application["id"])
-        self.assertEqual(application["label"], "Ask Oracle Select AI 5.0.0.2")
+        self.assertEqual(application["label"], "Autonomous DB + Select AI")
+        self.assertEqual(application["application_version"], "5.0.0.2")
         export = ROOT / application["export_path"]
 
         self.assertEqual(list((ROOT / "apex").glob("*.sql")), [export])
@@ -111,7 +112,10 @@ class DeployStudioContractTests(unittest.TestCase):
         with export.open(encoding="utf-8") as sql:
             self.assertIn(f"p_release=>'{application['minimum_apex_version']}'", sql.read(4096))
         contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
-        self.assertFalse(any(field["name"] == "select_ai_apex_app_id" for field in contract["form"]["fields"]))
+        field, = [field for field in contract["form"]["fields"] if field["name"] == "select_ai_apex_app_id"]
+        self.assertEqual(field["label"], "APEX application")
+        self.assertEqual(field["default"], application["id"])
+        self.assertEqual(field["options"], [{"value": application["id"], "label": application["label"]}])
 
 
 if __name__ == "__main__":
