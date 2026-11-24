@@ -12,6 +12,8 @@
   <a href="https://github.com/jgangini/select-ai-apex/actions/workflows/checks.yml"><img src="https://github.com/jgangini/select-ai-apex/actions/workflows/checks.yml/badge.svg" alt="Python checks"></a>
 </p>
 
+<p align="center"><strong>Technologies</strong></p>
+
 <p align="center">
   <a href="terraform/"><img src="https://img.shields.io/badge/OCI-Resource%20Manager-C74634?style=flat-square" alt="OCI Resource Manager"></a>
   <a href="apex/manifest.json"><img src="https://img.shields.io/badge/Oracle-APEX-C74634?style=flat-square" alt="Oracle APEX"></a>
