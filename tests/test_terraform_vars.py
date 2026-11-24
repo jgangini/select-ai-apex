@@ -23,12 +23,12 @@ class TerraformVarsTests(unittest.TestCase):
             apex_password="ApexPass123",
             oci_compartment_id="ocid1.compartment.oc1..cccc",
             db_version="19c",
-            workload="DW",
+            workload="LH",
         )
 
         values = terraform_tfvars(options, Path("key.pem"))
 
         self.assertEqual(values["autonomous_database_mode"], "new")
         self.assertEqual(values["autonomous_database_version"], "19c")
-        self.assertEqual(values["autonomous_database_workload"], "DW")
+        self.assertEqual(values["autonomous_database_workload"], "LH")
         self.assertNotIn("instance_shape", values)

@@ -15,7 +15,9 @@ You need access to [Deploy Studio](https://cloudtechnext.net/#deploy), an OCI co
 
 ## Use an existing Autonomous Database
 
-In Deploy Studio, choose **Use existing** and enter the Database OCID. Upload the wallet ZIP for that same database and provide the ADMIN and wallet passwords. Select the source schemas from the database inventory. Verify that ADMIN can grant access to those objects and that the database has the APEX version required by the selected application and ORDS enabled. Choose the model, then validate and deploy.
+In Deploy Studio, choose **Use existing** and select an available database in the chosen region. Enter its ADMIN password and choose a password for the wallet that OCI will generate. After Deploy Studio lists the source schemas, select the data to expose. Verify that ADMIN can grant access to those objects and that the database has the required APEX version and ORDS enabled. Choose the model, then validate and deploy.
+
+OCI credentials must be allowed to list the database and generate its wallet. The backend also needs a network route to the database to list the schemas. [Autonomous Database IAM permissions](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/autonomous-database-iam-policies.html)
 
 The installer checks the APEX version before running setup SQL. Chat DB uses workspace `SELECT_AI_APEX` and parsing schema `SELECT_AI_APP`. Ask Oracle uses workspace `SELECT_AI_APEX_5002` and parsing schema `SELECT_AI_APP_5002`. Repeating a deployment reuses the application in its workspace.
 
@@ -51,7 +53,7 @@ $compartment = Read-Host 'Target compartment OCID'
   --oci-key .\.oci\key.pem `
   --oci-compartment-id $compartment `
   --db-version 26ai `
-  --workload DW `
+  --workload LH `
   --schemas SH_DEMO
 ```
 

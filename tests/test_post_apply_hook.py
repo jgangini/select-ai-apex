@@ -74,7 +74,7 @@ class PostApplyHookTests(unittest.TestCase):
                             "autonomous_database_mode": "existing",
                             "existing_autonomous_database_ocid": "ocid1.autonomousdatabase.oc1..example",
                             "autonomous_database_version": "26ai",
-                            "autonomous_database_workload": "DW",
+                            "autonomous_database_workload": "LH",
                             "select_ai_model": "cohere.command-a-03-2025",
                             "select_ai_grant_schemas": "SH",
                             "select_ai_apex_app_id": "ask-oracle-chatbot-2026-11-18",

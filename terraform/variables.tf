@@ -109,13 +109,13 @@ variable "autonomous_database_version" {
 }
 
 variable "autonomous_database_workload" {
-  description = "Autonomous Database workload to provision for Select AI Apex. Use DW for Lakehouse or OLTP for Transaction Processing."
+  description = "Autonomous AI Database workload to provision. Use LH for Lakehouse or OLTP for Transaction Processing."
   type        = string
-  default     = "DW"
+  default     = "LH"
 
   validation {
-    condition     = contains(["DW", "OLTP"], var.autonomous_database_workload)
-    error_message = "autonomous_database_workload must be DW or OLTP."
+    condition     = contains(["LH", "OLTP"], var.autonomous_database_workload)
+    error_message = "autonomous_database_workload must be LH or OLTP."
   }
 }
 

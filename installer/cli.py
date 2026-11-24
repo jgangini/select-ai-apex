@@ -99,7 +99,7 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--oci-compartment-id")
     parser.add_argument("--existing-autonomous-database-ocid")
     parser.add_argument("--db-version", choices=["19c", "26ai"], default="26ai")
-    parser.add_argument("--workload", choices=["OLTP", "DW"], default="OLTP")
+    parser.add_argument("--workload", choices=["OLTP", "LH"], default="OLTP")
     parser.add_argument("--schemas", default="")
     parser.add_argument("--tables", default="")
     parser.add_argument("--wallet", type=Path)

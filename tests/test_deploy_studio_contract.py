@@ -39,7 +39,7 @@ class DeployStudioContractTests(unittest.TestCase):
 
         self.assertEqual(capabilities["region_selection"], "subscribed_compatible")
         self.assertEqual(capabilities["regional_requirements"], ["genai_chat"])
-        self.assertEqual(capabilities["existing_database_wallet"], "required")
+        self.assertEqual(capabilities["existing_database_wallet"], "oci_generated")
         self.assertEqual(capabilities["default_compartment_name"], "select-ai-apex")
         self.assertLess(names.index("autonomous_database_mode"), names.index("existing_autonomous_database_ocid"))
         self.assertLess(names.index("existing_autonomous_database_ocid"), names.index("autonomous_database_version"))
@@ -52,9 +52,16 @@ class DeployStudioContractTests(unittest.TestCase):
         existing_database_schemas = next(field for field in fields if field["name"] == "existing_select_ai_grant_schemas")
         self.assertEqual(profile["transform"], "database_profile")
         self.assertEqual(profile["visible_when"], {"field": "autonomous_database_mode", "equals": "new"})
-        self.assertEqual(database_ocid["label"], "Database OCID")
+        self.assertEqual({option["value"]: option["label"] for option in profile["options"]}, {
+            "26ai:LH": "Lakehouse · 26ai",
+            "26ai:OLTP": "Transaction Processing · 26ai",
+            "19c:LH": "Lakehouse · 19c",
+            "19c:OLTP": "Transaction Processing · 19c",
+        })
+        self.assertEqual(database_ocid["label"], "Existing Autonomous Database")
         self.assertTrue(database_ocid["required"])
-        self.assertEqual(database_ocid["type"], "text")
+        self.assertEqual(database_ocid["type"], "select")
+        self.assertEqual(database_ocid["options_source"], "oci_available_autonomous_databases")
         self.assertEqual(database_ocid["visible_when"], {"field": "autonomous_database_mode", "equals": "existing"})
         self.assertEqual(workspace_username["label"], "APEX workspace username")
         self.assertEqual(workspace_password["label"], "APEX workspace password")
@@ -75,7 +82,11 @@ class DeployStudioContractTests(unittest.TestCase):
             "credentials", "services", "database", "enterprise_ai", "apex_application",
         ])
         self.assertEqual([item["name"] for item in groups[0]["items"]], ["oci_config", "oci_key"])
-        self.assertIn("database_wallet", [item["name"] for item in groups[2]["items"]])
+        self.assertNotIn("database_wallet", [item["name"] for item in groups[2]["items"]])
+        self.assertEqual(
+            [(item["name"], item.get("span", 1)) for item in groups[4]["items"][:3]],
+            [("select_ai_apex_app_id", 1), ("select_ai_grant_schemas", 1), ("existing_select_ai_grant_schemas", 1)],
+        )
         self.assertCountEqual(
             [item["name"] for group in groups for item in group["items"] if item["kind"] == "field"],
             [field["name"] for field in form["fields"]],
@@ -122,6 +133,11 @@ class DeployStudioContractTests(unittest.TestCase):
         self.assertEqual(field["options"], [
             {"value": application["id"], "label": application["label"]} for application in manifest["apps"]
         ])
+
+    def test_existing_database_uses_oci_inventory_and_generated_wallet(self) -> None:
+        contract = json.loads((ROOT / "terraform" / "deploy-studio.json").read_text(encoding="utf-8"))
+        fields = {field["name"]: field for field in contract["form"]["fields"]}
+        self.assertTrue(fields["autonomous_database_wallet_password"]["generate_password"])
 
 
 if __name__ == "__main__":

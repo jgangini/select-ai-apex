@@ -221,7 +221,7 @@ def _installer_arguments(
         "--db-version",
         str(inputs.get("autonomous_database_version", "26ai")),
         "--workload",
-        str(inputs.get("autonomous_database_workload", "DW")),
+        str(inputs.get("autonomous_database_workload", "LH")),
         "--model",
         _required(inputs, "select_ai_model"),
         "--schemas",
