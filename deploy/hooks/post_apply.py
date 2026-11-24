@@ -77,14 +77,15 @@ def _application(app_id: str = "") -> dict[str, object]:
     raise ValueError(f"unsupported Select AI APEX application: {app_id}")
 
 
-def _apex_application_url(base_url: str, workspace: str, alias: str) -> str:
+def _apex_application_url(base_url: str, workspace: str, alias: str, *, login_page: str = "") -> str:
     if not base_url.strip():
         return ""
     parsed = urlsplit(base_url.strip())
     if parsed.scheme != "https" or not parsed.netloc:
         raise ValueError("Terraform returned an invalid APEX URL")
-    path = f"/ords/r/{quote(workspace.lower(), safe='')}/{quote(alias.lower(), safe='')}/home"
-    return urlunsplit((parsed.scheme, parsed.netloc, path, "", ""))
+    page = quote((login_page or "home").lower(), safe="")
+    path = f"/ords/r/{quote(workspace.lower(), safe='')}/{quote(alias.lower(), safe='')}/{page}"
+    return urlunsplit((parsed.scheme, parsed.netloc, path, "session=0" if login_page else "", ""))
 
 
 def _demo_folders(raw_schemas: str) -> set[str]:
@@ -312,6 +313,7 @@ def run_hook(
             str(safe_outputs.get("application_url", "")),
             _required(application, "workspace"),
             _required(application, "application_alias"),
+            login_page=str(application.get("login_page", "")),
         )
         report_path = output_dir / "deployment-report.md"
         if application_url:

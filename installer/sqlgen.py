@@ -2,9 +2,18 @@ from __future__ import annotations
 
 import json
 
+from .constants import DEFAULT_APEX_ALIAS
 from .demo_data import demo_entry_for_schema, render_demo_schema_ddl
 from .models import DeploymentOptions, RenderedPlan
 from .validators import csv_quote, q_quote, sql_identifier, sql_string
+
+
+ASK_ORACLE_TABLE_LIST_INSTRUCTIONS = (
+    "For requests to list available tables, list only the tables in the supplied profile metadata. "
+    "Return compact SQL with one SELECT per schema: cast the schema literal to VARCHAR2(128) as SCHEMA_NAME "
+    "and select COLUMN_VALUE as TABLE_NAME from TABLE(SYS.ODCIVARCHAR2LIST(...)), with one string per table. "
+    "Use UNION ALL only between schemas, never between individual tables. Do not query the data dictionary."
+)
 
 
 def demo_schema_name(schema: str) -> str:
@@ -230,6 +239,9 @@ def render_app_sql(options: DeploymentOptions) -> str:
         "object_list_mode": "all",
         "region": options.oci_config.region,
     }
+    if options.apex_alias.upper() == DEFAULT_APEX_ALIAS:
+        attrs["max_tokens"] = 8192
+        attrs["additional_instructions"] = ASK_ORACLE_TABLE_LIST_INSTRUCTIONS
     if options.oci_compartment_id:
         attrs["oci_compartment_id"] = options.oci_compartment_id
     attributes = json.dumps(attrs, indent=2)
@@ -313,15 +325,50 @@ END;
 
 
 def render_apex_post_sql(options: DeploymentOptions) -> str:
+    ask_oracle_catalog = ""
+    ask_oracle_preferences = ""
+    if options.apex_alias.upper() == DEFAULT_APEX_ALIAS:
+        # SETTINGS_BOOTSTRAP references the catalog map before the first catalog is created.
+        ask_oracle_catalog = """
+DECLARE
+  l_exists NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO l_exists FROM USER_TABLES WHERE TABLE_NAME = 'ASK_ORACLE_DATA_CATALOG_MAP';
+  IF l_exists = 0 THEN
+    EXECUTE IMMEDIATE q'[
+      CREATE TABLE ASK_ORACLE_DATA_CATALOG_MAP (
+        catalog_id    NUMBER GENERATED ALWAYS AS IDENTITY,
+        catalog_name  VARCHAR2(128) NOT NULL,
+        db_link_name  VARCHAR2(128) NOT NULL,
+        source_owner  VARCHAR2(128),
+        table_name    VARCHAR2(128) NOT NULL,
+        view_name     VARCHAR2(128) NOT NULL,
+        created_by    VARCHAR2(255),
+        created_on    TIMESTAMP DEFAULT SYSTIMESTAMP
+      )
+    ]';
+  END IF;
+END;
+/
+
+"""
+        apex_user = sql_string(options.apex_user)
+        ask_oracle_preferences = f"""
+  IF APEX_UTIL.GET_PREFERENCE(p_preference => 'CONVERSATION_STYLE', p_user => {apex_user}) IS NULL THEN
+    APEX_UTIL.SET_PREFERENCE(p_preference => 'CONVERSATION_STYLE', p_value => 'CHAT_WITH_DB', p_user => {apex_user});
+  END IF;
+  IF APEX_UTIL.GET_PREFERENCE(p_preference => 'CLOUD_AI_PROFILE1', p_user => {apex_user}) IS NULL THEN
+    APEX_UTIL.SET_PREFERENCE(p_preference => 'CLOUD_AI_PROFILE1', p_value => {sql_string(options.profile_name.upper())}, p_user => {apex_user});
+  END IF;"""
     return f"""SET DEFINE OFF
 WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK
 
-BEGIN
+{ask_oracle_catalog}BEGIN
   APEX_UTIL.SET_SECURITY_GROUP_ID(APEX_UTIL.FIND_SECURITY_GROUP_ID(p_workspace => {sql_string(options.workspace)}));
   APEX_UTIL.SET_PREFERENCE(
     p_preference => 'CLOUD_AI_PROFILE',
     p_value      => LOWER({sql_string(options.profile_name)}),
-    p_user       => {sql_string(options.apex_user)});
+    p_user       => {sql_string(options.apex_user)});{ask_oracle_preferences}
 END;
 /
 
@@ -435,7 +482,7 @@ The demo schema password is the generated or supplied APEX application password.
 4. Create the OCI API-key credential through `DBMS_CLOUD.CREATE_CREDENTIAL`.
 5. Recreate the Select AI profile through `DBMS_CLOUD_AI.CREATE_PROFILE`.
 6. Import the APEX export with supporting objects enabled.
-7. Set the APEX `CLOUD_AI_PROFILE` preference for the generated workspace user.
+7. Set the APEX `CLOUD_AI_PROFILE` preference. Ask Oracle prepares the catalog map used by Admin Controls and initializes its NL2SQL mode and profile for the generated workspace user when those preferences are empty.
 
 ## Notes
 - Keep the generated SQL and `secrets.json` private. They contain credentials used during installation.

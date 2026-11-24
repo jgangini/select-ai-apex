@@ -14,10 +14,10 @@ class PostApplyHookTests(unittest.TestCase):
         self.assertEqual(
             _apex_application_url(
                 "https://example.invalid/ords/apex",
-                "SELECT_AI_APEX_5002",
-                "ASK_ORACLE",
+                "SELECT_AI_APEX",
+                "SELECT_AI_APEX",
             ),
-            "https://example.invalid/ords/r/select_ai_apex_5002/ask_oracle/home",
+            "https://example.invalid/ords/r/select_ai_apex/select_ai_apex/home",
         )
 
     def test_source_staging_rejects_path_traversal(self) -> None:
@@ -152,7 +152,7 @@ class PostApplyHookTests(unittest.TestCase):
             self.assertEqual(result["outputs"]["adb_db_name"], "SELECTAI")
             self.assertEqual(
                 result["outputs"]["application_url"],
-                "https://example.invalid/ords/r/select_ai_apex_5002/ask_oracle/home",
+                "https://example.invalid/ords/r/select_ai_apex_5002/ask_oracle/login?session=0",
             )
             self.assertNotIn("AdminPass123", rendered)
             self.assertNotIn("WalletPass123", rendered)

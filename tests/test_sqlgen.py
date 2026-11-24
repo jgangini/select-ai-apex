@@ -68,6 +68,41 @@ class SqlGenerationTests(unittest.TestCase):
         self.assertIn("ALTER PROCEDURE PROCESS_PROMPT_REQUEST COMPILE", rendered.apex_post_sql)
         self.assertIn("Ask Oracle PROCESS_PROMPT_REQUEST did not compile", rendered.apex_post_sql)
 
+    def test_ask_oracle_profiles_have_room_for_larger_nl2sql_responses(self) -> None:
+        ask_oracle = render_plan(replace(options(), model="ocid1.generativeaimodel.oc1.us-chicago-1.example"))
+        self.assertIn('"max_tokens": 8192', ask_oracle.app_sql)
+        self.assertIn("SYS.ODCIVARCHAR2LIST", ask_oracle.app_sql)
+        self.assertIn("only the tables in the supplied profile metadata", ask_oracle.app_sql)
+        chat_db = render_plan(replace(options(), apex_alias="SELECT_AI_APEX"))
+        self.assertNotIn('"max_tokens"', chat_db.app_sql)
+
+    def test_ask_oracle_initializes_nl2sql_without_overwriting_a_user_selection(self) -> None:
+        rendered = render_plan(replace(options(), apex_user="APEX_TEST", profile_name="CUSTOM_PROFILE"))
+        for preference, value in (("CONVERSATION_STYLE", "CHAT_WITH_DB"), ("CLOUD_AI_PROFILE1", "CUSTOM_PROFILE")):
+            with self.subTest(preference=preference):
+                self.assertIn(
+                    f"IF APEX_UTIL.GET_PREFERENCE(p_preference => '{preference}', p_user => 'APEX_TEST') IS NULL THEN\n"
+                    f"    APEX_UTIL.SET_PREFERENCE(p_preference => '{preference}', p_value => '{value}', p_user => 'APEX_TEST');",
+                    rendered.apex_post_sql,
+                )
+        chat_db = render_plan(replace(options(), apex_alias="SELECT_AI_APEX"))
+        self.assertNotIn("CONVERSATION_STYLE", chat_db.apex_post_sql)
+        self.assertNotIn("CLOUD_AI_PROFILE1", chat_db.apex_post_sql)
+        self.assertIn("'CLOUD_AI_PROFILE'", chat_db.apex_post_sql)
+
+    def test_ask_oracle_initializes_the_catalog_map_only_when_absent(self) -> None:
+        ask_oracle = render_plan(options()).apex_post_sql
+        self.assertIn(
+            "FROM USER_TABLES WHERE TABLE_NAME = 'ASK_ORACLE_DATA_CATALOG_MAP';\n"
+            "  IF l_exists = 0 THEN\n"
+            "    EXECUTE IMMEDIATE q'[\n"
+            "      CREATE TABLE ASK_ORACLE_DATA_CATALOG_MAP (",
+            ask_oracle,
+        )
+        self.assertIn("view_name     VARCHAR2(128) NOT NULL", ask_oracle)
+        chat_db = render_plan(replace(options(), apex_alias="SELECT_AI_APEX")).apex_post_sql
+        self.assertNotIn("ASK_ORACLE_DATA_CATALOG_MAP", chat_db)
+
     def test_object_list_prefers_schema_scope_for_future_grants(self) -> None:
         self.assertIn('"owner": "HR"', object_list_json(options()))
         self.assertNotIn('"CUSTOMERS"', object_list_json(options()))
