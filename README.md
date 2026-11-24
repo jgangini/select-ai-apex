@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/select-ai-apex-cover.png" width="224" alt="A red query salamander in a database-shaped speech bubble">
+  <img src="docs/assets/select-ai-apex-mascot.png" width="224" alt="A smiling red chat bubble beside an AI data table and editing tools">
 </p>
 
 <h3 align="center">Select AI APEX</h3>
